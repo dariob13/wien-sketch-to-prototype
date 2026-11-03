@@ -1,0 +1,15 @@
+{
+  "name": "stadt-wien-workflows",
+  "description": "Claude workflows for Stadt Wien design teams (Wiener Melange).",
+  "owner": {
+    "name": "Dario Butnariu"
+  },
+  "plugins": [
+    {
+      "name": "wien-sketch-to-prototype",
+      "source": "./wien-sketch-to-prototype",
+      "description": "Skizze → Wiener Melange Prototyp in Doop (/wien-revamp)",
+      "version": "0.1.0"
+    }
+  ]
+}

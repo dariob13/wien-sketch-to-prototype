@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>Spickzettel: Skizze → Wiener Melange</title>
+<style>
+@page{size:A4;margin:12mm}
+*{box-sizing:border-box}
+body{font:13px/1.45 "Lucida Sans Unicode","Lucida Grande",sans-serif;color:#292929;max-width:1100px;margin:0 auto;padding:24px}
+h1{font-size:24px;margin:0 0 8px;border-bottom:4px solid #FF0000;padding-bottom:6px}
+h2{font-size:17px;margin:18px 0 6px}
+table{border-collapse:collapse;width:100%;margin:6px 0;break-inside:auto}
+th,td{border-bottom:1px solid #D6D1CA;padding:3px 6px;text-align:left;vertical-align:top}
+th{background:#F3F1EF}
+code{background:#F3F1EF;padding:0 3px;font-size:12px;white-space:nowrap}
+pre{background:#F3F1EF;padding:8px;font-size:11px;line-height:1.25;overflow:auto}
+ul{margin:4px 0;padding-left:18px}
+a{color:#1F4BAF}
+</style></head><body>
+<h1>Spickzettel: Skizze → Wiener Melange</h1>
+<p><strong>So geht's:</strong> Kästen zeichnen → Tag in eckigen Klammern hineinschreiben → echten Text dazuschreiben → in Claude <code>/wien-revamp &lt;Link&gt;</code> eingeben.</p>
+<pre>Ein Kasten:
+  [Bühne mit Bild]              &lt;- Tag in eckigen Klammern
+  Baden in Wien                 &lt;- 1. Zeile = Überschrift
+  Alle Bäder auf einen Blick    &lt;- weitere Zeilen = Text
+  → Hallenbäder                 &lt;- Klick führt zur Seite &quot;Hallenbäder&quot;
+
+Drei gleiche Kästen nebeneinander = 3 Spalten.
+Tag nur im ersten Kasten reicht, oder [Kacheln x3] im Rahmen drumherum.</pre>
+<h2>Regeln</h2>
+<ul><li><strong>Tag</strong> = <code>[Wort]</code> im Kasten oder im Ebenennamen. Deutsch oder Englisch, Groß-/Kleinschreibung egal, Umlaute egal, kleine Tippfehler auch.</li><li><strong>Zusätze</strong> in dieselbe Klammer: <code>[Kacheln x3 mit Bild]</code>, <code>[Abschnitt grau]</code>, <code>[Bühne nur Titel]</code>.</li><li><strong>Ohne Tag</strong> rät die KI anhand der Form und sagt dir, was sie geraten hat. Mit Tag ist es sicher.</li><li><strong>Text:</strong> Es wird nur dein Text verwendet. Fehlt Text, steht im Prototyp <code>[Text fehlt]</code>.</li><li><strong>Header und Footer</strong> kommen automatisch dazu. Du musst sie nicht zeichnen.</li><li><strong>Bilder:</strong> <code>(Bild)</code> oder einen Kasten mit X zeichnen. Daraus wird ein grauer Bildplatzhalter.</li><li><strong>Links:</strong> <code>→ Seitenname</code> in den Kasten schreiben. Oder in Figma eine Prototyp-Verbindung ziehen, oder einen Pfeil zum anderen Frame.</li><li><strong>Jede Seite</strong> ist ein eigener Frame. Der Frame-Name ist der Seitenname.</li></ul>
+<h2>Tags</h2>
+<table><thead><tr><th>Schreib</th><th>Oder auch</th><th>Wird zu</th></tr></thead><tbody><tr><td><code>[Bühne]</code></td><td>Stage, Hero, Titelbild</td><td>Großer Seitenkopf mit H1</td></tr><tr><td><code>[Tags]</code></td><td>Schlagworte, Themen</td><td>Tag-Leiste, <code>← Freizeit</code> = Zurück-Tag</td></tr><tr><td><code>[Vorspann]</code></td><td>Intro, Einleitung</td><td>Einleitungstext</td></tr><tr><td><code>[Inhalt]</code></td><td>Sprungnavigation, TOC</td><td>Inhaltsverzeichnis der Seite</td></tr><tr><td><code>[Meldung]</code></td><td>Hinweis, Warnung, Fehler, Erfolg</td><td>Meldungsbalken</td></tr><tr><td><code>[Abschnitt]</code></td><td>Section, Bereich</td><td>Abschnitt mit H2. <code>grau</code> = hinterlegt</td></tr><tr><td><code>[Kachel]</code></td><td>Card, Teaser, Box</td><td>Card. <code>x3</code> = 3 Stück, <code>mit Bild</code>, <code>farbig</code>, <code>nur Titel</code></td></tr><tr><td><code>[Karussell]</code></td><td>Slider, Carousel</td><td>Blätterbare Cards</td></tr><tr><td><code>[Infobox]</code></td><td>Steckbrief, Fakten</td><td>Infobox mit <code>Label: Wert</code>-Zeilen</td></tr><tr><td><code>[Hervorhebung]</code></td><td>Kasten, Wichtig, Callout</td><td>Farbiger Kasten. <code>gelb</code>, <code>grün</code>, <code>blau</code>, <code>grau</code>, <code>Rahmen</code></td></tr><tr><td><code>[Zitat]</code></td><td>Quote</td><td>Zitat. <code>— Name</code> = Autor*in</td></tr><tr><td><code>[Kontakt]</code></td><td>Ansprechperson</td><td>Kontaktblock (nur deine Daten!)</td></tr><tr><td><code>[Newsletter]</code></td><td>Abo</td><td>Newsletter-Anmeldung</td></tr><tr><td><code>[Quicklinks]</code></td><td>Wichtige Links</td><td>Linkliste mit Pfeilen. <code>3 Spalten</code></td></tr><tr><td><code>[Liste]</code></td><td>Aufzählung, Bullets</td><td>Liste. <code>nummeriert</code></td></tr><tr><td><code>[Linkliste]</code></td><td>Weiterführende Links</td><td>Liste mit Links</td></tr><tr><td><code>[Termine]</code></td><td>Veranstaltungen, Events</td><td>Event-Liste</td></tr><tr><td><code>[Mehr-Link]</code></td><td>CTA, Weiterlesen</td><td>Hervorgehobener Link mit Pfeil</td></tr><tr><td><code>[Button]</code></td><td>Knopf</td><td>Button. <code>sekundär</code>, <code>tertiär</code></td></tr><tr><td><code>[Download]</code></td><td>PDF, Datei</td><td>Download-Link</td></tr><tr><td><code>[Reiter]</code></td><td>Tabs</td><td>Registerkarten</td></tr><tr><td><code>[Akkordeon]</code></td><td>FAQ, Aufklapper</td><td>Aufklappliste. <code>+ Frage</code> je Eintrag</td></tr><tr><td><code>[Tabelle]</code></td><td>Öffnungszeiten, Preise</td><td>Tabelle. Spalten mit <code>|</code> trennen</td></tr><tr><td><code>[Bild]</code></td><td>Foto, Image</td><td>Bild (Platzhalter)</td></tr><tr><td><code>[Galerie]</code></td><td>Bilder</td><td>Bildergalerie</td></tr><tr><td><code>[Video]</code></td><td>Film</td><td>Videoplayer</td></tr><tr><td><code>[Audio]</code></td><td>Podcast</td><td>Audioplayer</td></tr><tr><td><code>[Stadtplan]</code></td><td>Map, Lageplan</td><td>Kartenplatzhalter</td></tr><tr><td><code>[Trenner]</code></td><td>Linie, Divider</td><td>Trennlinie</td></tr><tr><td><code>[Zeitstempel]</code></td><td>Zuletzt geändert</td><td>„Zuletzt geändert“-Zeile</td></tr><tr><td><code>[Seiten]</code></td><td>Paginierung</td><td>Seitenzahlen</td></tr><tr><td><code>[Suche]</code></td><td>Suchfeld</td><td>Suche (mit Filter/Ergebnissen)</td></tr></tbody></table>
+<p><strong>Achtung „Karte“:</strong> Das kann eine Card oder einen Stadtplan meinen. Schreib besser <code>[Kachel]</code>/<code>[Card]</code> oder <code>[Stadtplan]</code>/<code>[Map]</code>.</p>
+<h2>Sonder-Tags</h2>
+<table><thead><tr><th>Schreib</th><th>Bedeutung</th></tr></thead><tbody><tr><td><code>[Notiz] …</code></td><td>Hinweis an die KI. Wird befolgt, aber nicht gebaut.</td></tr><tr><td><code>[?]</code></td><td>„Weiß nicht, schlag was vor.“</td></tr><tr><td><code>[aus]</code></td><td>Diesen Kasten überspringen</td></tr><tr><td><code>[ohne Header]</code> / <code>[ohne Footer]</code></td><td>Header/Footer weglassen</td></tr></tbody></table>
+<h2>Kommt später (Version 2)</h2>
+<p>Formulare (Eingabefelder, Checkboxen, Auswahl, Upload, Schritte), Sidebar, Sonderauftritte. Diese Tags werden erkannt und als markierte Lücke gebaut.</p>
+<h2>Befehl</h2>
+<pre>/wien-revamp https://www.figma.com/design/…?node-id=12-3
+/wien-revamp https://doop.design/c/…
+/wien-revamp &lt;Link&gt; nur Startseite</pre>
+<p>Danach siehst du eine Tabelle (Kasten → Pattern) und bekommst einen Link zum Doop-Prototyp, mobil und Desktop, klickbar.</p>
+</body></html>
