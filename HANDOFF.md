@@ -32,6 +32,8 @@ A workflow for a large mixed team (UX/UI designers, editors/Redaktion, developer
 ## 2. Repo layout (`/Users/dario/Documents/Projects/WorkflowMaster`, git initialised, first commit made)
 
 ```
+README.md                                maintainer overview, install, how to change a tag
+CHANGELOG.md                             0.1.0
 .claude-plugin/marketplace.json          marketplace "stadt-wien-workflows" (validated with `claude plugin validate .`)
 HANDOFF.md                               this file
 wien-sketch-to-prototype/
@@ -46,6 +48,7 @@ wien-sketch-to-prototype/
       handbuch-fetch.md, page-shell.md, pattern-index.md, foundations.md   (adapted from the user's stadt-wien-doop-prototyper skill)
     scripts/
       fetch_pattern.py                   python3 -I fetch_pattern.py <slug> [--list|--index n|--variant "…"|--compact|--version]
+      selfcheck.py                       python3 -I selfcheck.py — vocabulary and theme vs. the live handbook
       figma-read-sketch.js               read-only use_figma script (replace __NODE_ID__); outputs a geometry-nested box tree, texts, links, arrows
   docs/
     cheat-sheet.md                       German "Spickzettel" (keep in sync with tag-vocabulary.md)
@@ -79,17 +82,13 @@ Lessons already written into the skill: the header Vorschau panel is only a temp
 ## 5. Remaining TODO (in priority order)
 
 1. ~~Finish pilot 2~~ **Done**: all 4 frames built and fitted, start frame set, `get_prototype` shows 6 interactions and 0 problems, "skizzen-mapping" guideline saved.
-2. ~~templates/README.md~~ **Done**. Optional: save the Figma template drawing code as `templates/figma-starter.js`.
+2. ~~templates/README.md~~ **Done**. `templates/figma-starter.js` was not added: the drawing script was never saved. The Figma file is the template.
 3. ~~Reduce output cost~~ **Investigated, accepted as is.** Doop has no copy-frame tool, and assets are images only, so every frame's full HTML has to pass through a tool call. Hosting the logo as an image would save 3.4 KB per frame, but wien.gv.at serves no official logo file and re-hosting the city's mark was rejected. Keep the mitigations already in build-in-doop.md: `--compact` header, stream only the first frame, `set_frame_html` the rest.
-4. ~~Card shadow vs live~~ **Resolved, no change needed.** `import_webpage` and `view_website` both render WITHOUT the component JS (flat cards, invisible `wm-table`). The theme CSS gives cards a shadow except inside `wm-section[highlight]` and in print, so our build is correct. Documented in build-in-doop.md step 8 (uncommitted at the time of writing; commit it).
-4a. **NEW, do first: fix 3 vocabulary errors found by `scripts/selfcheck.py`** (new file, uncommitted):
-   - `newsletter`: there is no "Kontakt" variant (variants: default, "Newsletter Section"). In tag-vocabulary.md, change the Newsletter row: with `Kontakt` → use the **kontakt** pattern's default sample (contact card + newsletter card); otherwise → "Newsletter Section".
-   - `tabelle`: "Öffnungszeiten" and "Preise" are NOT variants. They are h3 headings inside the sample "Tabelle in Card" (a card "Freibäder der Stadt Wien" with h3 Öffnungszeiten + text and h3 Preise + `<wm-table alignment="start, end" hideCaption>`). Map `[Öffnungszeiten]`/`[Preise]` → "Tabelle in Card" (or the default table when not in a card). Real variants: default, "Tabelle ohne Rahmen", "Tabelle komplex", "Tabelle sortierbar", "Tabelle in Card", "Tabelle ViennaViz".
-   - `suche`: the page has NO standard Vorschau panels, so `fetch_pattern.py suche` returns "No samples found". Its h3 sections: "Suche im Header" (links to header templates, incl. `/templates/patterns/header/microsite-suche/`), "Suche mit Combobox" (→ patterns `combobox`, `filter`), "Suche mit Filter" (→ `filter`, then a raw `wm-section`), "Suchergebnis Cards" (raw `wm-section`). Either teach `fetch_pattern.py` a fallback (take each h3's following `wm-section` / linked pattern page) or update the vocabulary row to fetch `filter`/`combobox` and the header template instead. Then remove the "Suche" row's unfetchable variant names.
-   - Also make selfcheck.py less noisy. It reports false positives for quoted attribute values (`"full"`, `"nebelgrau"`) and the doc cross-reference `"Text with no slot"`: only treat quoted strings that start with an uppercase letter and are not section titles of tag-vocabulary.md as variant names. Goal: `python3 -I wien-sketch-to-prototype/skills/wien-revamp/scripts/selfcheck.py` exits 0. Then mention selfcheck in the maintainer README (item 4b).
-4b. **NEW: maintainer docs.** Add a root `README.md` (what the repo is, install commands, folder map, how to update tags in BOTH tag-vocabulary.md and docs/cheat-sheet.md, run selfcheck.py after every theme release, regenerate cheat-sheet.html) and `CHANGELOG.md` (0.1.0 = first version + both pilots). Optional: `templates/figma-starter.js`, the use_figma script that draws the Figma template (frames Baden/Schwimmkurse/Vorlage – leer, see the Figma file for the layout).
-5. Fill the placeholders in `docs/onboarding.md` (`<REPO-URL>`, `<KANAL/ISSUE-TRACKER>`) once the user has a remote repo. Ask the user for the git host and push only when asked.
-6. Re-validate (`claude plugin validate .`), regenerate `docs/cheat-sheet.html`, and commit (end the commit message with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`).
+4. ~~Card shadow vs live~~ **Resolved, no change needed.** `import_webpage` and `view_website` both render WITHOUT the component JS (flat cards, invisible `wm-table`). The theme CSS gives cards a shadow except inside `wm-section[highlight]` and in print, so our build is correct. Documented in build-in-doop.md step 8.
+4a. ~~**Fix 3 vocabulary errors found by `scripts/selfcheck.py`**~~ **Done.** Newsletter with `Kontakt` uses the default `kontakt` sample, otherwise "Newsletter Section". `[Öffnungszeiten]`/`[Preise]` map to "Tabelle in Card" (or the default table when not in a card). `[Suche]` points at the header template, `filter` and `combobox`; `fetch_pattern.py suche` follows the Varianten-tab links (standard header, not Sonderauftritt; "Suchergebnis Cards" is only an external link and is skipped). Self-check ignores lowercase quotes and section titles. `selfcheck.py` is documented in the root README.
+4b. ~~**Maintainer docs.**~~ **Done:** root `README.md` and `CHANGELOG.md`. `templates/figma-starter.js` was **not** added: the drawing script that built the Figma frames was never saved in the repo, and the live file remains the template (see templates/README.md).
+5. Fill the placeholders in `docs/onboarding.md` (`<REPO-URL>`, `<KANAL/ISSUE-TRACKER>`) once the user has a remote repo. Ask the user for the git host and push only when asked. **Still open — asked, not filled.**
+6. ~~Re-validate, regenerate `docs/cheat-sheet.html`, and commit.~~ **Done** in the vocabulary-fix commit. `claude plugin validate .` passed, `selfcheck.py` exits 0, cheat sheet HTML regenerated.
 7. Later (v2): forms (`formular-*` patterns), Sidebar, Sonderauftritte. Possibly a Figma plugin trigger for people without Claude.
 
 ## 6. Pilot 2 mapping report (for the "skizzen-mapping" guideline)

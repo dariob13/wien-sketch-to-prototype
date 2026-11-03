@@ -2,7 +2,7 @@
 
 This file is the single source of truth for turning sketch tags into Wiener Melange patterns. `docs/cheat-sheet.md` is the short human version of it. When you change one, change the other.
 
-Pattern slugs are pages under `https://handbuch.wien.gv.at/pattern-library/patterns/<slug>/`. Variant names are the `h3` headings on that page, checked on 2026-11-03 (theme v2.10.0). Always fetch the page before building. If a variant name has changed, use the closest current one and note it in the report.
+Pattern slugs are pages under `https://handbuch.wien.gv.at/pattern-library/patterns/<slug>/`. Variant names are the `h3` headings above a Vorschau panel on that page, checked on 2026-11-03 (theme v2.10.0). Always fetch the page before building. If a variant name has changed, use the closest current one and note it in the report. A page with no Vorschau panels (currently `suche`) is not a source of markup: the row names the patterns that are.
 
 ## How a tag is read
 
@@ -114,7 +114,7 @@ Header and footer appear on every wien.gv.at page. **Add them even when the sket
 | Hervorhebung | Highlight-Box, Kasten, Merkkasten, Wichtig, Callout, Infokasten | `hervorhebung` | `gelb` → "Hervorhebung mit Hintergrundfarbe - Goldgelb" · `grün` → "… - Frischgrün" · `blau` → "… - Wasserblau" · `grau` → "… - Nebelgrau" · `Rahmen`/`border` → "Hervorhebung mit Rahmenlinien - Fast Schwarz" · no color → Nebelgrau | Heading and text. **English `[highlight]` alone:** on a full-width box that contains other boxes → highlighted section (Abschnitt grau); on a small box with text → Hervorhebung. |
 | Zitat | Quote, Statement, Aussage | `zitat` | `großes Bild` → "Zitat mit großem Bild" · otherwise "Zitat mit Bild" | Quote text; `— Name` → author |
 | Kontakt | Contact, Ansprechperson, Ansprechpartner, Kontaktbox | `kontakt` | `Details` → "Kontakt mit Details" · `Infobox` → "Kontakt in Infobox" · inside the page body → "Kontakt innerhalb der Seite" · `Stadtservice` → "Kontakt Stadtservice" · otherwise the page-end contact | Name, department, phone, email, address **only from the sketch**. Missing → `[Telefonnummer fehlt]` etc. Never invent contact data. |
-| Newsletter | Newsletter-Anmeldung, Abo | `newsletter` | `Kontakt` alongside → "Kontakt" sample · otherwise "Newsletter Section" | Heading, text, button label |
+| Newsletter | Newsletter-Anmeldung, Abo | `newsletter` | `Kontakt` in the same box or beside it → the default sample of `kontakt` (contact card plus newsletter card) · otherwise "Newsletter Section". The newsletter page has no Kontakt variant. | Heading, text, button label |
 | Chip | Status-Chip, Label, Badge (outside a card) | `chip` | `positiv`/`ja`/`offen` → "Chip positiv" · `negativ`/`nein`/`geschlossen` → "Chip negativ" · `klein`/`groß` → size | Text → chip label |
 | Zeitstempel | Zuletzt geändert, Stand, Aktualisiert, Datum, Timestamp, Last updated | `zeitstempel` | `Details` → "Zeitstempel mit Detailinfos" · otherwise "Zeitstempel \"Zuletzt geändert\"" | Date from the sketch only. Missing → `[Datum fehlt]` |
 
@@ -133,10 +133,10 @@ Header and footer appear on every wien.gv.at page. **Add them even when the sket
 | Reiter | Tabs, Registerkarten, Tab-Leiste | `reiter` | — | Tab labels on the first line or as child boxes; the content per tab comes from child boxes |
 | Akkordeon | Accordion, Aufklapper, Ausklappliste, FAQ, Fragen, Klappbox | `akkordeon` | `offen`/`open` → "Akkordeon alle Elemente geöffnet" · `eins offen` → "Akkordeon mit einzelnem Element geöffnet" · `Icons` → "Akkordeon alle Elemente geschlossen mit Icons" · otherwise all closed | `+ Frage` / `▸ Frage` lines → item headings; the text under each → its content |
 | Details | Mehr anzeigen, Aufklapptext, Weitere Infos (aufklappbar), Expand | `details` | — | Summary line, then hidden text |
-| Tabelle | Table, Öffnungszeiten, Preise, Preisliste, Tarife | `tabelle` | `Öffnungszeiten` → "Öffnungszeiten" sample · `Preise`/`Tarife` → "Preise" sample · `ohne Rahmen` → "Tabelle ohne Rahmen" · `sortierbar` → "Tabelle sortierbar" · inside a card → "Tabelle in Card" · otherwise the default table | Rows from lines; columns split on `\|`, a tab, or two or more spaces. **Prices and hours only from the sketch.** |
+| Tabelle | Table, Öffnungszeiten, Preise, Preisliste, Tarife | `tabelle` | `Öffnungszeiten`, `Preise` or `Tarife` inside a card → "Tabelle in Card" (those words are h3 headings inside that sample, not variants) · the same tags on a plain table → the default table · `ohne Rahmen` → "Tabelle ohne Rahmen" · `komplex` → "Tabelle komplex" · `sortierbar` → "Tabelle sortierbar" · `ViennaViz` → "Tabelle ViennaViz" · otherwise the default table | Rows from lines; columns split on `\|`, a tab, or two or more spaces. **Prices and hours only from the sketch.** |
 | Seiten | Paginierung, Pagination, Blättern, Seitenzahlen, 1 2 3 … | `paginierung` | → "Paginierung automatisch mit Cards" when it follows cards, otherwise a manual pagination sample | Page numbers are illustrative; say so in the report |
 | Pager | Vor/Zurück, Weiter/Zurück, Prev/Next | `pager` | — | Two labels; `→ Seite` → targets |
-| Suche | Suchfeld, Search, Suchbox, Suchergebnisse | `suche` | `Filter` → "Suche mit Filter" · `Ergebnisse`/`results` → "Suchergebnis Cards" · `Vorschläge`/`Combobox` → "Suche mit Combobox" | Placeholder text, results from the sketch. The header already has a search; a `[Suche]` box *inside* the header just confirms the header. |
+| Suche | Suchfeld, Search, Suchbox, Suchergebnisse | `suche` · `header` · `filter` · `combobox` | The suche page has no Vorschau samples. `fetch_pattern.py suche` follows the links on that page. A search field in the header, or `[Suche]` with no modifier, only confirms the header: use the wien.gv.at header template `/pattern-library/templates/patterns/header/standard/`. `Filter` → the default sample of `filter`. `Vorschläge` or `Combobox` → the default sample of `combobox`. `Ergebnisse` or `results` → cards from the sketch (`card`); the page has no result sample. | Placeholder text, results from the sketch. |
 
 ## Media
 

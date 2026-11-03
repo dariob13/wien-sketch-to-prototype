@@ -35,6 +35,8 @@ Fetch before use. This table is only the address book. It does not document slot
 | Button | `button` |
 | Tag | `tag` |
 
+`suche` has no Vorschau samples. A search field in the header is the header template. A filter or a combobox search is `filter` or `combobox`. `fetch_pattern.py suche` follows those links. See tag-vocabulary.md.
+
 ## Content
 
 | Pattern | Slug |

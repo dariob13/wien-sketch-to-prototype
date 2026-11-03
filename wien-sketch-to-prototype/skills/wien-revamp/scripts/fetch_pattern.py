@@ -12,6 +12,11 @@ Standard library only. Reads https://handbuch.wien.gv.at/pattern-library/pattern
 takes the inner HTML of each "Vorschau" panel (wm-tabpanel.code-preview-rendered),
 makes root-relative URLs absolute, and resolves "… öffnen" template links
 (e.g. the header) to the real element on the template page.
+
+A page with no Vorschau panels (suche) is read from its Varianten tab instead:
+each h3's first link to a pattern or template becomes a sample under that h3's
+name. For a list of header templates the wien.gv.at standard header is used,
+not a Sonderauftritt. A section that only links off-site is skipped.
 """
 import argparse
 import html
@@ -59,7 +64,27 @@ def clean(s):
     return s
 
 
-def variants(slug):
+def template_markup(page_html, slug):
+    """Markup to keep from a handbook template page (a whole demo page)."""
+    b0 = page_html.find("<body")
+    tb = page_html[b0:] if b0 >= 0 else page_html
+    tb = re.sub(r"<script\b.*?</script>", "", tb, flags=re.S)
+    tb = re.sub(r"<main>\s*</main>", "", tb)
+    tb = re.sub(r"^<body[^>]*>|</body>.*$", "", tb, flags=re.S)
+    slug = slug.strip("/")
+    # For any pattern other than the header, keep only <main>, minus the demo stage.
+    m_main = re.search(r"<main\b[^>]*>(.*)</main>", tb, re.S)
+    if slug != "header" and m_main and m_main.group(1).strip():
+        tb = m_main.group(1)
+        if slug != "stage":
+            tb = re.sub(r"<wm-stage\b.*?</wm-stage>", "", tb, count=1, flags=re.S)
+    elif slug == "header":
+        mh = re.search(r"<wm-header\b.*?</wm-header>", tb, re.S)
+        tb = mh.group(0) if mh else tb
+    return tb
+
+
+def variants(slug, follow=True):
     url = "%s/pattern-library/patterns/%s/" % (BASE, slug.strip("/"))
     page = get(url)
     i = page.find("pl-samples")
@@ -79,25 +104,70 @@ def variants(slug):
         source = url
         if tmpl:
             source = BASE + tmpl.group(1)
-            t = get(source)
-            b0 = t.find("<body")
-            tb = t[b0:]
-            tb = re.sub(r"<script\b.*?</script>", "", tb, flags=re.S)
-            tb = re.sub(r"<main>\s*</main>", "", tb)
-            tb = re.sub(r"^<body[^>]*>|</body>.*$", "", tb, flags=re.S)
-            # Template pages are whole demo pages (header, stage, …). For any pattern
-            # other than the header, keep only <main>, minus the demo stage.
-            m_main = re.search(r"<main\b[^>]*>(.*)</main>", tb, re.S)
-            if slug.strip("/") != "header" and m_main and m_main.group(1).strip():
-                tb = m_main.group(1)
-                if slug.strip("/") != "stage":
-                    tb = re.sub(r"<wm-stage\b.*?</wm-stage>", "", tb, count=1, flags=re.S)
-            elif slug.strip("/") == "header":
-                mh = re.search(r"<wm-header\b.*?</wm-header>", tb, re.S)
-                tb = mh.group(0) if mh else tb
-            inner = tb
+            inner = template_markup(get(source), slug)
         out.append({"name": name, "html": clean(absolutize(inner)), "source": source})
+    if not out and follow:
+        out = linked_samples(page, slug.strip("/"))
     return url, out
+
+
+def linked_samples(page, slug):
+    """No Vorschau panels: one sample per Varianten h3 that links to a pattern or template."""
+    m = re.search(
+        r"<wm-tab\b[^>]*>\s*Varianten\s*</wm-tab>\s*<wm-tabpanel\b[^>]*>(.*?)</wm-tabpanel>",
+        page, re.S)
+    if not m:
+        return []
+    pieces = re.split(r"(<h3\b[^>]*>.*?</h3>)", m.group(1), flags=re.S)
+    samples = []
+    i = 1
+    while i + 1 < len(pieces):
+        name = html.unescape(re.sub(r"<[^>]+>", "", pieces[i])).strip()
+        chunk = pieces[i + 1]
+        i += 2
+        links = re.findall(r'href="(/pattern-library/(?:patterns|templates)/[^"#]+)"', chunk)
+        href = pick_link(links, slug)
+        if not href:
+            continue
+        sample = sample_from_href(href, name)
+        if sample:
+            samples.append(sample)
+    return samples
+
+
+def pick_link(links, slug):
+    if not links:
+        return None
+    # A content page uses the standard header. The other header links are Sonderauftritte.
+    if any("/header/" in h for h in links):
+        for h in links:
+            if h.rstrip("/").endswith("/header/standard"):
+                return h
+    self_pat = re.compile(r"/patterns/%s/?$" % re.escape(slug))
+    for h in links:
+        if not self_pat.search(h):
+            return h
+    return None
+
+
+def sample_from_href(href, name):
+    source = BASE + href
+    if "/templates/" in href:
+        kind = "header"
+        m = re.search(r"/templates/patterns/([^/]+)/", href)
+        if m:
+            kind = m.group(1)
+        inner = template_markup(get(source), kind)
+        if not inner.strip():
+            return None
+        return {"name": name, "html": clean(absolutize(inner)), "source": source}
+    m = re.search(r"/patterns/([^/]+)/?$", href)
+    if not m:
+        return None
+    _, vs = variants(m.group(1), follow=False)
+    if not vs:
+        return None
+    return {"name": name, "html": vs[0]["html"], "source": vs[0]["source"]}
 
 
 def theme_version():

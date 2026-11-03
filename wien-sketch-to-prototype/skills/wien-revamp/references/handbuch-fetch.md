@@ -41,6 +41,8 @@ Each variant is a heading followed by a tab pair.
 
 Its menu links are `#` placeholders. Keep the labels, which are official navigation, and leave the `#` links as they are. Do this for any pattern whose Vorschau panel is only an "… öffnen" link (checked 2026-11-03).
 
+**Pages with no Vorschau panels.** `suche` is one: the Varianten tab is only headings and links. The script follows each heading's first pattern or template link and prints that markup under the heading's name. A list of header templates resolves to the wien.gv.at standard header, not a Sonderauftritt. A heading that only links to a live page (Suchergebnis Cards) is skipped. The tag vocabulary says which pattern to fetch for a given sketch box; do not invent a search-result component.
+
 Skip the handbook chrome. The page has its own `wm-header`, a title `wm-stage` named after the pattern ("Stage", "Card", …), and a sidebar `Alle Patterns`. Those are not the examples. Examples live under `.pl-samples`.
 
 ## What to keep

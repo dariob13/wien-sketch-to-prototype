@@ -40,7 +40,7 @@ Tag nur im ersten Kasten reicht, oder [Kacheln x3] im Rahmen drumherum.
 | `[Hervorhebung]` | Kasten, Wichtig, Callout | Farbiger Kasten. `gelb`, `grün`, `blau`, `grau`, `Rahmen` |
 | `[Zitat]` | Quote | Zitat. `— Name` = Autor*in |
 | `[Kontakt]` | Ansprechperson | Kontaktblock (nur deine Daten!) |
-| `[Newsletter]` | Abo | Newsletter-Anmeldung |
+| `[Newsletter]` | Abo | Newsletter-Anmeldung. Mit Kontakt: Kontaktblock inklusive Newsletter |
 | `[Quicklinks]` | Wichtige Links | Linkliste mit Pfeilen. `3 Spalten` |
 | `[Liste]` | Aufzählung, Bullets | Liste. `nummeriert` |
 | `[Linkliste]` | Weiterführende Links | Liste mit Links |
@@ -50,7 +50,7 @@ Tag nur im ersten Kasten reicht, oder [Kacheln x3] im Rahmen drumherum.
 | `[Download]` | PDF, Datei | Download-Link |
 | `[Reiter]` | Tabs | Registerkarten |
 | `[Akkordeon]` | FAQ, Aufklapper | Aufklappliste. `+ Frage` je Eintrag |
-| `[Tabelle]` | Öffnungszeiten, Preise | Tabelle. Spalten mit `\|` trennen |
+| `[Tabelle]` | Öffnungszeiten, Preise | Tabelle. In einer Card wird daraus „Tabelle in Card“. Spalten mit `\|` trennen |
 | `[Bild]` | Foto, Image | Bild (Platzhalter) |
 | `[Galerie]` | Bilder | Bildergalerie |
 | `[Video]` | Film | Videoplayer |
@@ -59,7 +59,7 @@ Tag nur im ersten Kasten reicht, oder [Kacheln x3] im Rahmen drumherum.
 | `[Trenner]` | Linie, Divider | Trennlinie |
 | `[Zeitstempel]` | Zuletzt geändert | „Zuletzt geändert“-Zeile |
 | `[Seiten]` | Paginierung | Seitenzahlen |
-| `[Suche]` | Suchfeld | Suche (mit Filter/Ergebnissen) |
+| `[Suche]` | Suchfeld | Suchfeld im Header. `Filter` → Filter, `Vorschläge` → Combobox, `Ergebnisse` → Cards |
 
 **Achtung „Karte“:** Das kann eine Card oder einen Stadtplan meinen. Schreib besser `[Kachel]`/`[Card]` oder `[Stadtplan]`/`[Map]`.
 

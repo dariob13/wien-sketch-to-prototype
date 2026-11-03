@@ -5,8 +5,12 @@ Run:  python3 -I wien-sketch-to-prototype/skills/wien-revamp/scripts/selfcheck.p
 
 Checks
   1. Theme version on handbuch.wien.gv.at vs. the version pinned in page-shell.md.
-  2. Every pattern slug referenced in tag-vocabulary.md still has samples.
+  2. Every slug in the "Pattern (slug)" column of tag-vocabulary.md still has samples.
   3. Every quoted variant name in tag-vocabulary.md still exists on its pattern page.
+     A quote counts only when it starts with an uppercase letter and is not a
+     section title of tag-vocabulary.md (so "full", "nebelgrau" and "Text with
+     no slot" are not variant names). A pattern cell that lists several slugs
+     is an existence check only.
   4. The header and Vorspann template links still resolve to real markup.
   5. Every tag in docs/cheat-sheet.md is known to tag-vocabulary.md.
 
@@ -30,6 +34,33 @@ def norm(s):
     return re.sub(r"\s+", " ", s.replace("&quot;", '"').replace("\\\"", '"')).strip().lower()
 
 
+SLUG = r"[a-z0-9]+(?:-[a-z0-9]+)*"
+SLUG_CELL = re.compile(r"`%s`(?:\s*[·,/]\s*`%s`)*" % (SLUG, SLUG))
+
+
+def section_titles(text):
+    """Headings and bold lead-ins, so a doc cross-reference is not a variant name."""
+    titles = set()
+    for m in re.finditer(r"^#{1,6}\s+(.+?)\s*$", text, re.M):
+        titles.add(norm(m.group(1)).strip(" ."))
+    for m in re.finditer(r"^(?:>\s*)?\*\*([^*]+)\*\*", text, re.M):
+        titles.add(norm(m.group(1)).strip(" ."))
+    return titles
+
+
+def variant_quotes(row, titles):
+    raw = re.findall(r'"([^"]+?)"', row.replace('\\"', "\u0000"))
+    names = []
+    for n in raw:
+        n = n.replace("\u0000", '"').strip()
+        if not n[:1].isupper():
+            continue
+        if norm(n).strip(" .") in titles:
+            continue
+        names.append(n)
+    return names
+
+
 # 1. theme version
 shell = (REF / "page-shell.md").read_text(encoding="utf-8")
 pinned = sorted(set(re.findall(r"theme/v(\d+\.\d+\.\d+)/", shell)))
@@ -41,19 +72,33 @@ elif pinned != [live]:
 else:
     notes.append(f"Theme v{live} matches page-shell.md.")
 
-# 2 + 3. slugs and variant names from the vocabulary tables
+# 2 + 3. slugs and variant names from the vocabulary tables.
+# Only the "Pattern (slug)" column counts. Other columns list modifiers
+# (`hell`, `light`), and those words are not pattern pages.
 vocab = (REF / "tag-vocabulary.md").read_text(encoding="utf-8")
-rows = [l for l in vocab.splitlines() if l.startswith("|") and "`" in l]
+titles = section_titles(vocab)
 by_slug = {}
-for row in rows:
-    cells = [c.strip() for c in row.strip("|").split("|")]
-    slug_cells = [c for c in cells if re.fullmatch(r"`[a-z0-9/-]+`", c)]
-    if not slug_cells:
+header = None
+for line in vocab.splitlines():
+    if not line.startswith("|"):
+        header = None
         continue
-    slug = slug_cells[0].strip("`")
-    names = re.findall(r'"([^"]+?)"', row.replace('\\"', "\u0000"))
-    names = [n.replace("\u0000", '"') for n in names]
-    by_slug.setdefault(slug, set()).update(names)
+    cells = [c.strip() for c in line.strip().strip("|").split("|")]
+    if cells and all(re.fullmatch(r":?-+:?", c) for c in cells):
+        continue
+    if header is None:
+        header = cells
+        continue
+    if "Pattern (slug)" not in header:
+        continue
+    idx = header.index("Pattern (slug)")
+    if idx >= len(cells) or not SLUG_CELL.fullmatch(cells[idx]):
+        continue
+    slugs = re.findall(r"`(%s)`" % SLUG, cells[idx])
+    # One slug owns the row's variant names. Several slugs are only "does this page exist".
+    names = variant_quotes(line, titles) if len(slugs) == 1 else []
+    for slug in slugs:
+        by_slug.setdefault(slug, set()).update(names)
 
 for slug, names in sorted(by_slug.items()):
     try:
