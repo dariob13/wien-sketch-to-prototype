@@ -8,4 +8,5 @@ First version of the `wien-sketch-to-prototype` plugin (`/wien-revamp`) in the `
 - German cheat sheet and onboarding, Doop starter sketches, and a read-only Figma sketch reader.
 - Pilot 1: sample sketch "Bäder in Wien" on the Doop starter canvas.
 - Pilot 2: Figma sketch of wien.gv.at/freizeit/baden, compared with the live page.
+- Install with the Claude marketplace, or with Vercel's skills CLI: `npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp`.
 - `selfcheck.py` checks the tag vocabulary against the live handbook. A newsletter placed with a contact block uses the kontakt sample, opening hours and prices use "Tabelle in Card", and search follows the header template, `filter`, and `combobox`.

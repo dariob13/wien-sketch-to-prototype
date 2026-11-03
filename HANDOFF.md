@@ -25,7 +25,7 @@ A workflow for a large mixed team (UX/UI designers, editors/Redaktion, developer
 | Breakpoints | Mobil 375 + Desktop 1440 from one sketch |
 | Scope v1 | Content/topic pages. Forms and app screens become labelled gaps. |
 | Deliverables | Revamp skill, tag cheat sheet, starter templates (Figma + Doop), onboarding guide |
-| Distribution | Claude plugin in a git repo (marketplace) |
+| Distribution | Claude plugin marketplace, and `npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp` (skills.sh). Repo is private. |
 | Pilots | (1) sample sketch, (2) rough sketch of a live wien.gv.at page, compared with the original |
 | Docs language | German for user docs (cheat sheet, onboarding). Skill internals in English. |
 

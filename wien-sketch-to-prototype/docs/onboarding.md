@@ -18,6 +18,14 @@ Du brauchst Claude Code (Terminal, Desktop-App oder IDE), einen Figma-Account (L
 /plugin install wien-sketch-to-prototype@stadt-wien-workflows
 ```
 
+**Oder mit skills.sh** (Vercel), im Projektordner:
+
+```bash
+npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp
+```
+
+Das ist derselbe Skill, für Claude Code, Cursor und weitere Agents. Das Repo ist privat. Der Befehl nutzt die GitHub-Anmeldung auf dem Rechner.
+
 **Figma und Doop verbinden**, im Terminal:
 
 ```bash
