@@ -94,7 +94,8 @@ function readFrame(F) {
       const fw = typeof n.fontWeight === "number" ? n.fontWeight : null;
       const t = { id: n.id, k: "text", ...b, text: n.characters, fs, fw };
       if (n.textDecoration === "UNDERLINE") t.underline = true;
-      if (n.name && n.name !== n.characters && !DEFAULT_NAME.test(n.name)) t.name = n.name;
+      const norm = (s) => s.replace(/\s+/g, " ").trim();
+      if (n.name && norm(n.name) !== norm(n.characters) && !DEFAULT_NAME.test(n.name)) t.name = n.name;
       texts.push(t);
       return;
     }
@@ -224,7 +225,13 @@ for (const n of canvasNodes) {
   if (!hasArrow && !/pfeil|arrow|→/i.test(n.name)) continue;
   let [a, b] = ep;
   if (isArrowCap(capStart) && !isArrowCap(capEnd)) [a, b] = [b, a];
-  arrows.push({ id: n.id, from: locate(a), to: locate(b) });
+  let from = locate(a), to = locate(b);
+  // LINE nodes do not say which end carries the head, and people draw arrows both
+  // ways. The trigger is the end sitting on an element; the target is the end that
+  // only reaches a frame (outside it, or on the frame itself).
+  const loose = (p) => !p || p.near || !p.element;
+  if (n.type === "LINE" && loose(to) === false && loose(from)) [from, to] = [to, from];
+  arrows.push({ id: n.id, from, to, directionGuessed: n.type === "LINE" || undefined });
 }
 
 // Resolve prototype link destinations to frame names.

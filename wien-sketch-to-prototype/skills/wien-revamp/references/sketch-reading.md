@@ -75,7 +75,7 @@ Sources, strongest first:
 1. **Figma prototype connections** (`links` in the script output, `toFrame`). Doop: existing `data-doop-action="navigate:…"`.
 2. **Text in the box**: `→ Seitenname`, `-> Seitenname`, `link: Seitenname`. On a line of its own it links the whole box. At the end of a line it links that line's item.
 3. **Exact page names**: a tag, quicklink, or list item whose text is exactly the name of another sketched page (ignoring `←`/`→` and case) links there. Basis `Erkannt ~`.
-4. **Drawn arrows** between frames (`arrows` in the script output, or pen arrows seen in the screenshot). The `from` element is the trigger and the `to` frame is the target. Hand-drawn arrows are **likely** at best.
+4. **Drawn arrows** between frames (`arrows` in the script output, or pen arrows seen in the screenshot). The `from` element is the trigger and the `to` frame is the target. Hand-drawn arrows are **likely** at best. If `from` is a whole box, the trigger is the link line in that box closest to the arrow's start (`at.y`). For `directionGuessed` arrows, check the screenshot.
 
 Every link target must be a sketched page. A target that is not, such as `→ Kontaktseite` with no such frame, gets `[Link-Ziel fehlt: Kontaktseite]` in the report and a dead link (`href="#"`) in the build. `→ https://…` is an external link: keep the `href` and wire `data-doop-action="url:…"`.
 
