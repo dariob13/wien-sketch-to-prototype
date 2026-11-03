@@ -27,6 +27,8 @@ claude mcp add --transport http doop https://doop.design/mcp
 
 Dann in Claude `/mcp` eingeben und bei beiden auf *Authenticate* gehen. Es öffnet sich jeweils der Browser. In der Claude-Desktop-App geht das stattdessen unter *Einstellungen → Connectors*. Wer Figma oder Doop dort schon verbunden hat, überspringt den Schritt.
 
+Der Befehl heißt `/wien-revamp`. Falls ein anderes Plugin denselben Namen hat, lautet die lange Form `/wien-sketch-to-prototype:wien-revamp`.
+
 **Test:** `/wien-revamp` mit dem Link zur Beispielskizze aus den [Vorlagen](../templates/README.md) eingeben. Nach ein paar Minuten kommt ein Doop-Link.
 
 ## 2. Der Ablauf für alle
@@ -86,4 +88,4 @@ Dann in Claude `/mcp` eingeben und bei beiden auf *Authenticate* gehen. Es öffn
 
 ## 8. Feedback und Updates
 
-Fehlerhafte Erkennungen bitte mit Link zur Skizze und zum Prototyp melden: <KANAL/ISSUE-TRACKER>. Neue Tags oder Synonyme kommen in `skills/wien-revamp/references/tag-vocabulary.md` **und** in den Spickzettel. Updates holt ihr mit `/plugin marketplace update stadt-wien-workflows`.
+Fehlerhafte Erkennungen bitte mit Link zur Skizze und zum Prototyp als Issue im Plugin-Repo melden: <REPO-URL>/issues. Neue Tags oder Synonyme kommen in `skills/wien-revamp/references/tag-vocabulary.md` **und** in den Spickzettel. Updates holt ihr mit `/plugin marketplace update stadt-wien-workflows`.
