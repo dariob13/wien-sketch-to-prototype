@@ -34,6 +34,7 @@ If the user names a canvas, use it.
    - grids have the sketched column count on Desktop and stack on Mobil;
    - no empty bands, clipped text, or unupgraded components;
    - frame height: the theme pins the footer to the bottom of the viewport, so a frame that is too tall shows a big white gap above the footer. Read where the last section ends on the screenshot, add about 200 px (Mobil) or 150 px (Desktop) for the footer, and `update_frame` to that height.
+   - Judge component styling against the **theme**, not against `import_webpage` or `view_website`. Both render the live page **without** the component JavaScript, so shadow-DOM styling is missing there: cards look flat (no shadow), `wm-table` content is invisible, carousels and accordions do not work. By the theme (v2.10.0), cards have a shadow everywhere except inside `wm-section[highlight]` (`--card-shadow:0`) and in print. A "flat card" on the reference is not a bug to fix.
 9. Wire click-through (below), then `set_prototype_start` on the first page's Mobil frame and `get_prototype`. Fix every target it flags.
 10. Update the `Skizzen-Mapping` guideline with the final report plus frame ids. `set_status` to an empty string.
 
