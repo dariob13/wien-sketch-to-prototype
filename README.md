@@ -8,10 +8,10 @@ The decisions, live links, frame ids and open TODOs are in [HANDOFF.md](HANDOFF.
 
 ## Install
 
-In Claude, once this repo has a git remote (the placeholders in the onboarding guide are filled in then):
+In Claude:
 
 ```
-/plugin marketplace add <REPO-URL>
+/plugin marketplace add https://github.com/dariob13/wien-sketch-to-prototype
 /plugin install wien-sketch-to-prototype@stadt-wien-workflows
 ```
 

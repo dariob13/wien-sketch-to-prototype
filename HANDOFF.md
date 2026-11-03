@@ -54,7 +54,7 @@ wien-sketch-to-prototype/
     cheat-sheet.md                       German "Spickzettel" (keep in sync with tag-vocabulary.md)
     cheat-sheet.html                     generated: python3 -I docs/build_cheatsheet.py
     build_cheatsheet.py
-    onboarding.md                        German onboarding (setup, workflow, per-role tips, troubleshooting). Has placeholders <REPO-URL>, <KANAL/ISSUE-TRACKER>
+    onboarding.md                        German onboarding (setup, workflow, per-role tips, troubleshooting). Repo URL is filled. <KANAL/ISSUE-TRACKER> is still open.
   templates/
     doop/_style.css, startseite.html, hallenbaeder.html, vorlage-leer.html   Doop starter sketch source
     README.md                            where the Doop/Figma templates live
@@ -87,7 +87,7 @@ Lessons already written into the skill: the header Vorschau panel is only a temp
 4. ~~Card shadow vs live~~ **Resolved, no change needed.** `import_webpage` and `view_website` both render WITHOUT the component JS (flat cards, invisible `wm-table`). The theme CSS gives cards a shadow except inside `wm-section[highlight]` and in print, so our build is correct. Documented in build-in-doop.md step 8.
 4a. ~~**Fix 3 vocabulary errors found by `scripts/selfcheck.py`**~~ **Done.** Newsletter with `Kontakt` uses the default `kontakt` sample, otherwise "Newsletter Section". `[Öffnungszeiten]`/`[Preise]` map to "Tabelle in Card" (or the default table when not in a card). `[Suche]` points at the header template, `filter` and `combobox`; `fetch_pattern.py suche` follows the Varianten-tab links (standard header, not Sonderauftritt; "Suchergebnis Cards" is only an external link and is skipped). Self-check ignores lowercase quotes and section titles. `selfcheck.py` is documented in the root README.
 4b. ~~**Maintainer docs.**~~ **Done:** root `README.md` and `CHANGELOG.md`. `templates/figma-starter.js` was **not** added: the drawing script that built the Figma frames was never saved in the repo, and the live file remains the template (see templates/README.md).
-5. Fill the placeholders in `docs/onboarding.md` (`<REPO-URL>`, `<KANAL/ISSUE-TRACKER>`) once the user has a remote repo. Ask the user for the git host and push only when asked. **Still open — asked, not filled.**
+5. ~~Fill `<REPO-URL>` in `docs/onboarding.md`.~~ **Done.** Remote is https://github.com/dariob13/wien-sketch-to-prototype (private). `<KANAL/ISSUE-TRACKER>` is still open; issues go to that repo.
 6. ~~Re-validate, regenerate `docs/cheat-sheet.html`, and commit.~~ **Done** in the vocabulary-fix commit. `claude plugin validate .` passed, `selfcheck.py` exits 0, cheat sheet HTML regenerated.
 7. Later (v2): forms (`formular-*` patterns), Sidebar, Sonderauftritte. Possibly a Figma plugin trigger for people without Claude.
 

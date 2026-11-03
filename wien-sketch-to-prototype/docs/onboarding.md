@@ -14,7 +14,7 @@ Du brauchst Claude Code (Terminal, Desktop-App oder IDE), einen Figma-Account (L
 **Plugin installieren**, in Claude:
 
 ```
-/plugin marketplace add <REPO-URL>
+/plugin marketplace add https://github.com/dariob13/wien-sketch-to-prototype
 /plugin install wien-sketch-to-prototype@stadt-wien-workflows
 ```
 
@@ -88,4 +88,4 @@ Der Befehl heißt `/wien-revamp`. Falls ein anderes Plugin denselben Namen hat, 
 
 ## 8. Feedback und Updates
 
-Fehlerhafte Erkennungen bitte mit Link zur Skizze und zum Prototyp als Issue im Plugin-Repo melden: <REPO-URL>/issues. Neue Tags oder Synonyme kommen in `skills/wien-revamp/references/tag-vocabulary.md` **und** in den Spickzettel. Updates holt ihr mit `/plugin marketplace update stadt-wien-workflows`.
+Fehlerhafte Erkennungen bitte mit Link zur Skizze und zum Prototyp als Issue im Plugin-Repo melden: https://github.com/dariob13/wien-sketch-to-prototype/issues. Neue Tags oder Synonyme kommen in `skills/wien-revamp/references/tag-vocabulary.md` **und** in den Spickzettel. Updates holt ihr mit `/plugin marketplace update stadt-wien-workflows`.
