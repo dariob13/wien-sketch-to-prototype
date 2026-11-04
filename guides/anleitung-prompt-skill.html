@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Anleitung: Stadt Wien Prototyp per Prompt</title>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<header class="cover">
+  <p class="kicker">Anleitung · Skill stadt-wien-doop-prototyper</p>
+  <h1>Stadt-Wien-Prototypen per Prompt in Doop bauen</h1>
+  <p class="lead">Du beschreibst eine wien.gv.at-Seite in ein paar Sätzen. Claude baut sie in Doop aus den offiziellen Wiener-Melange-Komponenten von handbuch.wien.gv.at, als mobile und als Desktop-Ansicht. Diese Anleitung führt durch die einmalige Einrichtung und zeigt, wie du gute Prompts schreibst.</p>
+</header>
+
+<div class="box">
+  <p>Hast du schon eine Skizze in Figma oder Doop? Dann ist der Sketch-Skill <code>/wien-revamp</code> das bessere Werkzeug. Dafür gibt es eine eigene Anleitung. Dieser Skill arbeitet nur mit Text und, wenn vorhanden, einer bestehenden wien.gv.at-Seite als Vorlage.</p>
+</div>
+
+<h2><span class="nr">1</span>Was du brauchst</h2>
+<ul>
+  <li>Claude Code im Terminal, in der Claude-Desktop-App oder in einer IDE wie VS Code.</li>
+  <li>Einen Doop-Account. Die Anmeldung geht unter <a href="https://doop.design">doop.design</a>.</li>
+  <li>Node.js ab Version 22.20 für die Installation mit dem Skills-CLI. Mit dem eigenständigen Installer reicht Node.js 18.</li>
+  <li>Python 3. Auf dem Mac ist es meist schon da. Claude sucht damit die offiziellen Icons und Illustrationen.</li>
+</ul>
+<p>Ob Node.js und Python installiert sind, prüfst du im Terminal:</p>
+<pre><code>node --version
+python3 --version</code></pre>
+
+<h2><span class="nr">2</span>Doop-Account anlegen</h2>
+<ol>
+  <li>Öffne <a href="https://doop.design">doop.design</a> und melde dich an.</li>
+  <li>Lege zum Testen einen leeren Canvas an. Der Skill erstellt später eigene Canvases mit dem Namen „Stadt Wien Entwurf - Thema“, du musst hier also nichts vorbereiten.</li>
+</ol>
+
+<h2><span class="nr">3</span>Skill installieren</h2>
+<p>Im Terminal, mit dem Skills-CLI von Vercel. Der Befehl installiert den Skill für Claude Code und Codex, ohne Rückfragen:</p>
+<pre><code>npx skills add dariob13/Doop-Prototyper --skill stadt-wien-doop-prototyper -g -a claude-code -a codex -y</code></pre>
+<p>Ohne die Optionen am Ende fragt das CLI nach, für welche Agents es installieren soll:</p>
+<pre><code>npx skills add dariob13/Doop-Prototyper --skill stadt-wien-doop-prototyper</code></pre>
+<p>Alternative ohne Skills-CLI. Dieser Installer kopiert den Skill nach <code>~/.claude/skills/</code> und <code>~/.agents/skills/</code>:</p>
+<pre><code>npx github:dariob13/Doop-Prototyper</code></pre>
+<p>Mit <code>--force</code> ersetzt er eine ältere Kopie. Das brauchst du, wenn der Skill schon einmal installiert war.</p>
+
+<h2><span class="nr">4</span>Doop mit Claude verbinden (MCP)</h2>
+<p>Claude spricht über eine MCP-Verbindung mit Doop. Die richtest du einmal ein.</p>
+<h3>In Claude Code (Terminal)</h3>
+<pre><code>claude mcp add --transport http doop https://doop.design/mcp</code></pre>
+<ol>
+  <li>Starte danach Claude Code mit <code>claude</code> und gib <code>/mcp</code> ein.</li>
+  <li>Wähle <code>doop</code> und dann <em>Authenticate</em>.</li>
+  <li>Der Browser öffnet sich. Melde dich bei Doop an und bestätige den Zugriff.</li>
+  <li>Zurück in Claude zeigt <code>/mcp</code> bei doop den Status <em>connected</em>.</li>
+</ol>
+<h3>In der Claude-Desktop-App</h3>
+<p>Unter <em>Einstellungen</em> und <em>Connectors</em> einen eigenen Connector mit der Adresse <code>https://doop.design/mcp</code> hinzufügen und im Browser bestätigen.</p>
+<h3>In Cursor</h3>
+<p>In <code>~/.cursor/mcp.json</code> eintragen und beim ersten Aufruf die Anmeldung im Browser bestätigen:</p>
+<pre><code>{
+  "mcpServers": {
+    "doop": { "type": "http", "url": "https://doop.design/mcp" }
+  }
+}</code></pre>
+
+<h2><span class="nr">5</span>Prüfen, ob alles funktioniert</h2>
+<ol>
+  <li>Claude Code neu starten, damit der Skill geladen wird.</li>
+  <li><code>/mcp</code> eingeben: doop muss <em>connected</em> sein.</li>
+  <li>Einen kleinen Testauftrag geben, zum Beispiel: „Baue mit stadt-wien-doop-prototyper eine Themenseite ‚Baden‘ nach https://www.wien.gv.at/freizeit/baden“.</li>
+  <li>Nach einigen Minuten nennt Claude den Link zum neuen Doop-Canvas.</li>
+</ol>
+
+<h2><span class="nr">6</span>Einen guten Prompt schreiben</h2>
+<p>Je genauer der Auftrag, desto weniger muss Claude raten. Nenne den Skill beim Namen oder rufe ihn mit <code>/stadt-wien-doop-prototyper</code> auf, und gib diese Angaben mit:</p>
+<table>
+  <tr><th>Angabe</th><th>Beispiel</th></tr>
+  <tr><td>Thema der Seite</td><td>Fahrradwerkstätte, Kindergarten-Anmeldung, Bezirksseite</td></tr>
+  <tr><td>Bestehende Seite als Quelle, falls es eine gibt</td><td>https://www.wien.gv.at/verkehr/radfahren/</td></tr>
+  <tr><td>Abschnitte, die du sicher willst</td><td>Bühne mit Bild, Quicklinks, Kontakt am Ende</td></tr>
+  <tr><td>Eigene Texte</td><td>Überschrift, Einleitung, Kontaktdaten</td></tr>
+  <tr><td>Ziel-Canvas, falls schon vorhanden</td><td>Link zum Doop-Canvas</td></tr>
+</table>
+<p>Ein vollständiges Beispiel:</p>
+<pre><code>Nutze stadt-wien-doop-prototyper und baue einen Doop-Prototyp
+der Fahrradwerkstätte-Seite. Inhaltsquelle:
+https://www.wien.gv.at/verkehr/radfahren/
+Oben eine Bühne mit Bild, danach Quicklinks zu den Werkstätten
+und am Ende ein Kontaktblock.</code></pre>
+<p>Willst du nur einen Plan ohne Bau, schreib „nur Blueprint“ oder „nur Plan“. Dann liefert Claude eine Abschnittsliste mit den passenden Patterns, legt aber nichts in Doop an.</p>
+
+<h2><span class="nr">7</span>Was Claude baut</h2>
+<ul>
+  <li>Einen Canvas „Stadt Wien Entwurf - Thema“, oder deinen Canvas, wenn du einen genannt hast.</li>
+  <li>Auf der Seite „Referenz“ einen Import der Live-Seite zum Vergleichen. Dieser Import ist eingefroren: Doop entfernt dabei die Skripte, deshalb sehen Karten dort flach aus und Tabellen fehlen. Er dient nur zum Vergleich.</li>
+  <li>Auf der Seite „Prototyp“ zwei Frames: „Mobil“ mit 375 Pixel und „Desktop“ mit 1440 Pixel Breite. Beide nutzen dasselbe HTML aus den Handbuch-Patterns mit dem echten Theme.</li>
+  <li>Eine Zusammenfassung mit den verwendeten Patterns, der Theme-Version und den offenen Punkten.</li>
+</ul>
+
+<h2><span class="nr">8</span>Regeln, an die sich der Skill hält</h2>
+<ul>
+  <li>Jeder Bereich stammt aus einem Beispiel auf handbuch.wien.gv.at. Header, Bühne, Karten und Footer werden nicht nachgezeichnet.</li>
+  <li>Texte kommen von der Live-Seite oder aus deinem Prompt. Adressen, Preise, Telefonnummern und Öffnungszeiten erfindet Claude nicht, sondern lässt einen Platzhalter wie <code>[Telefonnummer prüfen]</code>.</li>
+  <li>Icons kommen nur von der Handbuch-Seite <a href="https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/">Icons</a>, Illustrationen nur von der Seite <a href="https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/">Illustrationen</a>. Für jede verwendete Illustration braucht es eine Freigabe vom Handbuch-Team. Claude listet sie deshalb als offenen Punkt.</li>
+  <li>Fotos ohne Freigabe werden zu grauen Platzhaltern. Stockfotos und KI-Bilder kommen nicht vor.</li>
+</ul>
+
+<h2><span class="nr">9</span>Ergebnis prüfen und weiterarbeiten</h2>
+<ol>
+  <li>Öffne den Canvas und vergleiche „Prototyp“ mit „Referenz“.</li>
+  <li>Klicke in Doop direkt auf ein Element und hinterlasse einen Kommentar. Claude kann Kommentare lesen und umsetzen.</li>
+  <li>Für Änderungen schreibst du Claude einfach, was anders sein soll, zum Beispiel „Ersetze die Quicklinks durch drei Karten mit Bild“.</li>
+  <li>Frühere Stände eines Frames liegen in Doops Versionsverlauf.</li>
+</ol>
+<p>Tastaturbedienung und Screenreader lassen sich in Doop nicht nachweisen. Das bleibt eine Prüfung für die Entwicklung.</p>
+
+<h2><span class="nr">10</span>Wenn etwas nicht klappt</h2>
+<table>
+  <tr><th>Problem</th><th>Lösung</th></tr>
+  <tr><td>Claude meldet, Doop sei nicht verbunden</td><td><code>/mcp</code> eingeben, doop auswählen, <em>Authenticate</em>. In der Desktop-App den Connector prüfen.</td></tr>
+  <tr><td>Der Skill wird nicht gefunden</td><td>Claude neu starten. Danach den Installationsbefehl aus Schritt 3 noch einmal ausführen, beim Installer mit <code>--force</code>.</td></tr>
+  <tr><td><code>npx</code> meldet eine zu alte Node-Version</td><td>Node.js aktualisieren oder den eigenständigen Installer nutzen, der mit Node.js 18 läuft.</td></tr>
+  <tr><td>Komponenten sehen ungestylt aus</td><td>Das Theme lädt manchmal einen Moment. Claude macht dann einen zweiten Screenshot. Bleibt es so, um eine Prüfung bitten.</td></tr>
+  <tr><td>Die Schrift sieht anders aus</td><td>Die Wiener-Melange-Schrift wurde nicht geladen. Das ist ein Ladeproblem und kein Designfehler.</td></tr>
+  <tr><td>Ein Bild fehlt und ein grauer Kasten ist zu sehen</td><td>So gewollt: Es gab kein freigegebenes Foto. Eine Bild-URL im Prompt mitgeben, wenn eines verwendet werden darf.</td></tr>
+</table>
+
+<h2><span class="nr">11</span>Aktualisieren</h2>
+<pre><code>npx skills update</code></pre>
+<p>Mit dem eigenständigen Installer: <code>npx github:dariob13/Doop-Prototyper --force</code></p>
+
+<footer class="meta">
+  Skill stadt-wien-doop-prototyper, Version 1.1.0 · Quelle: github.com/dariob13/Doop-Prototyper · Theme Wiener Melange v2.10.0 · Stand November 2026. Kein offizielles Produkt der Stadt Wien.
+</footer>
+</body>
+</html>
