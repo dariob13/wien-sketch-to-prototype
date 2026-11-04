@@ -1,0 +1,1115 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/card/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-card size="m" clickable>
+  <h3 slot="heading">
+    <a href="#">Stadtteilentwicklungskonzept (SEK) &quot;Mitte 15&quot;</a>
+  </h3>
+  <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" alt="Platz mit Brunnen"/>
+  <div slot="content">
+    <p>
+      Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.
+    </p>
+  </div>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 1: Teaser Card gesamt verlinkt mit weiterem Klickelement -->
+<wm-card size="m" clickable>
+  <h2 slot="heading">
+    <a href="https://www.wien.gv.at/freizeit/amalienbad" data-clickable="on">Amalienbad</a>
+  </h2>
+  <wm-chip slot="precontent" color="flieder" size="s">Städtisch</wm-chip>
+  <div slot="content">
+    <wm-stack gap="s" grow vertical>
+      <wm-list gap="xs" clean="">
+        <ul>
+          <li data-fetch-condition="true:addressSet">
+            <wm-icon iconid="pin" width="28" height="28"></wm-icon>
+            <div>
+              <p data-fetch-field="address">10., Reumannplatz 23</p>
+            </div>
+          </li>
+          <li>
+            <wm-status
+              style="--status-size: 1.1rem;"
+              data-pool-status=""
+              status="1"
+              statustext="Hallenbad: offen bis 18.30 Uhr"
+              label=""
+              loadinglabel="Lade Auslastung…"></wm-status>
+          </li>
+        </ul>
+      </wm-list>
+    </wm-stack>
+  </div>
+  <div slot="postcontent">
+    <wm-button data-pool-ticket="" kind="primary" size="s" full="always">
+      <a href="#" class="wm-e-button" target="_blank">Ticket kaufen</a>
+    </wm-button>
+  </div>
+  <picture slot="media">
+    <img
+      width="810"
+      height="455"
+      alt=""
+      title=""
+      sizes="100vw"
+      loading="lazy"
+      src="https://www.wien.gv.at/bilder/_imager/bilder/ma44/baeder/4325829/amalienbad-titelbild.c8d2849df7.1780019561.jpg"></picture>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 2: Teaser Card mit Icon-Zeilen -->
+<wm-card size="m" clickable>
+    <h3 slot="heading">
+      <a href="#">Julius-Tandler-Platz</a>
+    </h3>
+    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/julius-tandler-platz-bahnhof.webp" alt="Skizze eines Bahnhofs mit Menschen, Straßenbahn im Vordergrund"/>
+    <div slot="content">
+      <wm-list clean>
+        <ul>
+          <li>
+            <wm-icon iconid="pin">Standort</wm-icon>
+            9., Julius-Tandler-Platz</li>
+          <li>
+            <wm-icon iconid="contact_alternative"></wm-icon>
+            Beteiligung: abgeschlossen</li>
+          <li>
+            <wm-icon iconid="clock"></wm-icon>
+            Stand: Konzepterstellung</li>
+        </ul>
+      </wm-list>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 3: Teaser Card ohne Text -->
+<wm-card size="m" clickable>
+    <h2 slot="heading">
+      <a href="#">Wiener Linien</a>
+    </h2>
+    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/wienerlinien-partner.jpg" alt="Visualisierung einer Straßenbahn mit grünbereich und U-Bahnschild, von oben"></wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 4: Teaser Card mit Video -->
+<wm-card size="m" clickable video>
+      <h3 slot="heading">
+        <a href="#">Alsergrunder Kultursommer 2024</a>
+      </h3>
+      <div slot="content">
+        Der 4. Alsergrunder Kultursommer bietet von 28. Juni bis 1. September 2024 ein abwechslungsreiches und buntes Veranstaltungsprogramm.
+      </div>
+      <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/alsergrunder-kultursommer.webp" title="copyright: Dusha Connection" alt="Die Musiker*innen, 4 Männer und eine Frau, posieren vor einem Rollbalken"/>
+    </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 5: Teaser Card mit Kategorie -->
+<wm-card size="m" clickable>
+      <h2 slot="heading">
+        <a href="#">Kindergarten</a>
+      </h2>
+      <wm-stack slot="content" gap="xxs" horizontal>
+        <wm-icon iconid="pin">Standort</wm-icon>
+        1., Rathausstraße 42</span>
+    </wm-stack>
+    <div slot="precontent">
+      <wm-chip color="flieder" size="s">Städtisch</wm-chip>
+    </div>
+    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png" alt="2D-Illustration eines Kindergartens mit Spielplatz und Kindern"/>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 6: Teaser Cards im Karussell -->
+<div>
+    <h2>Aktuelles</h2>
+    <wm-carousel dots>
+      <wm-card size="m" clickable>
+        <h3 slot="heading">
+          <a href="#">Alsergrunder Kultursommer 2024</a>
+        </h3>
+        <div slot="content">
+          Der 4. Alsergrunder Kultursommer bietet von 28. Juni bis 1. September 2024 ein abwechslungsreiches und buntes Veranstaltungsprogramm.
+        </div>
+        <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/alsergrunder-kultursommer.webp" title="copyright: Dusha Connection" alt="Die Musiker*innen, 4 Männer und eine Frau, posieren vor einem Rollbalken"/>
+      </wm-card>
+      <wm-card size="m" clickable>
+        <h3 slot="heading">
+          <a href="#">Klimabündnis Österreich</a>
+        </h3>
+        <div slot="content">
+          <p>
+            <strong>Der 9. Bezirk ist dem Klimabündnis Österreich beigetreten. Ziel ist, Bewusstsein für das Thema zu schaffen und nachhaltige Maßnahmen zu leben.</strong>
+          </p>
+          <p>Nach einstimmigem Beschluss der Bezirksvertretung trat Alsergrund dem Klimaschutzbündnis Österreich bei.</p>
+        </div>
+      </wm-card>
+      <wm-card canvas size="m" color="goldgelb" clickable>
+        <h3 slot="heading">
+          <a href="#">Klimabündnis Österreich</a>
+        </h3>
+        <div slot="content">
+          Der 9. Bezirk ist dem Klimabündnis Österreich beigetreten. Ziel ist, Bewusstsein für das Thema zu schaffen und nachhaltige Maßnahmen zu leben.
+        </div>
+        <div slot="media">
+          <wm-icon iconid="home" width="85"></wm-icon>
+        </div>
+      </wm-card>
+      <wm-card size="m" clickable>
+        <h3 slot="heading">
+          <a href="#">Umgestaltung Frankhplatz</a>
+        </h3>
+        <div slot="content">
+          Im Mai und Juni laden Bezirksvertretung und Gebietsbetreuung ein, sich über die Veränderungen zu informieren und Ideen einzubringen.
+        </div>
+        <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/planausschnitt-frankhplatz.webp" title="copyright: BV 9 - Gebietsbetreuung Stadterneuerung" alt="Stadtplanausschnitt rund um den Frankhplatz im 9. Bezirk"/>
+      </wm-card>
+      <wm-card size="m" clickable>
+        <h3 slot="heading">
+          <a href="#">Kindergarten-Anmeldungen</a>
+        </h3>
+        <div slot="content">
+          Kindergarten- und Hort-Anmeldungen sind ab jetzt möglich.
+        </div>
+        <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png" title="" alt="2D-Illustration eines Kindergartens mit Spielplatz und Kindern"/>
+      </wm-card>
+      <wm-card size="m" clickable>
+        <h3 slot="heading">
+          <a href="#">Urbanes Experiment Galileigasse</a>
+        </h3>
+        <div slot="content">
+          Die Galileigasse wird temporär umgestaltet und ist ab 7. Juni autofrei. Ein lebendiger Treffpunkt zeigt ab 14. Juni, wie eine langfristige Veränderung aussehen könnte.
+        </div>
+        <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/galileigasse.webp" title="copyright: Tim Dornaus epilogy.photography" alt="Grätzloase mit Holzzaun und Sitzmöbeln"/>
+      </wm-card>
+      <wm-card size="m" clickable>
+        <h3 slot="heading">
+          <a href="#">Lichtentalerpark wird vergrößert</a>
+        </h3>
+        <div slot="content">
+          Der Lichtentalerpark wird erweitert, um Anwohner*innen mehr Grünflächen zum Spielen und Erholen zu bieten.
+        </div>
+        <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/lichtentalerpark.webp" title="copyright: Wiener Stadtgärten" alt="Spielplatz in einem Park"/>
+      </wm-card>
+      <wm-card size="m" clickable>
+        <h3 slot="heading">
+          <a href="#">3 neue Bezirke fürs Klimateam</a>
+        </h3>
+        <div slot="content">
+          2024 startet das Wiener Klimateam im 9., 12. und 15. Bezirk. Ab September können Sie Ihre Ideen und Vorschläge einbringen.
+        </div>
+        <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/klimateam-neue-bezirke.webp" title="copyright: Stadt Wien/Martin VOTAVA" alt="Bezirksvorsteher Wilfried Zankl, Klimastadtrat Jürgen Czernohorszky, Bezirksvorsteherin Saya Ahmad und Bezirksvorsteher Dietmar Baurecht"/>
+      </wm-card>
+    </wm-carousel>
+    <wm-cta full="full" align="end">
+      <a href="#">
+        Mehr Neuigkeiten
+      </a>
+    </wm-cta>
+  </div>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 7: Teaser Card farbig mit Text -->
+<wm-card canvas size="m" color="flieder" position="block-end inline-start" clickable>
+    <h2 slot="media">
+      <a href="#">Mitte 15</a>
+    </h2>
+    <div slot="content">
+      <p>Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.</p>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 8: Teaser Card farbig mit Icon -->
+<wm-card canvas size="m" color="goldgelb" clickable>
+    <h2 slot="media">
+      <a href="#">
+        <wm-icon iconid="home" width="85">Linkt auf Seite</wm-icon>
+      </a>
+    </h2>
+    <div slot="content">
+      <p>Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.</p>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 9: Card mit Überschrift und Text -->
+<wm-card size="m">
+    <h3 slot="heading">
+      Stadtteilentwicklungskonzept (SEK) &quot;Mitte 15&quot;
+    </h3>
+    <div slot="content">
+      <p>
+        Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.
+      </p>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 10: Card mit Überschrift, Text und Link -->
+<wm-card size="m">
+    <h3 slot="heading">
+      Stadtteilentwicklungskonzept (SEK) &quot;Mitte 15&quot;
+    </h3>
+    <div slot="content">
+      <p>
+        Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.
+      </p>
+    </div>
+    <div slot="postcontent" class="wm-u-tar">
+      <wm-cta>
+        <a href="#">Mehr</a>
+      </wm-cta>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 11: Card mit Text und Button -->
+<wm-card size="l">
+    <h2 slot="heading">Newsletter</h2>
+    <div slot="content">
+      <p>Unser Newsletter informiert Sie über Veranstaltungen, Publikationen und Neuigkeiten in den Bereichen Statistik und
+        Innovation.</p>
+    </div>
+    <div slot="postcontent">
+      <wm-button full="true" kind="primary" color="frischgruen" alignment="center">
+        <a href="#" class="wm-e-button">Abonnieren</a>
+      </wm-button>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 12: Card volle Textbreite -->
+<wm-section contentsize="text">
+    <wm-card size="full">
+      <h3 slot="heading">Für den Online-Antrag benötigen Sie:</h3>
+      <div slot="content">
+        <ul>
+          <li>Zulassungsschein/e</li>
+          <li>Führerschein</li>
+          <li>Zugangsdaten im Falle elektronischer Bezahlung</li>
+        </ul>
+        <p>
+          <a href="#" class="wm-e-button">Antrag stellen</a>
+        </p>
+        <p>Weitere Unterlagen können erforderlich sein:</p>
+        <ul>
+          <li>Bei Leasing- oder Firmenfahrzeugen</li>
+          <li>Wenn Sie diplomatischen Status haben</li>
+          <li>Wenn Sie Inhaber*in eines Behindertenpasses sind (<a href="#unterlagen">"Erforderliche Unterlagen"</a>)</li>
+        </ul>
+      </div>
+    </wm-card>
+  </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 13: Card mit Tags -->
+<wm-card>
+    <div slot="content">
+      <wm-stack gap="s" vertical equal>
+        <h2>Kosten</h2>
+        Bitte erfragen Sie die jeweiligen Kosten direkt am Standort.
+      </wm-stack>
+    </div>
+    <div slot="postcontent">
+      <wm-tag-list>
+        <ul>
+          <li>
+            <wm-tag open="false">
+              <a href="#">Förderungen für Eltern</a>
+            </wm-tag>
+          </li>
+        </ul>
+      </wm-tag-list>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 14: Card mit Tabelle -->
+<wm-card size="l">
+    <h2 slot="heading">
+      Öffnungszeiten
+    </h2>
+    <div slot="content">
+      <p>
+        Montag bis Freitag: 9 bis 20 Uhr<br/> Samstag, Sonntag und Feiertage: 8 bis 20 Uhr
+      </p>
+      <p>
+        <strong>Ab 1. September:</strong><br/> Montag bis Freitag: 9 bis 19 Uhr<br/> Samstag, Sonntag und Feiertage: 8 bis 19 Uhr
+      </p>
+      <div>
+        <table>
+          <caption>Preise</caption>
+          <thead>
+            <tr>
+              <th>Tarif</th>
+              <th>Kosten</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Erwachsene</td>
+              <td>5,90 Euro</td>
+            </tr>
+            <tr>
+              <td>Erwachsene ermäßigt</td>
+              <td>4,40 Euro</td>
+            </tr>
+            <tr>
+              <td>Jugendlich</td>
+              <td>3,20 Euro</td>
+            </tr>
+            <tr>
+              <td>Kinder</td>
+              <td>3,20 Euro</td>
+            </tr>
+            <tr>
+              <td>Kleinkinder</td>
+              <td>Gratis</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <table>
+          <caption>Parkscheinkosten</caption>
+          <thead>
+            <tr>
+              <th>Dauer</th>
+              <th>Preis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15 Minuten (Parkschein Violett)</td>
+              <td>Gebührenfrei</td>
+            </tr>
+            <tr>
+              <td>30 Minuten (Parkschein Rot)</td>
+              <td>1,05 Euro</td>
+            </tr>
+            <tr>
+              <td>1 Stunde (Parkschein Blau)</td>
+              <td>2,10 Euro</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 15: Card responsive mit Bild -->
+<wm-card size="full-responsive">
+    <h2 slot="heading">
+      Kindergarten
+    </h2>
+    <div slot="precontent">
+      <wm-chip color="flieder" size="s">Städtisch</wm-chip>
+    </div>
+    <picture slot="media">
+      <source media="(max-width: 600px)" srcset="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png">
+        <source media="(min-width: 1024)" srcset="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten_1x1.webp">
+          <img src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten_1x1.webp" alt="2D-Illustration eines Kindergartens mit Spielplatz und Kindern"/>
+        </picture>
+        <div slot="content">
+          <wm-stack vertical>
+            <p>Kindergarten- und Hort-Anmeldungen sind ab jetzt möglich.</p>
+            <wm-list type="row">
+              <ul>
+                <li>
+                  <wm-icon iconid="pin">Standort</wm-icon>
+                  9., Julius-Tandler-Platz</li>
+                <li>
+                  <wm-icon iconid="clock"></wm-icon>
+                  Wann: ab 1.11.20XX</li>
+              </ul>
+            </wm-list>
+          </wm-stack>
+        </div>
+        <div slot="postcontent" class="wm-u-tar">
+          <wm-cta>
+            <a href="#">Anmeldung Kindergarten</a>
+          </wm-cta>
+        </div>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 16: Card responsive farbig mit Icon -->
+<wm-card canvas color="flieder" size="full-responsive">
+        <h2 slot="heading">
+          Kindergarten
+        </h2>
+        <div slot="media">
+          <wm-icon iconid="home" width="150"></wm-icon>
+        </div>
+        <div slot="precontent">
+          <wm-chip color="flieder" size="s">Städtisch</wm-chip>
+        </div>
+        <div slot="content">
+          <wm-stack vertical>
+            <p>Kindergarten- und Hort-Anmeldungen sind ab jetzt möglich.</p>
+            <wm-list type="row">
+              <ul>
+                <li>
+                  <wm-icon iconid="pin">Standort</wm-icon>
+                  9., Julius-Tandler-Platz</li>
+                <li>
+                  <wm-icon iconid="clock"></wm-icon>
+                  Wann: ab 1.11.20XX</li>
+              </ul>
+            </wm-list>
+          </wm-stack>
+        </div>
+        <div slot="postcontent" class="wm-u-tar">
+          <wm-cta>
+            <a href="#">Anmeldung Kindergarten</a>
+          </wm-cta>
+        </div>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 17: Card mit Links und Bild -->
+<wm-card size="m" clickable>
+        <h2 slot="heading">Sicher unterwegs</h2>
+        <div slot="content">
+          <wm-list gap="xs">
+            <ul>
+              <li><a href="#">Sicherheitstipps</a></li>
+              <li><a href="#">Verkehrsregeln für Radfahrer*innen</a></li>
+              <li><a href="#">Bodenmarkierungen</a></li>
+              <li><a href="#">Verkehrszeichen</a></li>
+              <li><a href="#">Beschilderung von Radwegen</a></li>
+            </ul>
+          </wm-list>
+        </div>
+        <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/julius-tandler-platz-bahnhof.webp" alt="Skizze eines Bahnhofs mit Menschen, Straßenbahn im Vordergrund"/>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 18: Card mit Links ohne Bild -->
+<wm-card size="m">
+        <h2 slot="heading">Sicher unterwegs</h2>
+        <div slot="content">
+          <wm-list gap="xs">
+            <ul>
+              <li><a href="#">Sicherheitstipps</a></li>
+              <li><a href="#">Verkehrsregeln für Radfahrer*innen</a></li>
+              <li><a href="#">Bodenmarkierungen</a></li>
+              <li><a href="#">Verkehrszeichen</a></li>
+              <li><a href="#">Beschilderung von Radwegen</a></li>
+            </ul>
+          </wm-list>
+        </div>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 19: Card mit Quicklink-Liste -->
+<wm-card size="m">
+        <div slot="content">
+          <wm-quicklinks cols="1">
+            <ul>
+              <li>
+                <wm-cta full="">
+                  <a href="#">Anmeldung Kindergarten</a>
+                </wm-cta>
+              </li>
+              <li>
+                <wm-cta full="">
+                  <a href="#">Anmeldung Hort</a>
+                </wm-cta>
+              </li>
+            </ul>
+          </wm-quicklinks>
+        </div>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 20: Card mit Video -->
+<wm-card size="l">
+        <h2 slot="heading">
+          <a href="#">Marathon-Weltrekordversuch in Wien</a>
+        </h2>
+        <figure slot="content">
+          <iframe
+            width="650"
+            allowfullscreen="allowfullscreen"
+            scrolling="auto"
+            loading="lazy"
+            src="https://www.wien.gv.at/video/embed/index.html?mid=2387"
+            title="Marathon-Weltrekordversuch in Wien">
+            <a href="https://www.wien.gv.at/video/embed/index.html?mid=2387">
+              Marathon-Weltrekordversuch in Wien
+            </a>
+          </iframe>
+        </figure>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 21: Card mit Infobox ohne Media-Element -->
+<wm-card size="l">
+        <wm-list type="row" slot="content">
+          <ul>
+            <li>
+              <wm-icon iconid="clock"></wm-icon>
+              Stand: Grundlagenerhebung
+            </li>
+            <li>
+              <wm-icon iconid="pin">Standort</wm-icon>
+              <a href="#">15., Umgebung Westbahnhof</a>
+            </li>
+            <li>
+              <wm-icon iconid="contact_alternative"></wm-icon>
+              Beteiligung: Offen
+            </li>
+            <li>
+              <wm-icon iconid="info"></wm-icon>
+              <p>
+                <a href="https://www.mitte15.at/">Mitte 15 - Du und dein Grätzl. Gestalte mit!</a>
+                <br/>
+                <a href="https://www.mitte15.at/">Weiterer Link</a>
+              </p>
+            </li>
+          </ul>
+        </wm-list>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 22: Card mit Infobox und Media-Element horizontal -->
+<wm-card size="default">
+        <wm-stack slot="content" equal grow gap="m">
+          <div>
+            <wm-list type="row">
+              <ul>
+                <li>
+                  <wm-icon iconid="pin"></wm-icon>
+                  Lage:
+                  <a href="#">22., Donaupark</a>
+                </li>
+                <li>
+                  <wm-icon iconid="info"></wm-icon>
+                  Größe: circa 632.966 Quadratmeter
+                </li>
+                <li>
+                  <wm-icon iconid="info"></wm-icon>
+                  Angebote: Spielplätze, Sportanlagen, Sehenswürdigkeiten
+                </li>
+                <li>
+                  <wm-icon iconid="download"></wm-icon>
+                  <a href="#">Übersichtsplan</a>
+                </li>
+                <li>
+                  <wm-icon iconid="telefon"></wm-icon>
+                  <div>
+                    Telefon:
+                    <a href="tel:">+43 1 4000 xxxx</a>
+                  </div>
+                </li>
+              </ul>
+            </wm-list>
+          </div>
+          <div>
+            <iframe
+              allowfullscreen
+              style="overflow: auto; border:none;"
+              scrolling="auto"
+              frameborder="0"
+              src="https://www.wien.gv.at/video/embed/index.html?mid=694"
+              width="1000"
+              name="wien.gv.at Video"
+              title="wien.gv.at Video">
+              <a href="https://www.wien.gv.at/video/embed/index.html?mid=694">
+                Video</a>
+            </iframe>
+          </div>
+        </wm-stack>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 23: Card mit Infobox und Media-Element vertikal -->
+<wm-card size="l">
+        <h2 slot="heading">Auer-Welsbach-Park</h2>
+        <wm-map-alt
+          slot="media"
+          id="innenstadt"
+          geocoder
+          update
+          center="16.383657562770395, 48.21091265008741"
+          style="--map-ratio: 16 / 9;--map-height: auto;">
+          <wm-mapmarker lat="48.18859589" lng="16.31648157"></wm-mapmarker>
+        </wm-map-alt>
+        <div slot="content">
+          <wm-list type="row">
+            <ul>
+              <li>
+                <wm-icon iconid="vienna"></wm-icon>
+                <span>15. Bezirk</span>
+              </li>
+              <li>
+                <wm-icon iconid="clock"></wm-icon>
+                Öffnungszeiten: 0 bis 24 Uhr
+              </li>
+              <li>
+                <wm-icon iconid="park"></wm-icon>
+                <span>Größe: circa 110.517 Quadratmeter</span>
+              </li>
+              <li>
+                <wm-icon iconid="phone"></wm-icon>
+                Telefon: 01 4000 8042
+              </li>
+              <li>
+                <wm-icon iconid="language"></wm-icon>
+                <a href="#">Website</a>
+              </li>
+              <li>
+                <wm-stack wrap="" gap="xxs" horizontal="">
+                  <wm-chip color="frischgruen" size="s">
+                    <wm-icon iconid="water" width="22"></wm-icon>
+                    Wasser im Park</wm-chip>
+                  <wm-chip color="frischgruen" size="s">
+                    <wm-icon iconid="games" width="22"></wm-icon>
+                    Spielen erlaubt</wm-chip>
+                  <wm-chip color="morgenrot" size="s">
+                    <wm-icon iconid="dogno" width="22"></wm-icon>
+                    Hunde verboten</wm-chip>
+                </wm-stack>
+              </li>
+            </ul>
+          </wm-list>
+        </div>
+      </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 24: Card mit Media-Element und Text -->
+<wm-section contentsize="full" highlight="nebelgrau">
+        <div>
+          <h2>Klimafahrplan</h2>
+          <wm-stack vertical gap="m">
+            <div>
+              <wm-grid size="full" gap="m">
+                <wm-card>
+                  <wm-stack gap="m" slot="content" equal grow>
+                    <div>
+                      <wm-stack vertical gap="s">
+                        <a href="https://handbuch.wien.gv.at/images/pattern/cards/klimafahrplan.webp" data-modal="image1545457259">
+                          <img src="https://handbuch.wien.gv.at/images/pattern/cards/klimafahrplan.webp" width="770" height="433" alt="Illustration zum Thema Klimafahrplan 2040" title="copyright: Stadt Wien" loading="lazy"/>
+                        </a>
+                        <template id="image1545457259">
+                          <wm-carousel single="1070" style="--carousel-shadow-offset: 0px" hidedots="" label="Bilder">
+                            <div class="image">
+                              <img src="https://handbuch.wien.gv.at/images/pattern/cards/klimafahrplan.webp" width="1140" height="641" alt="Illustration zum Thema Klimafahrplan 2040" title="copyright: Stadt Wien" sizes="100vw" loading="lazy"/>
+                            </div>
+                          </wm-carousel>
+                        </template>
+                      </wm-stack>
+                    </div>
+                    <div>
+                      <wm-stack vertical gap="s">
+                        <p>
+                          Wien will bis 2040 klimaneutral sein. Der Wiener Klimafahrplan legt Ziele fest, um die Klimaneutralität zu erreichen. Er
+                          enthält über 100 Maßnahmen, die laufend ergänzt und angepasst werden. Im Mittelpunkt der sozialen Wiener Klimapolitik
+                          steht das Wohlergehen und die Gesundheit aller Menschen in der Stadt.
+                        </p>
+                      </wm-stack>
+                    </div>
+                  </wm-stack>
+                  <div slot="postcontent">
+                    <wm-cta full align="right">
+                      <a href="https://www.wien.gv.at/spezial/klimafahrplan/">Zum Klimafahrplan</a>
+                    </wm-cta>
+                  </div>
+                </wm-card>
+              </wm-grid>
+            </div>
+          </wm-stack>
+        </div>
+      </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 25: Card mit Livestream -->
+<wm-section contentsize="full" highlight="nebelgrau">
+        <div>
+          <wm-stack gap="m" vertical grow>
+            <div>
+              <wm-grid size="full" gap="m">
+                <wm-card>
+                  <h2 slot="heading">Gemeinderat live</h2>
+                  <wm-stack gap="m" slot="content">
+                    <p>wien.gv.at überträgt ab 9 Uhr die Sitzung des Wiener Gemeinderates. Die Live-Übertragung ist auch für mobile Geräte
+                      verfügbar.<br></p>
+                    </wm-stack>
+                    <wm-stack gap="m" slot="content" equal grow>
+                      <iframe
+                        allowfullscreen
+                        style="overflow: auto; border:none;"
+                        scrolling="auto"
+                        frameborder="0"
+                        src="https://www.wien.gv.at/video/embed/index.html?mid=694"
+                        width="1000"
+                        name="wien.gv.at Video"
+                        title="wien.gv.at Video">
+                        <a href="https://www.wien.gv.at/video/embed/index.html?mid=694">
+                          Video</a>
+                      </iframe>
+                      <div>
+                        <wm-stack vertical gap="s">
+                          <h3>Unterlagen</h3>
+                          <p>
+                            <a href="https://www.wien.gv.at/gr-ltg-tv/gr251216.rtf">Tagesordnung als RTF</a>
+                            <br>
+                              <a href="https://www.wien.gv.at/gr-ltg-tv/gr251216.pdf">Tagesordnung als PDF</a>
+                              <br>
+                                <a href="https://wien.kavedo.com/list_pdf/wien_gr_16_12_2025_8.pdf">Redner*innenliste</a>
+                              </p>
+                              <h3>Berichterstattung</h3>
+                              <p>
+                                <a href="https://www.wien.gv.at/infodat/">Informationsdatenbank</a>
+                                <br>
+                                  <a href="https://presse.wien.gv.at/">Berichterstattung</a>
+                                </p>
+                              </wm-stack>
+                            </div>
+                          </wm-stack>
+                          <div slot="postcontent" class="wm-u-tar">
+                            <div>
+                              <wm-cta>
+                                <a href="https://www.wien.gv.at/video/live/grlt/player.html?d=16_12_2025&amp;r=gr&amp;n=8">Zur Live-Übertragung</a>
+                              </wm-cta>
+                            </div>
+                          </div>
+                        </wm-card>
+                      </wm-grid>
+                    </div>
+                  </wm-stack>
+                </div>
+              </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 26: Card Visitenkarte 50 Prozent -->
+<wm-card size="l">
+                <h2 slot="heading">Bezirksvorsteherin Maria Magistrati</h2>
+                <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg" alt="Foto Maria Magistrati" loading="lazy"/>
+                <div slot="content">
+                  <wm-stack vertical gap="m">
+                    <wm-list gap="xs" type="row" clean>
+                      <ul>
+                        <li>
+                          <wm-icon iconid="info" width="28" height="28"></wm-icon>
+                          <div>
+                            <strong>Sprechstunden</strong>
+                            finden jeden letzten Dienstag im Monat statt:
+                            <a href="#">Anmeldung</a>
+                          </div>
+                        </li>
+                        <li>
+                          <wm-icon iconid="pin" width="28" height="28">Standort</wm-icon>
+                          <div>
+                            <a href="#">1., Rathausstraße 42</a>, 1. Stock, Zimmer 318
+                          </div>
+                        </li>
+                        <li>
+                          <wm-icon iconid="telefon" width="28" height="28"></wm-icon>
+                          <div>
+                            Telefon:
+                            <a href="tel:">+43 1 4000 xxxx</a>
+                          </div>
+                        </li>
+                        <li>
+                          <wm-icon iconid="email" width="28" height="28"></wm-icon>
+                          <div>
+                            E-Mail:
+                            <a href="mailto:maria.magistrati@wien.gv.at">maria.magistrati@wien.gv.at</a>
+                          </div>
+                        </li>
+                        <li>
+                          <wm-icon iconid="contact_alternative" width="28" height="28"></wm-icon>
+                          <div>
+                            <a href="#">Kontaktformular für Ihre Meinung</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </wm-list>
+                    <wm-list gap="xs" type="horizontal">
+                      <ul>
+                        <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook">facebook</wm-icon></a></li>
+                        <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram">instagram</wm-icon></a></li>
+                      </ul>
+                    </wm-list>
+                  </wm-stack>
+                </div>
+              </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 27: Card Visitenkarte 100 Prozent -->
+<wm-card>
+                <h2 slot="heading">Bezirksvorsteherin Maria Magistrati</h2>
+                <wm-stack gap="m" slot="content" equal grow>
+                  <div>
+                    <wm-stack vertical gap="s">
+                      <figure>
+                        <a href="#" data-modal="image1631644986">
+                          <img src="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg" alt="Foto Maria Magistrati" title="" loading="lazy"/>
+                        </a>
+                        <figcaption>
+                          <a href="#">Pressefoto herunterladen</a>
+                        </figcaption>
+                      </figure>
+                      <template id="image1631644986">
+                        <wm-carousel single="1070" style="--carousel-shadow-offset: 0px" hidedots="" label="Bilder">
+                          <figure class="image">
+                            <picture>
+                              <source type="image/webp" srcset="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg 1140w" sizes="100vw"/>
+                              <img src="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg" srcset="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg 1140w" width="1140" height="641" alt="Foto Maria Magistrati" title="" sizes="100vw" loading="lazy"/>
+                            </picture>
+                            <figcaption>
+                              <a href="#">Pressefoto herunterladen</a>
+                            </figcaption>
+                          </figure>
+                        </wm-carousel>
+                      </template>
+                    </wm-stack>
+                  </div>
+                  <div>
+                    <wm-stack vertical gap="m">
+                      <wm-list gap="xs" type="row" clean>
+                        <ul>
+                          <li>
+                            <wm-icon iconid="info" width="28" height="28"></wm-icon>
+                            <div>
+                              <strong>Sprechstunden</strong>
+                              finden jeden letzten Dienstag im Monat statt:
+                              <a href="#">Anmeldung</a>
+                            </div>
+                          </li>
+                          <li>
+                            <wm-icon iconid="pin" width="28" height="28">Standort</wm-icon>
+                            <div>
+                              <a href="#">1., Rathausstraße 42</a>, 1. Stock, Zimmer 318
+                            </div>
+                          </li>
+                          <li>
+                            <wm-icon iconid="telefon" width="28" height="28"></wm-icon>
+                            <div>
+                              Telefon:
+                              <a href="tel:">+43 1 4000 xxxx</a>
+                            </div>
+                          </li>
+                          <li>
+                            <wm-icon iconid="email" width="28" height="28"></wm-icon>
+                            <div>
+                              E-Mail:
+                              <a href="mailto:maria.magistrati@wien.gv.at">maria.magistrati@wien.gv.at</a>
+                            </div>
+                          </li>
+                          <li>
+                            <wm-icon iconid="contact_alternative" width="28" height="28"></wm-icon>
+                            <div>
+                              <a href="#">Kontaktformular für Ihre Meinung</a>
+                            </div>
+                          </li>
+                        </ul>
+                      </wm-list>
+                      <wm-list gap="xs" type="horizontal">
+                        <ul>
+                          <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook">facebook</wm-icon></a></li>
+                          <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram">instagram</wm-icon></a></li>
+                        </ul>
+                      </wm-list>
+                    </wm-stack>
+                  </div>
+                </wm-stack>
+              </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 28: Card mit Eigenschaften -->
+<wm-card size="m">
+                <h3 slot="heading">
+                  Stadtteilentwicklungskonzept (SEK) &quot;Mitte 15&quot;
+                </h3>
+                <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" alt="Platz mit Brunnen"/>
+                <div slot="content">
+                  <p>
+                    Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.
+                  </p>
+                </div>
+                <div slot="postcontent">
+                  <wm-chip color="frischgruen" size="s">In Planung</wm-chip>
+                </div>
+              </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 29: Card mit Chip und Icon -->
+<wm-card size="m">
+                <h3 slot="heading">
+                  Stadtteilentwicklungskonzept (SEK) &quot;Mitte 15&quot;
+                </h3>
+                <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" alt="Platz mit Brunnen"/>
+                <div slot="content">
+                  <p>
+                    Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.
+                  </p>
+                </div>
+                <div slot="postcontent">
+                  <wm-chip color="morgenrot" size="s">
+                    <wm-icon iconid="dogno" width="22"></wm-icon>
+                    Hunde verboten
+                  </wm-chip>
+                </div>
+              </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 30: Card mit Kategorie -->
+<wm-card size="m">
+                <h2 slot="heading">
+                  <a href="#">Kindergarten</a>
+                </h2>
+                <wm-stack slot="content" gap="xxs" horizontal>
+                  <wm-icon iconid="pin">Standort</wm-icon>
+                  <span>1., Rathausstraße 42</span>
+                </wm-stack>
+                <div slot="precontent">
+                  <wm-chip color="flieder" size="s">Städtisch</wm-chip>
+                </div>
+                <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png" alt="2D-Illustration eines Kindergartens mit Spielplatz und Kindern"/>
+              </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 31: Card mit Störer eckig -->
+<wm-card size="l">
+                <h2 slot="heading">
+                  Praterturm im Wiener Prater
+                </h2>
+                <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/praterturm.jpg" alt="Praterturm von unten">
+                  <div slot="content">
+                    Am Prater-Montag erhalten Sie beim Kauf eines Tickets ein 2. gratis.
+                  </div>
+                  <div slot="eyecatcher">
+                    1+1 Gratis
+                  </div>
+                </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 32: Card mit Störer rund -->
+<wm-card size="m" eyecatcher="round" position="block-start inline-start">
+                  <h3 slot="heading">
+                    Stadtteilentwicklungskonzept (SEK) &quot;Mitte 15&quot;
+                  </h3>
+                  <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" alt="Platz mit Brunnen"/>
+                  <div slot="content">
+                    <p>
+                      Für von den ÖBB nicht mehr benötigte Lagerflächen entlang der Felberstraße gibt es einen breiten Beteiligungs- und Planungsprozess.
+                    </p>
+                  </div>
+                  <div slot="eyecatcher">-10%</div>
+                </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 33: Reihen mit mittleren Teaser Cards -->
+<wm-grid size="m" gap="s">
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Alsergrunder Kultursommer 2024</a>
+                    </h3>
+                    <div slot="content">
+                      Der 4. Alsergrunder Kultursommer bietet von 28. Juni bis 1. September 2024 ein abwechslungsreiches und buntes Veranstaltungsprogramm.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/alsergrunder-kultursommer.webp" title="copyright: Dusha Connection" alt="Die Musiker*innen, 4 Männer und eine Frau, posieren vor einem Rollbalken"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Umgestaltung Frankhplatz</a>
+                    </h3>
+                    <div slot="content">
+                      Im Mai und Juni laden Bezirksvertretung und Gebietsbetreuung ein, sich über die Veränderungen zu informieren und Ideen einzubringen.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/planausschnitt-frankhplatz.webp" title="copyright: BV 9 - Gebietsbetreuung Stadterneuerung" alt="Stadtplanausschnitt rund um den Frankhplatz im 9. Bezirk"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Kindergarten-Anmeldungen</a>
+                    </h3>
+                    <div slot="content">
+                      Kindergarten- und Hort-Anmeldungen sind ab jetzt möglich.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png" title="" alt="2D-Illustration eines Kindergartens mit Spielplatz und Kindern"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Urbanes Experiment Galileigasse</a>
+                    </h3>
+                    <div slot="content">
+                      Die Galileigasse wird temporär umgestaltet und ist ab 7. Juni autofrei. Ein lebendiger Treffpunkt zeigt ab 14. Juni, wie eine langfristige Veränderung aussehen könnte.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/galileigasse.webp" title="copyright: Tim Dornaus epilogy.photography" alt="Grätzloase mit Holzzaun und Sitzmöbeln"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Lichtentalerpark wird vergrößert</a>
+                    </h3>
+                    <div slot="content">
+                      Der Lichtentalerpark wird erweitert, um Anwohner*innen mehr Grünflächen zum Spielen und Erholen zu bieten.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/lichtentalerpark.webp" title="copyright: Wiener Stadtgärten" alt="Spielplatz in einem Park"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">3 neue Bezirke fürs Klimateam</a>
+                    </h3>
+                    <div slot="content">
+                      2024 startet das Wiener Klimateam im 9., 12. und 15. Bezirk. Ab September können Sie Ihre Ideen und Vorschläge einbringen.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/klimateam-neue-bezirke.webp" title="copyright: Stadt Wien/Martin VOTAVA" alt="Bezirksvorsteher Wilfried Zankl, Klimastadtrat Jürgen Czernohorszky, Bezirksvorsteherin Saya Ahmad und Bezirksvorsteher Dietmar Baurecht"/>
+                  </wm-card>
+                </wm-grid>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 34: Reihen mit großen Teaser Cards -->
+<wm-grid size="l" gap="xs">
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Alsergrunder Kultursommer 2024</a>
+                    </h3>
+                    <div slot="content">
+                      Der 4. Alsergrunder Kultursommer bietet von 28. Juni bis 1. September 2024 ein abwechslungsreiches und buntes Veranstaltungsprogramm.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/alsergrunder-kultursommer.webp" title="copyright: Dusha Connection" alt="Die Musiker*innen, 4 Männer und eine Frau, posieren vor einem Rollbalken"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Umgestaltung Frankhplatz</a>
+                    </h3>
+                    <div slot="content">
+                      Im Mai und Juni laden Bezirksvertretung und Gebietsbetreuung ein, sich über die Veränderungen zu informieren und Ideen einzubringen.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/planausschnitt-frankhplatz.webp" title="copyright: BV 9 - Gebietsbetreuung Stadterneuerung" alt="Stadtplanausschnitt rund um den Frankhplatz im 9. Bezirk"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Kindergarten-Anmeldungen</a>
+                    </h3>
+                    <div slot="content">
+                      Kindergarten- und Hort-Anmeldungen sind ab jetzt möglich.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png" title="" alt="2D-Illustration eines Kindergartens mit Spielplatz und Kindern"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Urbanes Experiment Galileigasse</a>
+                    </h3>
+                    <div slot="content">
+                      Die Galileigasse wird temporär umgestaltet und ist ab 7. Juni autofrei. Ein lebendiger Treffpunkt zeigt ab 14. Juni, wie eine langfristige Veränderung aussehen könnte.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/galileigasse.webp" title="copyright: Tim Dornaus epilogy.photography" alt="Grätzloase mit Holzzaun und Sitzmöbeln"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">Lichtentalerpark wird vergrößert</a>
+                    </h3>
+                    <div slot="content">
+                      Der Lichtentalerpark wird erweitert, um Anwohner*innen mehr Grünflächen zum Spielen und Erholen zu bieten.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/lichtentalerpark.webp" title="copyright: Wiener Stadtgärten" alt="Spielplatz in einem Park"/>
+                  </wm-card>
+                  <wm-card clickable>
+                    <h3 slot="heading">
+                      <a href="#">3 neue Bezirke fürs Klimateam</a>
+                    </h3>
+                    <div slot="content">
+                      2024 startet das Wiener Klimateam im 9., 12. und 15. Bezirk. Ab September können Sie Ihre Ideen und Vorschläge einbringen.
+                    </div>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/klimateam-neue-bezirke.webp" title="copyright: Stadt Wien/Martin VOTAVA" alt="Bezirksvorsteher Wilfried Zankl, Klimastadtrat Jürgen Czernohorszky, Bezirksvorsteherin Saya Ahmad und Bezirksvorsteher Dietmar Baurecht"/>
+                  </wm-card>
+                </wm-grid>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/card/ — variant 35: Reihen mit kleinen Teaser Cards -->
+<wm-grid size="s" gap="s">
+                  <wm-card size="s" clickable>
+                    <h3 slot="heading">
+                      <a href="#">Alsergrunder Kultursommer 2024</a>
+                    </h3>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/alsergrunder-kultursommer.webp" title="copyright: Dusha Connection" alt="Die Musiker*innen, 4 Männer und eine Frau, posieren vor einem Rollbalken"/>
+                  </wm-card>
+                  <wm-card size="s" clickable>
+                    <h3 slot="heading">
+                      <a href="#">Kindergarten-Anmeldungen</a>
+                    </h3>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png" title="" alt="2D-Illustration eines Kindergartens mit Spielplatz und Kindern"/>
+                  </wm-card>
+                  <wm-card size="s" clickable>
+                    <h3 slot="heading">
+                      <a href="#">Lichtentalerpark wird vergrößert</a>
+                    </h3>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/lichtentalerpark.webp" title="copyright: Wiener Stadtgärten" alt="Spielplatz in einem Park"/>
+                  </wm-card>
+                  <wm-card size="s" clickable>
+                    <h3 slot="heading">
+                      <a href="#">3 neue Bezirke fürs Klimateam</a>
+                    </h3>
+                    <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/carousel/klimateam-neue-bezirke.webp" title="copyright: Stadt Wien/Martin VOTAVA" alt="Bezirksvorsteher Wilfried Zankl, Klimastadtrat Jürgen Czernohorszky, Bezirksvorsteherin Saya Ahmad und Bezirksvorsteher Dietmar Baurecht"/>
+                  </wm-card>
+                </wm-grid>

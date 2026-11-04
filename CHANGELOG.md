@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-11-04
+
+- No terminal needed. `dist/wien-revamp.zip` uploads in the Claude app (Customize > Skills > Upload a skill), or a Team/Enterprise owner provisions it for everyone. Doop and Figma connect as connectors in the app. Build the ZIP with `tools/build-zips.sh`.
+- Offline handbook snapshot in `references/samples/` (52 patterns, theme v2.10.0), made with `scripts/snapshot_patterns.py`. The skill uses it when its sandbox cannot reach handbuch.wien.gv.at. `selfcheck.py` checks that its theme version is current.
+- Handbook changes from 2026-11-04: `divider` is now `trenner`, there is a new pattern `ladebildschirm`, and the icon catalog (227) and illustration catalog (207) are refreshed.
+- References to `AskUserQuestion` and `figma-use` now work in clients that lack them.
+- German guides in `guides/` describe the setup in the app only.
+
 ## 0.2.0 — 2026-11-04
 
 - Icons and illustrations: only the official handbook sources are allowed. Icons come from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/> (228 pictograms) and illustrations from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/> (219). New `scripts/fetch_assets.py` (catalog and search, `--refresh`) and `references/icons-illustrations.md` (rules and embedding). Cached catalogs are in `references/*-catalog.tsv`.

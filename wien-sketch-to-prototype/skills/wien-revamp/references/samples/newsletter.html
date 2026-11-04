@@ -1,0 +1,58 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/newsletter/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/newsletter/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-section highlight="true">
+  <wm-grid size="l">
+    <wm-card size="l">
+      <h3 slot="heading">Kontakt</h3>
+      <div slot="content">
+        <strong>Maria Magistrati</strong><br>
+        <p>
+          E-Mail: <a href="mailto:maria.magistrati@wien.gv.at">maria.magistrati@wien.gv.at</a><br>
+          Telefon: <a href="tel:+4314000xxxx">+43 1 4000 xxxx</a>
+        </p>
+        <p>
+          <a href="#">Kontaktformular</a><br>
+          <a href="#">Über die Landesstatistik Wien</a>
+        </p>
+      </div>
+    </wm-card>
+    <wm-card size="l">
+      <h2 slot="heading">Newsletter</h2>
+      <div slot="content">
+        <p>Unser Newsletter informiert Sie über Veranstaltungen, Publikationen und Neuigkeiten in den Bereichen Statistik und Innovation.</p>
+      </div>
+      <div slot="postcontent">
+        <wm-button  full="true" kind="primary" color="frischgruen" alignment="center">
+          <a href="#" class="wm-e-button">Abonnieren</a>
+        </wm-button>
+      </div>
+    </wm-card>
+  </wm-grid>
+</wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/newsletter/ — variant 1: Newsletter Section -->
+<wm-section highlight="frischgruen">
+  <h2>
+    <wm-icon width="32" iconid="email"></wm-icon>
+    Bleib laufend informiert!
+  </h2>
+  <form>
+    <wm-stack gap="">
+      <input type="email" name="email" placeholder="E-Mail-Adresse"/>
+      <wm-button color="frischgruen">
+        <a href="#" class="wm-e-button" style="white-space:nowrap;">
+          Anmelden
+        </a>
+      </wm-button>
+    </wm-stack>
+    <div>
+      <input type="checkbox" name="zustimmung_erhalt" id="dsvgo_analytics" value="1" required="required"/>
+      <label for="dsvgo_analytics">
+        Ja, ich stimme zu, dass die von mir oben angegebenen personenbezogenen Daten gemäß der
+        <a href='https://www.wien.gv.at/newsletter/wienat/datenschutz.html'>datenschutzrechtlichen Informationen</a>
+        verarbeitet und gespeichert werden. Ich kann diese Zustimmung jederzeit widerrufen.
+        <abbr title="Pflichtfeld">*</abbr>
+      </label>
+    </div>
+  </form>
+</wm-section>

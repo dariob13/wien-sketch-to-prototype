@@ -1,0 +1,194 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-fetch pagination="button" dataset="features" url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SCHWIMMBADOGD&srsName=EPSG:4326&outputFormat=json">
+  <div slot="results">
+    <wm-quicklinks>
+      <ul data-fetch-content>
+      </ul>
+    </wm-quicklinks>
+  </div>
+  <template slot="template">
+    <li class="wm-quicklinks-item">
+      <wm-cta full="true">
+        <a data-fetch-attribute="href:properties.WEBLINK1" data-fetch-field="properties.NAME">Website</a>
+      </wm-cta>
+    </li>
+  </template>
+</wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ — variant 1: Fetch mit Quicklink-Liste und Paginierung -->
+<wm-fetch pagination="number" dataset="features" url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SCHWIMMBADOGD&srsName=EPSG:4326&outputFormat=json">
+  <div slot="results">
+    <wm-quicklinks>
+      <ul data-fetch-content>
+      </ul>
+    </wm-quicklinks>
+  </div>
+  <template slot="template">
+    <li class="wm-quicklinks-item">
+      <wm-cta full="true">
+        <a data-fetch-attribute="href:properties.WEBLINK1" data-fetch-field="properties.NAME">Website</a>
+      </wm-cta>
+    </li>
+  </template>
+</wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ — variant 2: Fetch mit Status -->
+<wm-fetch dataset="features" url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SCHWIMMBADOGD&srsName=EPSG:4326&outputFormat=json&cql_filter=strIndexOf(WEBLINK1%2C%27floridsdorf%27)%3E-1">
+  <div slot="results">
+    <wm-status data-fetch-attributes data-fetch-attribute1="statusText:properties.AUSLASTUNG_AMPEL_KAT_TXT_0" data-fetch-attribute2="status:properties.AUSLASTUNG_AMPEL_KATEGORIE_0">
+    </wm-status>
+  </div>
+</wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ — variant 3: Fetch mit sortierbarer Tabelle -->
+<wm-fetch json='[{"name": "test1", "id": "4"}, {"name": "test2", "id": "14"}, {"name": "test3", "id": "7"}, {"name": "test4", "id": "2"}, {"name": "test5", "id": "34"}, {"name": "test6", "id": "89"}, {"name": "test7", "id": "55"}]' pagination="number" itemsPerPage="4" _debug>
+  <wm-table header="nebelgrau" border="full" zebra="even" sort="true, true, false">
+    <table>
+      <caption>Angenommene Anträge</caption>
+      <thead>
+        <tr>
+          <th data-fetch-sort-property="name">Name</th>
+          <th data-fetch-sort-property="id">ID</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody data-fetch-content>
+      </tbody>
+    </table>
+  </wm-table>
+    <template>
+        <tr>
+          <td><span data-fetch-field="name"></span></td>
+          <td><span data-fetch-field="id"></td>
+          <td>
+            <wm-button size="s" data-modal="details">
+              <button>Details <span class="wm-h-vh" data-fetch-field="name"></span></button>
+            </wm-button>
+          </td>
+        </tr>
+    </template>
+    <template id="details">
+      <h2>Details</h2>
+      <wm-input label="Name"></wm-input>
+      <wm-input label="ID"></wm-input>
+    </template>
+  </wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ — variant 4: Fetch mit sortierbarer Tabelle -->
+<wm-fetch class="viajs" pagination="number" itemsPerPage="4">
+  <wm-table header="nebelgrau" border="full" zebra="even" sort="true, true, false">
+    <table>
+      <caption>Angenommene Anträge</caption>
+      <thead>
+        <tr>
+          <th data-fetch-sort-property="name">Name</th>
+          <th data-fetch-sort-property="id">ID</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody data-fetch-content>
+      </tbody>
+    </table>
+  </wm-table>
+    <template>
+        <tr>
+          <td><span data-fetch-field="name"></span></td>
+          <td><span data-fetch-field="id"></td>
+          <td>
+            <wm-button size="s" data-modal="details">
+              <button>Details <span class="wm-h-vh" data-fetch-field="name"></span></button>
+            </wm-button>
+          </td>
+        </tr>
+    </template>
+</wm-fetch>
+<script>
+  const fetchViaJS = document.querySelector('.viajs');
+  fetchViaJS.addEventListener('wm-defined', e => {
+    const data = [
+	{ "name": "test1", "id": "4" },
+	{ "name": "test2", "id": "14" },
+	{ "name": "test3", "id": "7" },
+	{ "name": "test4", "id": "2" },
+	{ "name": "test5", "id": "34" },
+	{ "name": "test6", "id": "89" },
+	{ "name": "test7", "id": "55" },
+	{ "name": "test8", "id": "12" }
+  ]
+    fetchViaJS.setJSON(data)
+  })
+</script>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ — variant 5: Fetch mit Infobox/Map und Paginierung -->
+<wm-fetch dataset="features" itemsPerPage="1" url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:PARKINFOOGD&srsName=EPSG:4326&outputFormat=json&cql_filter=strIndexOf(ANL_NAME,'bach')>-1" pagination="number">
+    <div slot="results">
+      <wm-grid size="l" data-fetch-content>
+      </wm-grid>
+    </div>
+    <template slot="template">
+      <wm-card size="l">
+        <h2 slot="heading">
+          <span data-fetch-field="properties.ANL_NAME"></span>
+        </h2>
+        <wm-map-alt slot="media" id="innenstadt" geocoder update center="16.383657562770395, 48.21091265008741"  style="--map-ratio: 16 / 9;--map-height: auto;">
+          <wm-mapmarker data-fetch-attribute1="lat:geometry.coordinates.1" data-fetch-attribute2="lng:geometry.coordinates.0">
+            <h3 data-fetch-field="properties.ANL_NAME"></h3>
+          </wm-mapmarker>
+        </wm-map-alt>
+        <div slot="content">
+          <wm-list type="row">
+            <ul>
+              <li>
+                <wm-icon iconid="vienna"></wm-icon>
+                <span><span data-fetch-field="properties.BEZIRK"></span>., Bezirk</span>
+              </li>
+              <li>
+                  <wm-icon iconid="clock"></wm-icon>
+                  Öffnungszeiten:
+                  <span data-fetch-field="properties.OEFF_ZEITEN"></span>
+              </li>
+              <li>
+                <wm-icon iconid="park"></wm-icon>
+                <span>Größe: circa <span data-fetch-field="properties.FLAECHE"></span> Quadratmeter</span></li>
+              <li>
+                <wm-icon iconid="phone"></wm-icon>
+                Telefon: <span data-fetch-field="properties.TELEFON"></span>
+              </li>
+              <li>
+                <wm-icon iconid="language"></wm-icon>
+                <a data-fetch-attribute="href:properties.WEBLINK1">Website</a></li>
+              <li>
+                <wm-stack wrap="" horizontal="" gap="xxs">
+                  <wm-chip color="frischgruen" size="s" data-fetch-condition="Ja:properties.HUNDE_IM_PARK"><wm-icon iconid="dog" width="22"></wm-icon> Hundezone</wm-chip>
+                  <wm-chip color="frischgruen" size="s" data-fetch-condition="Ja:properties.WASSER_IM_PARK"><wm-icon iconid="water" width="22"></wm-icon> Wasser im park</wm-chip>
+                  <wm-chip color="frischgruen" size="s" data-fetch-condition="Ja:properties.SPIELEN_IM_PARK"><wm-icon iconid="games" width="22"></wm-icon> Spielen erlaubt</wm-chip>
+                  <wm-chip color="morgenrot" size="s" data-fetch-condition="Nein:properties.HUNDE_IM_PARK"><wm-icon iconid="dogno" width="22"></wm-icon> Hunde verboten</wm-chip>
+                  <wm-chip color="morgenrot" size="s" data-fetch-condition="Nein:properties.WASSER_IM_PARK"><wm-icon iconid="waterno" width="22"></wm-icon> Kein Wasser im Park</wm-chip>
+                  <wm-chip color="morgenrot" size="s" data-fetch-condition="Nein:properties.SPIELEN_IM_PARK"><wm-icon iconid="gamesno" width="22"></wm-icon> Spielen verboten</wm-chip>
+                </wm-stack>
+              </li>
+            </ul>
+          </wm-list>
+        </div>
+      </wm-card>
+    </template>
+  </wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/fetch/ — variant 6: Fetch mit Cards und Button "Mehr laden" -->
+<wm-fetch dataset="features" itemsPerPage="9" url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRINKBRUNNENOGD&srsName=EPSG:4326&outputFormat=json" pagination="button">
+    <div slot="results">
+      <wm-grid data-fetch-content>
+      </wm-grid>
+    </div>
+    <template slot="template">
+      <wm-card>
+        <h3 slot="heading">
+          <span data-fetch-field="properties.BASIS_TYP_TXT"></span>
+        </h3>
+        <div slot="content">
+        <p>Koordinaten: <span data-fetch-field="geometry.coordinates"></span></p>
+        </div>
+      </wm-card>
+    </template>
+  </wm-fetch>

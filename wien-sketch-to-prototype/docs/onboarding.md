@@ -7,37 +7,21 @@ Skizze (Figma oder Doop)  →  /wien-revamp <Link>  →  Mapping-Tabelle  →  P
       du                         Claude               du prüfst          alle klicken durch
 ```
 
-## 1. Einrichtung (einmalig, ca. 10 Minuten)
+## 1. Einrichtung (einmalig, ca. 10 Minuten, ohne Terminal)
 
-Du brauchst Claude Code (Terminal, Desktop-App oder IDE), einen Figma-Account (Lesezugriff auf die Skizzen reicht) und einen Doop-Account.
+Du brauchst die Claude-Desktop-App oder claude.ai (Pro, Max, Team oder Enterprise), einen Doop-Account und, wenn du in Figma skizzierst, einen Figma-Account. Bei Team und Enterprise kann der Owner die Schritte für alle erledigen.
 
-**Plugin installieren**, in Claude:
+1. **Code-Ausführung einschalten:** Einstellungen, Capabilities, „Create and edit files“. Bei Team und Enterprise macht das der Owner unter Organization settings, Plugins & skills, Policy.
+2. **Skill hochladen:** [`wien-revamp.zip`](https://github.com/dariob13/wien-sketch-to-prototype/raw/main/dist/wien-revamp.zip) herunterladen (nicht entpacken). Dann in Claude: Customize, Skills, „+“, „Create skill“, „Upload a skill“. Bei Team und Enterprise kann der Owner den Skill für alle bereitstellen.
+3. **Doop verbinden:** Customize, Connectors, „+ Add“, „Add custom connector“, Name `Doop`, URL `https://doop.design/mcp`, dann im Browser anmelden.
+4. **Figma verbinden:** Figma im Connector-Verzeichnis suchen und verbinden. Alternativ als eigener Connector mit `https://mcp.figma.com/mcp`.
+5. **Im Chat:** unten links „+“, Connectors, Doop und Figma einschalten.
 
-```
-/plugin marketplace add https://github.com/dariob13/wien-sketch-to-prototype
-/plugin install wien-sketch-to-prototype@stadt-wien-workflows
-```
+**Test:** `Nutze wien-revamp: <Link zur Beispielskizze>` schreiben (siehe [Vorlagen](../templates/README.md)). Nach ein paar Minuten kommt ein Doop-Link.
 
-**Oder mit skills.sh** (Vercel), im Projektordner:
+In Claude Code heißt der Befehl `/wien-revamp <Link>`. Das Plugin installiert man dort mit `/plugin marketplace add https://github.com/dariob13/wien-sketch-to-prototype` und `/plugin install wien-sketch-to-prototype@stadt-wien-workflows`.
 
-```bash
-npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp
-```
-
-Das ist derselbe Skill, für Claude Code, Cursor und weitere Agents. Das Repo ist öffentlich, ein GitHub-Konto ist nicht nötig.
-
-**Figma und Doop verbinden**, im Terminal:
-
-```bash
-claude mcp add --transport http figma https://mcp.figma.com/mcp
-claude mcp add --transport http doop https://doop.design/mcp
-```
-
-Dann in Claude `/mcp` eingeben und bei beiden auf *Authenticate* gehen. Es öffnet sich jeweils der Browser. In der Claude-Desktop-App geht das stattdessen unter *Einstellungen → Connectors*. Wer Figma oder Doop dort schon verbunden hat, überspringt den Schritt.
-
-Der Befehl heißt `/wien-revamp`. Falls ein anderes Plugin denselben Namen hat, lautet die lange Form `/wien-sketch-to-prototype:wien-revamp`.
-
-**Test:** `/wien-revamp` mit dem Link zur Beispielskizze aus den [Vorlagen](../templates/README.md) eingeben. Nach ein paar Minuten kommt ein Doop-Link.
+Die ausführliche Anleitung als PDF: [guides/anleitung-sketch-skill.pdf](../../guides/anleitung-sketch-skill.pdf).
 
 ## 2. Der Ablauf für alle
 

@@ -1,0 +1,58 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/stack/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stack/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-stack>
+  <wm-highlight>1. Element ist breiter</wm-highlight>
+  <wm-highlight>2. Element</wm-highlight>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stack/ — variant 1: Stack mit viel Abstand -->
+<wm-stack gap="l">
+  <wm-highlight>1. Element ist breiter</wm-highlight>
+  <wm-highlight>2. Element</wm-highlight>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stack/ — variant 2: Stack volle Breite -->
+<wm-stack grow='true'>
+  <wm-highlight>1. Element ist breiter</wm-highlight>
+  <wm-highlight>2. Element</wm-highlight>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stack/ — variant 3: Stack vertikal -->
+<wm-stack vertical="vertical">
+  <wm-highlight>1. Element ist breiter</wm-highlight>
+  <wm-highlight>2. Element</wm-highlight>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stack/ — variant 4: Stack im Formular -->
+<h2>Adresse</h2>
+<wm-stack vertical gap="s" class="wm-h-row">
+  <wm-stack gap="s" grow="">
+    <wm-input type="text" label="PLZ" name="address7" id="address7" required></wm-input>
+    <wm-input type="text" label="Ort" name="address8" id="address8"></wm-input>
+  </wm-stack>
+  <wm-input type="text" label="Straße" name="address1" id="address1" required></wm-input>
+  <wm-input type="text" label="Hausnummer (einschließlich Block, Gruppe, Parzelle, Stiege)" name="address2" id="address2" required></wm-input>
+  <wm-stack gap="s" equal="" grow="">
+    <div>
+      <label for="address5">Stock</label>
+      <input type="text" name="address5" id="address5" />
+    </div>
+    <div>
+      <label for="address6">Tür</label>
+      <input type="text" name="address6" id="address6"/>
+    </div>
+  </wm-stack>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stack/ — variant 5: (Standard – ohne Überschrift) -->
+<wm-stack>
+  <wm-highlight data-demo="true" data-demo-col>
+    Spalte 1<br>mit 2. Zeile
+  </wm-highlight>
+  <wm-highlight data-demo="true" data-demo-col>
+    Das ist die 2. Spalte mit mehr Content.
+  </wm-highlight>
+  <wm-highlight data-demo="true" data-demo-col>
+    Spalte 3
+  </wm-highlight>
+</wm-stack>

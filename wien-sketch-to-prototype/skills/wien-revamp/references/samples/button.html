@@ -1,0 +1,201 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/button/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-button>
+  <button>Senden</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 1: Button primär inaktiv -->
+<wm-button>
+  <button aria-disabled="true">Senden</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 2: Button primär mit Icon -->
+<wm-button>
+  <button>
+    <wm-icon iconid="download"></wm-icon>
+    Download</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 3: Button primär rund -->
+<wm-button round>
+  <button>
+    <wm-icon iconid="info" width="38">Information</wm-icon>
+  </button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 4: Button Zum Seitenanfang springen -->
+<wm-button kind="secondary" round="round" id="wm-button-to-top">
+  <a class="wm-e-button" href="#IdGleichElementSprungmarke">
+    <wm-icon iconid="chevron-up" width="28">Zum Seitenanfang</wm-icon>
+  </a>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 5: Button Call-to-Action -->
+<wm-button color="frischgruen">
+  <button>Mitmachen</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 6: Button sekundär -->
+<wm-button kind="secondary">
+  <button>Abbrechen</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 7: Button sekundär inaktiv -->
+<wm-button kind="secondary">
+  <button aria-disabled="true">Abbrechen</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 8: Button sekundär mit Icon -->
+<wm-button kind="secondary">
+  <button>
+    <wm-icon iconid="download"></wm-icon>Download</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 9: Button mit Dropdown -->
+<wm-button kind="secondary" menu="block-end">
+  <button>
+    Weitere…
+    <wm-icon iconid="chevron-down"></wm-icon>
+  </button>
+  <ul>
+    <li>
+      <button>Daten am Computer speichern</button>
+    </li>
+    <li>
+      <button>Gespeicherte Daten laden</button>
+    </li>
+  </ul>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 10: Button sekundär rund -->
+<wm-button round kind="secondary">
+  <button>
+    <wm-icon iconid="info" width="38">Information</wm-icon>
+  </button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 11: Button sekundär klein -->
+<wm-button size="s" kind="secondary">
+  <button>Senden</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 12: Button sekundär ur klein -->
+<wm-highlight color="nebelgrau-light">
+  <wm-details open>
+    <span slot="label" style="font-size:var(--wm-font-size-m)">Ausgewählte Filter</span>
+    <div slot="content" style="margin-top:var(--wm-spacing-s)">
+      <wm-filter-selection
+        role="group"
+        aria-labelledby="selected_filter_heading"
+        categorize=""
+        filterid="filterDistricts, filter_1, filter_2">
+        <ul>
+          <li>
+            <span class="label" id="parentlabel-0">Träger:</span>
+            <div>
+              <wm-button kind="secondary" size="xs">
+                <button type="button">
+                  Privat
+                  <span class="wm-h-vh">entfernen</span>
+                  <wm-icon iconid="close" width="16" height="16"></wm-icon>
+                </button>
+              </wm-button>
+              <wm-button kind="secondary" size="xs">
+                <button type="button">
+                  Städtisch
+                  <span class="wm-h-vh">entfernen</span>
+                  <wm-icon iconid="close" width="16" height="16"></wm-icon>
+                </button>
+              </wm-button>
+            </div>
+          </li>
+        </ul>
+      </wm-filter-selection>
+    </div>
+  </wm-details>
+</wm-highlight>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 13: Button tertiär -->
+<wm-button kind="tertiary">
+  <button>Senden</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 14: Button tertiär inaktiv -->
+<wm-button kind="tertiary">
+  <button aria-disabled="true">Senden</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 15: Button tertiär mit Icon -->
+<wm-button kind="tertiary">
+  <button>
+    <wm-icon iconid="pen"></wm-icon>Bearbeiten</button>
+</wm-button>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 16: Button-Gruppe -->
+<wm-stack horizontal="horizontal" gap="xs">
+  <wm-button>
+    <a href="#" class="wm-e-button">Weiter</a>
+  </wm-button>
+  <wm-button kind="secondary">
+    <a href="#" class="wm-e-button">Zurück</a>
+  </wm-button>
+  <wm-button kind="secondary" menu="block-end">
+    <button>
+      Weitere…
+      <wm-icon iconid="chevron-down" width="23.5"></wm-icon>
+    </button>
+    <ul>
+      <li>
+        <button>Daten am Computer speichern</button>
+      </li>
+      <li>
+        <button>Gespeicherte Daten laden</button>
+      </li>
+    </ul>
+  </wm-button>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 17: Button-Gruppe volle Breite -->
+<wm-stack vertical gap="xs">
+  <wm-button full>
+    <button>Speichern</button>
+  </wm-button>
+  <wm-button full kind="secondary">
+    <button>Abbrechen</button>
+  </wm-button>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 18: Button-Gruppe Abendstimmung -->
+<wm-highlight color="abendstimmung-light">
+  <wm-button color="abendstimmung">
+    <a href="#" class="wm-e-button">Speichern</a>
+  </wm-button>
+  <wm-button color="abendstimmung" kind="secondary">
+    <a href="#" class="wm-e-button">Abbrechen</a>
+  </wm-button>
+</wm-highlight>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 19: Button-Gruppe Frischgrün -->
+<wm-highlight color="frischgruen-light">
+  <wm-button color="frischgruen">
+    <a href="#" class="wm-e-button">Speichern</a>
+  </wm-button>
+  <wm-button color="frischgruen" kind="secondary">
+    <a href="#" class="wm-e-button">Abbrechen</a>
+  </wm-button>
+</wm-highlight>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 20: Button-Gruppe Goldgelb -->
+<wm-highlight color="goldgelb-light">
+  <wm-button color="goldgelb">
+    <a href="#" class="wm-e-button">Speichern</a>
+  </wm-button>
+  <wm-button color="goldgelb" kind="secondary">
+    <a href="#" class="wm-e-button">Abbrechen</a>
+  </wm-button>
+</wm-highlight>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/button/ — variant 21: (Standard – ohne Überschrift) -->
+<wm-button>
+  <button>Senden</button>
+</wm-button>

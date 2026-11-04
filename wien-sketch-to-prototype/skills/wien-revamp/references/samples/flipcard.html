@@ -1,0 +1,88 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/flipcard/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/flipcard/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-card size="l">
+  <h2 slot="heading">
+    Parkscheinkosten
+  </h2>
+  <div slot="content">
+    <p>
+      Montag bis Freitag: 9 bis 20 Uhr<br/> Samstag, Sonntag und Feiertage: 8 bis 20 Uhr
+    </p>
+    <p>
+      Montag bis Freitag: 9 bis 20 Uhr<br/> Samstag, Sonntag und Feiertage: 8 bis 20 Uhr
+    </p>
+  </div>
+  <div slot="flip">
+    <wm-accordion open="1" multiple="multiple">
+      <wm-accordion-heading icon="info">
+        <h3>Informationen zum Inhalt</h3>
+      </wm-accordion-heading>
+      <wm-accordion-content>
+        <p>Dieser Inhalt wird von der Stadt Wien kostenfrei gemäß
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons CC-BY 4.0</a>
+          zur Verfügung gestellt.</p>
+        <wm-list clean="clean" gap="none">
+          <ul>
+            <li class="wm-u-jcsb">
+              <span>Kontakt:</span>
+              <span>
+                <a href="mailto:redaktion@wien.gv.at">redaktion@wien.gv.at</a>
+              </span>
+            </li>
+            <li class="wm-u-jcsb">
+              Letzte Aktualisierung:<span>31.03.2023, 10.17 Uhr</span>
+            </li>
+            <li class="wm-u-jcsb">
+              Eindeutige ID dieses Inhalts:
+              <span>Xa3Y2f</span>
+            </li>
+            <li class="wm-u-jcsb">
+              Maschinenlesbar mit Metadaten:<span>
+                <a href="#">JSON</a>
+              </span>
+            </li>
+            <li class="wm-u-jcsb">
+              <a href=" https://data.wien.gv.at/nutzungsbedingungen">Nutzungsbedingungen</a>
+            </li>
+          </ul>
+        </wm-list>
+      </wm-accordion-content>
+      <wm-accordion-heading icon="share">
+        <h3>Diesen Inhalt teilen</h3>
+      </wm-accordion-heading>
+      <wm-accordion-content>
+        <p>Infocards</p>
+        <form>
+          <wm-stack horizontal="true" alignment="end">
+            <div class="wm-u-fg1">
+              <label for="link-teilen_copy">Link</label>
+              <input
+                id="link-teilen_copy"
+                type="text"
+                value="https://www.wien.gv.at/verkehr/parken"
+                style="--wm-theme-input-background: var(--wm-color-weiss);"/>
+            </div>
+            <wm-button>
+              <button type="submit">Link kopieren</button>
+            </wm-button>
+          </wm-stack>
+        </form>
+      </wm-accordion-content>
+      <wm-accordion-heading icon="embed">
+        <h3>Diesen Inhalt einbetten</h3>
+      </wm-accordion-heading>
+      <wm-accordion-content>
+        <form>
+          <wm-stack horizontal="true" alignment="end">
+            <div class="wm-u-fg1">
+              <label for="link-einbetten_copy">Link</label>
+              <input id="link-einbetten_copy" type="text" value="<iframe src=https://www.wien.gv.at/verkehr/parken></iframe>" style="--wm-theme-input-background: var(--wm-color-weiss);"/>
+            </div>
+            <button>HTML kopieren</button>
+          </wm-stack>
+        </form>
+        <p>Der eingebettete Inhalt aktualisiert sich automatisch, sobald wir ihn auf wien.gv.at ändern.</p>
+      </wm-accordion-content>
+    </wm-accordion>
+  </div>
+</wm-card>

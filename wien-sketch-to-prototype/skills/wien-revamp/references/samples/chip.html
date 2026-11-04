@@ -1,0 +1,180 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/chip/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-chip>
+  Tipp
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 1: Chip positiv -->
+<wm-chip color="frischgruen">
+  Gratis
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 2: Chip negativ -->
+<wm-chip color="morgenrot">
+  Abgesagt
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 3: Chip mit Link -->
+<wm-chip color="flieder">
+  <a href="">Tipp</a>
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 4: Chip mit Button -->
+<wm-chip color="abendstimmung">
+  <button>Tipp</button>
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 5: Chip mit Icon -->
+<wm-chip color="frischgruen">
+  <wm-icon iconid="dog"></wm-icon> 
+  Hundezone
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 6: Chip mit Icon klein -->
+<wm-chip color="frischgruen" size="s">
+  <wm-icon iconid="dog" width="22"></wm-icon> 
+  Hundezone
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 7: Chip mit Icon groß -->
+<wm-chip color="frischgruen" size="l">
+  <wm-icon iconid="dog" width="32"></wm-icon> 
+  Hundezone
+</wm-chip>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 8: Chips -->
+<wm-stack wrap="" gap="xs" horizontal="">
+  <wm-chip color="flieder">
+    Hundezone
+  </wm-chip>
+  <wm-chip color="flieder">
+    Hunde verboten
+  </wm-chip>
+  <wm-chip color="flieder">
+    Achtung
+  </wm-chip>
+  <wm-chip color="flieder">
+    Wasser
+  </wm-chip>
+  <wm-chip color="flieder">
+    Tipp
+  </wm-chip>
+  <wm-chip color="flieder">
+    Kategorie
+  </wm-chip>
+  <wm-chip color="flieder">
+    E-Mail
+  </wm-chip>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 9: Chips klein -->
+<wm-stack wrap="" gap="xxs" horizontal="">
+  <wm-chip color="wasserblau" size="s">
+    Hundezone
+  </wm-chip>
+  <wm-chip color="wasserblau" size="s">
+    Hunde verboten
+  </wm-chip>
+  <wm-chip color="wasserblau" size="s">
+    Achtung
+  </wm-chip>
+  <wm-chip color="wasserblau" size="s">
+    Wasser
+  </wm-chip>
+  <wm-chip color="wasserblau" size="s">
+    Tipp
+  </wm-chip>
+  <wm-chip color="wasserblau" size="s">
+    Kategorie
+  </wm-chip>
+  <wm-chip color="wasserblau" size="s">
+    E-Mail
+  </wm-chip>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 10: Chips groß -->
+<wm-stack wrap="" gap="xs" horizontal="">
+  <wm-chip color="goldgelb" size="l">
+    Hundezone
+  </wm-chip>
+  <wm-chip color="goldgelb" size="l">
+    Hunde verboten
+  </wm-chip>
+  <wm-chip color="goldgelb" size="l">
+    Achtung
+  </wm-chip>
+  <wm-chip color="goldgelb" size="l">
+    Wasser
+  </wm-chip>
+  <wm-chip color="goldgelb" size="l">
+    Tipp
+  </wm-chip>
+  <wm-chip color="goldgelb" size="l">
+    Kategorie
+  </wm-chip>
+  <wm-chip color="goldgelb" size="l">
+    E-Mail
+  </wm-chip>
+</wm-stack>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 11: Chip in einer Card -->
+<wm-card size="m">
+  <h2 slot="heading">Stadt ermöglicht Wiener Kindern Urlaub</h2>
+  <div slot="content">
+    <p>Für Familien mit kleinem Einkommen und Kinder von 7 bis 14 Jahren hat Wien noch Plätze.</p>
+  </div>
+  <div slot="postcontent">
+  <wm-chip color="frischgruen" size="s">
+    Gratis Eintritt
+  </wm-chip>
+  </div>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 12: Chips in einer Card -->
+<wm-card size="l">
+  <h2 slot="heading">
+    Auer-Welsbach-Park
+  </h2>
+  <wm-map-alt slot="media" id="innenstadt" geocoder update center="16.383657562770395, 48.21091265008741" style="--map-ratio: 16 / 9;--map-height: auto;">
+    <wm-mapmarker lat="48.18859589" lng="16.31648157">
+      <h3>Auer-Welsbach-Park</h3>
+    </wm-mapmarker>
+  </wm-map-alt>
+  <div slot="content">
+    <wm-list type="row">
+      <ul>
+        <li>
+          <wm-icon iconid="vienna"></wm-icon>
+          <span>15, Bezirk</span>
+        </li>
+        <li>
+            <wm-icon iconid="clock"></wm-icon>
+            Öffnungszeiten:
+            0 bis 24 Uhr
+        </li>
+        <li>
+          <wm-icon iconid="park"></wm-icon>
+          <span>Größe: circa 110.517 Quadratmeter</span></li>
+        <li>
+          <wm-icon iconid="phone"></wm-icon>
+          Telefon: 01 4000 8042
+        </li>
+        <li>
+          <wm-icon iconid="language"></wm-icon>
+          <a href="#">Website</a></li>
+        <li>
+          <wm-stack wrap="" gap="xxs" horizontal="">
+            <wm-chip color="frischgruen" size="s"><wm-icon iconid="water" width="22"></wm-icon> Wasser im Park</wm-chip>
+            <wm-chip color="frischgruen" size="s"><wm-icon iconid="games" width="22"></wm-icon> Spielen erlaubt</wm-chip>
+            <wm-chip color="morgenrot" size="s"><wm-icon iconid="dogno" width="22"></wm-icon> Hunde verboten</wm-chip>
+          </wm-stack>
+        </li>
+      </ul>
+    </wm-list>
+  </div>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/chip/ — variant 13: (Standard – ohne Überschrift) -->
+<wm-chip>
+  Tipp
+</wm-chip>

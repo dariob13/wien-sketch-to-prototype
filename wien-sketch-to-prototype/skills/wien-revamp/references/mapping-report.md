@@ -36,7 +36,7 @@ Number rows in page order. Nested items (cards inside a section) take `4.1`, `4.
 
 ## When to stop and ask
 
-Ask before building (one `AskUserQuestion` with concrete options, at most four questions) only when an answer changes the **structure**:
+Ask before building (one short question with concrete options, at most four; use `AskUserQuestion` where the client has it) only when an answer changes the **structure**:
 
 - a box marked `Unsicher ?` whose alternatives are different patterns,
 - an unknown tag with no clear nearest entry,

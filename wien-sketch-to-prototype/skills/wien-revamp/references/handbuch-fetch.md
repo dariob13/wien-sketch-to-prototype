@@ -2,6 +2,14 @@
 
 The pattern library is the source of the markup. A remembered snippet is not.
 
+## Where the markup comes from, in this order
+
+1. **Live, with the script** (below). Use this whenever the shell can reach handbuch.wien.gv.at.
+2. **The bundled snapshot** in [samples/](samples/INDEX.md), one file per pattern with every variant. Use it when there is no shell, or the sandbox has no network. This is the normal case in the Claude app (claude.ai, Desktop), where people cannot use a terminal. The snapshot names its theme version and date in [samples/INDEX.md](samples/INDEX.md). Use that version in the page shell, so the markup and the theme match. Say in the handoff that the snapshot was used, with its date.
+3. **The web fetch tool** on the pattern page, only for a pattern missing from the snapshot. A markdown conversion drops attributes, so use it only to confirm text. Otherwise leave a labelled gap.
+
+Never write markup from memory.
+
 ## Use the script
 
 `scripts/fetch_pattern.py` does the steps below for you. It uses the standard library only.

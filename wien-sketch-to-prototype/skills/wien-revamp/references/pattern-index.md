@@ -1,6 +1,6 @@
 # Pattern index
 
-67 pattern pages on <https://handbuch.wien.gv.at/pattern-library/patterns/>, listed 2026-11-03. The handbook page is the catalog that counts. If a slug 404s, open the index and follow the current link. Do not guess a component name that is not on that page.
+68 pattern pages on <https://handbuch.wien.gv.at/pattern-library/patterns/>, listed 2026-11-04 (`divider` was renamed to `trenner`). The handbook page is the catalog that counts. If a slug 404s, open the index and follow the current link. Do not guess a component name that is not on that page.
 
 Fetch before use. This table is only the address book. It does not document slots or attributes.
 
@@ -14,7 +14,7 @@ Fetch before use. This table is only the address book. It does not document slot
 | Stack | `stack` |
 | Grid | `grid` |
 | Footer | `footer` |
-| Trenner | `divider` |
+| Trenner | `trenner` |
 
 ## Navigation and actions
 
@@ -101,6 +101,7 @@ Fetch before use. This table is only the address book. It does not document slot
 | --- | --- |
 | Bot | `bot` |
 | Fetch | `fetch` |
+| Ladebildschirm | `ladebildschirm` |
 | Social Media | `social-media` |
 
 Full URL: `https://handbuch.wien.gv.at/pattern-library/patterns/<slug>/`

@@ -1,0 +1,198 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/kontakt/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/kontakt/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-section highlight="true">
+  <wm-grid size="l">
+    <wm-card size="l">
+      <h2 slot="heading">Kontakt</h2>
+      <div slot="content">
+        <address>
+          <strong>Servicestelle XYZ</strong>
+          <p style="margin-top: 1rem;">
+            Telefon:
+            <a href="tel:+4314000xxxx">+43 1 4000-xxxx</a>
+            <br>
+              Website:
+              <a href="#">Zuständigkeit und Öffnungszeiten</a>
+              <br>
+                <a href="#">Kontaktformular</a>
+              </p>
+            </address>
+            <wm-list type="horizontal" gap="m">
+              <ul>
+                <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram" width="35">Instagram</wm-icon></a></li>
+                <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook" width="35">Facebook</wm-icon></a></li>
+              </ul>
+            </wm-list>
+          </div>
+        </wm-card>
+        <wm-card size="l">
+          <h2 slot="heading">Newsletter</h2>
+          <div slot="content">
+            <p>Unser Newsletter informiert Sie über Veranstaltungen, Publikationen und Neuigkeiten in den Bereichen Statistik und
+              Innovation.</p>
+          </div>
+          <div slot="postcontent">
+            <wm-button full="true" kind="primary" color="frischgruen" alignment="center">
+              <a href="#" class="wm-e-button">Abonnieren</a>
+            </wm-button>
+          </div>
+        </wm-card>
+      </wm-grid>
+    </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/kontakt/ — variant 1: Kontakt Stadtservice -->
+<wm-section contentsize="full" highlight="true">
+      <wm-stack vertical="" gap="s">
+        <wm-grid size="l" gap="m">
+          <wm-card>
+            <h2 slot="heading">Noch Fragen?</h2>
+            <wm-stack gap="m" vertical="" slot="content">
+              <div>
+                <address itemscope="" itemtype="https://schema.org/ContactPoint">
+                  <strong>Das Stadtservice hilft Ihnen gerne!</strong>
+                  <p>
+                    Telefon:
+                    <a href="tel:+43140004001">+43 1 4000-4001</a>
+                    <br>
+                      <a href="#">Kontaktformular</a>
+                    </p>
+                  </address>
+                </div>
+                <div>
+                  <wm-list type="horizontal" gap="m">
+                    <ul>
+                      <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="wien-bot" width="35">Wienbot</wm-icon></a></li>
+                      <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram" width="35">Instagram</wm-icon></a></li>
+                      <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="youtube" width="35">Youtube</wm-icon></a></li>
+                      <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook" width="35">Facebook</wm-icon></a></li>
+                      <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="twitter" width="35">X</wm-icon></a></li>
+                    </ul>
+                  </wm-list>
+                </div>
+              </wm-stack>
+            </wm-card>
+            <wm-card blocklink>
+              <h2 slot="heading">Newsletter</h2>
+              <div slot="content">
+                <p>Die Stadt Wien informiert Sie regelmäßig über Neuigkeiten und Service-Angebote.</p>
+              </div>
+              <div slot="postcontent">
+                <wm-button full="true" kind="primary" color="frischgruen" alignment="center">
+                  <a href="#" class="wm-e-button">Abonnieren</a>
+                </wm-button>
+              </div>
+            </wm-card>
+          </wm-grid>
+        </wm-stack>
+      </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/kontakt/ — variant 2: Kontakt wien.gv.at Redaktion -->
+<wm-section contentsize="full" highlight="true">
+        <div>
+          <wm-grid size="l" gap="m">
+            <wm-card>
+              <h2 slot="heading">Noch Fragen?</h2>
+              <wm-stack gap="m" vertical="" slot="content">
+                <div>
+                  <p>
+                    Die wien.gv.at-Redaktion hilft weiter:
+                    <br>
+                      <a href="#">Kontaktformular</a>
+                    </p>
+                  </div>
+                  <div>
+                    <wm-list gap="xs" type="horizontal">
+                      <ul>
+                        <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook" width="35">Facebook</wm-icon></a></li>
+                        <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="wien-bot" width="35">WienBot</wm-icon></a></li>
+                      </ul>
+                    </wm-list>
+                  </div>
+                </wm-stack>
+              </wm-card>
+            </wm-grid>
+          </div>
+        </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/kontakt/ — variant 3: Kontakt mit Details -->
+<wm-section contentsize="full" highlight="true">
+          <div>
+            <wm-grid size="l" gap="m">
+              <wm-card>
+                <h2 slot="heading">Kontakt</h2>
+                <div slot="content">
+                  <p>
+                    <strong>Abteilungsleitung:</strong>
+                    <br>
+                      Maria Magistrati
+                    </p>
+                    <p>
+                      <strong>Sekretariat:</strong>
+                      <br>
+                        E-Mail:
+                        <a href="mailto:">post@wien.gv.at</a>
+                        <br>
+                          Telefon:
+                          <a href="tel:*">+43 1 4000 xxxx</a>
+                        </p>
+                        <p>
+                          <strong>Medienanfragen:</strong>
+                          <br>
+                            Maria Magistrati
+                            <br>
+                              E-Mail:
+                              <a href="mailto:">maria.magistrati@wien.gv.at</a>
+                              <br>
+                                Telefon:
+                                <a href="tel:*">+43 1 4000 xxxx</a>
+                              </p>
+                              <p>
+                                <a href="#">Kontaktformular</a>
+                              </p>
+                            </div>
+                          </wm-card>
+                        </wm-grid>
+                      </div>
+                    </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/kontakt/ — variant 4: Kontakt in Infobox -->
+<wm-card size="l" blocklink>
+                      <wm-list type="row" slot="content">
+                        <ul>
+                          <li>
+                            <wm-icon iconid="clock"></wm-icon>
+                            <div>Öffnungszeiten:
+                              <strong>Heute bis 12 Uhr</strong>
+                            </div>
+                          </li>
+                          <li>
+                            <wm-icon iconid="pin">Standort</wm-icon>
+                            <a href="#">Servicestellen der MA 10</a>
+                          </li>
+                          <li>
+                            <wm-icon iconid="contact"></wm-icon>
+                            <div>
+                              E-Mail:
+                              <a href="mailto:">post@ma10.wien.gv.at</a>
+                              <br>
+                                Infotelefon:
+                                <a href="tel:">+43 1 4000 xxxx</a>
+                                <br>
+                                  Montag bis Freitag von 7.30 bis 18 Uhr
+                                  <br>
+                                    <br>
+                                      <a href="#">Weitere Kontakte</a>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </wm-list>
+                            </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/kontakt/ — variant 5: Kontakt innerhalb der Seite -->
+<p>
+                                      <wm-cta>
+                                        <a href="https://handbuch.wien.gv.at/pattern-library/templates/patterns/kontakt/inPage/">
+                                          Kontakt innerhalb der Seite öffnen
+                                        </a>
+                                      </wm-cta>
+                                    </p>

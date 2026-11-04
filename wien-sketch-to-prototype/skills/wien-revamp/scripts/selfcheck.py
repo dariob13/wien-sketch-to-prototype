@@ -14,6 +14,7 @@ Checks
   4. The header and Vorspann template links still resolve to real markup.
   5. Every tag in docs/cheat-sheet.md is known to tag-vocabulary.md.
   6. The icon and illustration catalogs match the handbook pages.
+  7. The offline sample snapshot has the live theme version.
 
 Exit code 0 = all good, 1 = something to fix (details printed).
 Standard library only; imports fetch_pattern.py from the same folder.
@@ -154,6 +155,19 @@ for kind in ("icons", "illustrationen"):
         problems.append(f"{kind}: catalog out of date (+{len(live_set - cache_set)} / -{len(cache_set - live_set)}). Run: python3 -I scripts/fetch_assets.py --refresh")
     else:
         notes.append(f"{kind}: catalog matches the handbook ({len(cached)} entries).")
+
+# 7. offline sample snapshot matches the live theme version
+snap = REF / "samples" / "INDEX.md"
+if not snap.exists():
+    problems.append("No offline snapshot (references/samples). Run: python3 -I scripts/snapshot_patterns.py")
+else:
+    m = re.search(r"theme \*\*v(\d+\.\d+\.\d+)\*\*, taken ([0-9-]+)", snap.read_text(encoding="utf-8"))
+    if not m:
+        problems.append("references/samples/INDEX.md has no theme version line.")
+    elif live and m.group(1) != live:
+        problems.append(f"Offline snapshot is theme v{m.group(1)}, handbook is v{live}. Run: python3 -I scripts/snapshot_patterns.py")
+    else:
+        notes.append(f"Offline snapshot: theme v{m.group(1)}, taken {m.group(2)}.")
 
 for n in notes:
     print("ok   ", n)

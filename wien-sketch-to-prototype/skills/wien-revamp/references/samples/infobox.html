@@ -1,0 +1,374 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-card size="l">
+  <wm-list type="row" slot="content">
+    <ul>
+      <li>
+        <wm-icon iconid="clock"></wm-icon>
+        Stand: Grundlagenerhebung
+      </li>
+      <li>
+        <wm-icon iconid="pin">Standort</wm-icon>
+        <a href="#">
+          15., Umgebung Westbahnhof
+        </a>
+      </li>
+      <li>
+        <wm-icon iconid="contact_alternative"></wm-icon>
+        Beteiligung: Offen
+      </li>
+      <li>
+        <wm-icon iconid="info"></wm-icon>
+        <p>
+          <a href="https://www.mitte15.at/">Mitte 15 - Du und dein Grätzl. Gestalte mit!</a>
+          <br>
+          <a href="https://www.mitte15.at/">Weiterer Link</a>
+        </p>
+      </li>
+    </ul>
+  </wm-list>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 1: Horizontale Infobox mit Galerie -->
+<wm-card size="default">alt="Foto Maria Magistrati"
+  <wm-stack slot="content" equal grow gap="l">
+    <wm-list type="row">
+      <ul>
+        <li>
+          <wm-icon iconid="clock"></wm-icon>
+          Stand: Grundlagenerhebung
+        </li>
+        <li>
+          <wm-icon iconid="pin">Standort</wm-icon>
+          <a href="#">
+            15., Umgebung Westbahnhof
+          </a>
+        </li>
+        <li>
+          <wm-icon iconid="contact_alternative"></wm-icon>
+          Beteiligung: Offen
+        </li>
+        <li>
+          <wm-icon iconid="info"></wm-icon>
+          <a href="#">Mitte 15 - Du und dein Grätzl. Gestalte mit!</a>
+        </li>
+      </ul>
+    </wm-list>
+    <figure>
+      <a href="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" data-modal="images" data-thumbs="images-thumbs">
+        <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" width="530" alt="Platz mit Brunnen">
+      </a>
+      <figcaption>
+        Kardinal-Rauscher-Platz
+      </figcaption>
+    </figure>
+    <template id="images">
+      <wm-carousel single="1070" style="--carousel-shadow-offset: 0px" hideDots label="Fotos">
+        <figure class="image">
+          <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal2.jpg" width="1070" height="602" alt="Luftbild mit Abgrenzung des Bearbeitungsgebiets">
+          <figcaption>
+            Luftbild mit Gebietsabgrenzung
+          </figcaption>
+        </figure>
+        <figure class="image">
+          <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal3.jpg" width="1070" height="602" alt="Kleine, gärtnerische Fläche zwischen Wohnhäusern">
+          <figcaption>
+            WILD im WEST
+          </figcaption>
+        </figure>
+        <figure class="image">
+          <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal4.jpg" width="1070" height="602" alt="Erhöhter Platz mit Bäumen">
+          <figcaption>
+            Wieningerplatz
+          </figcaption>
+        </figure>
+      </wm-carousel>
+    </template>
+    <template id="images-thumbs">
+      <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal2.jpg" width="44" height="44" alt="Luftbild mit Abgrenzung des Bearbeitungsgebiets">
+      <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal3.jpg" width="44" height="44" alt="Kleine, gärtnerische Fläche zwischen Wohnhäusern">
+      <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal4.jpg" width="44" height="44" alt="Erhöhter Platz mit Bäumen">
+    </template>
+  </wm-stack>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 2: Horizontale Infobox mit Video -->
+<wm-card size="default">
+  <wm-stack slot="content" equal grow gap="l">
+    <wm-list type="row">
+      <ul>
+        <li>
+          <wm-icon iconid="pin"></wm-icon>
+          Lage: <a href="#">22., Donaupark</a>
+        </li>
+        <li>
+          <wm-icon iconid="info"></wm-icon>
+          Größe: circa 632.966 Quadratmeter
+        </li>
+        <li>
+          <wm-icon iconid="info"></wm-icon>
+          Angebote: Spielplätze, Sportanlagen, Sehenswürdigkeiten
+        </li>
+        <li>
+          <wm-icon iconid="download"></wm-icon>
+          <a href="#">Übersichtsplan: 850 KB PDF</a>
+        </li>
+        <li>
+          <wm-icon iconid="telefon"></wm-icon>
+          <div>
+            Telefon: <a href="tel:">+43 1 4000 xxxx</a>
+          </div>
+        </li>
+      </ul>
+    </wm-list>
+    <iframe slot="media" allowfullscreen style="overflow: auto; border:none;" scrolling="auto" frameborder="0" src="https://www.wien.gv.at/video/embed/index.html?mid=694" width="500" height="350" name="wien.gv.at Video" title="wien.gv.at Video"
+      <a href="https://www.wien.gv.at/video/embed/index.html?mid=694">wien.gv.at Video</a>
+    </iframe>
+  </wm-stack>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 3: Horizontale Visitenkarte -->
+<wm-card>
+  <h2 slot="heading">Bezirksvorsteherin Maria Magistrati</h2>
+  <wm-stack gap="m" slot="content" equal grow>
+    <div>
+      <wm-stack vertical gap="s">
+        <figure>
+          <a href="#" data-modal="image1631644986">
+            <picture>
+              <source type="image/webp" srcset="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg" />
+              <img src="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg" srcset="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg 770w" width="770" height="433" alt="Foto Maria Magistrati" title="" loading="lazy" />
+            </picture>
+          </a>
+          <figcaption>
+            <a href="#">Pressefoto herunterladen</a>
+          </figcaption>
+        </figure>
+        <template id="image1631644986">
+          <wm-carousel single="1070" style="--carousel-shadow-offset: 0px" hidedots="" label="Bilder">
+            <figure class="image">
+              <picture>
+                <source type="image/webp" srcset="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg 1140w" sizes="100vw" />
+                <img src="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg" srcset="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg 1140w" width="1140" height="641" alt="Foto Maria Magistrati" title="" sizes="100vw" loading="lazy" />
+              </picture>
+              <figcaption>
+                <a href="#">Pressefoto herunterladen</a>
+              </figcaption>
+            </figure>
+          </wm-carousel>
+        </template>
+      </wm-stack>
+    </div>
+    <div>
+      <wm-stack vertical gap="m">
+        <wm-list gap="xs" type="row" clean>
+          <ul>
+            <li>
+              <wm-icon iconid="info" width="28" height="28"></wm-icon>
+              <div>
+                <strong>Sprechstunden</strong>
+                finden jeden letzten Dienstag im Monat statt:
+                <a href="#">Anmeldung</a>
+              </div>
+            </li>
+            <li>
+              <wm-icon iconid="pin" width="28" height="28">Standort</wm-icon>
+              <div>
+                <a href="#">1., Rathausstraße 42</a>, 1. Stock, Zimmer 318
+              </div>
+            </li>
+            <li>
+              <wm-icon iconid="telefon" width="28" height="28"></wm-icon>
+              <div>
+                Telefon:
+                <a href="tel:">+43 1 4000 xxxx</a>
+              </div>
+            </li>
+            <li>
+              <wm-icon iconid="email" width="28" height="28"></wm-icon>
+              <div>
+                E-Mail:
+                <a href="mailto:maria.magistrati@wien.gv.at">maria.magistrati@wien.gv.at</a>
+              </div>
+            </li>
+            <li>
+              <wm-icon iconid="contact_alternative" width="28" height="28"></wm-icon>
+              <div>
+                <a href="#">Kontaktformular für Ihre Meinung</a>
+              </div>
+            </li>
+          </ul>
+        </wm-list>
+        <wm-list gap="xs" type="horizontal">
+          <ul>
+            <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook">facebook</wm-icon></a></li>
+            <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram">instagram</wm-icon></a></li>
+          </ul>
+        </wm-list>
+      </wm-stack>
+    </div>
+  </wm-stack>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 4: Vertikale Visitenkarte -->
+<wm-card size="l">
+  <h2 slot="heading">Bezirksvorsteherin Maria Magistrati</h2>
+  <img slot="media" src="https://handbuch.wien.gv.at/images/pattern/sonstige/avatar/maria-magistrati.svg" alt="Foto Maria Magistrati" loading="lazy">
+  <div slot="content">
+    <wm-stack vertical gap="m">
+      <wm-list gap="xs" type="row" clean>
+        <ul>
+          <li>
+            <wm-icon iconid="info" width="28" height="28"></wm-icon>
+            <div>
+              <strong>Sprechstunden</strong> finden jeden letzten Dienstag im Monat statt:
+              <a href="#">Anmeldung</a>
+            </div>
+          </li>
+          <li>
+            <wm-icon iconid="pin" width="28" height="28">Standort</wm-icon>
+            <div>
+              <a href="#">1., Rathausstraße 42</a>, 1. Stock, Zimmer 318
+            </div>
+          </li>
+          <li>
+            <wm-icon iconid="telefon" width="28" height="28"></wm-icon>
+            <div>
+              Telefon: <a href="tel:">+43 1 4000 xxxx</a>
+            </div>
+          </li>
+          <li>
+            <wm-icon iconid="email" width="28" height="28"></wm-icon>
+            <div>
+              E-Mail: <a href="mailto:maria.magistrati@wien.gv.at">maria.magistrati@wien.gv.at</a>
+            </div>
+          </li>
+          <li>
+            <wm-icon iconid="contact_alternative" width="28" height="28"></wm-icon>
+            <div>
+              <a href="#">Kontaktformular für Ihre Meinung</a>
+            </div>
+          </li>
+        </ul>
+      </wm-list>
+      <wm-list gap="xs" type="horizontal">
+        <ul>
+          <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook">facebook</wm-icon></a></li>
+          <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram">instagram</wm-icon></a></li>
+        </ul>
+      </wm-list>
+    </wm-stack>
+  </div>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 5: Vertikale Infobox mit Map -->
+<wm-card size="l">
+  <h2 slot="heading">
+    Auer-Welsbach-Park
+  </h2>
+  <wm-map-alt slot="media" id="innenstadt" geocoder update center="16.383657562770395, 48.21091265008741"  style="--map-ratio: 16 / 9;--map-height: auto;">
+    <wm-mapmarker lat="48.18859589" lng="16.31648157">
+      <h3>Auer-Welsbach-Park</h3>
+    </wm-mapmarker>
+  </wm-map-alt>
+  <div slot="content">
+    <wm-list type="row">
+      <ul>
+        <li>
+          <wm-icon iconid="vienna"></wm-icon>
+          <span>15., Bezirk</span>
+        </li>
+        <li>
+            <wm-icon iconid="clock"></wm-icon>
+            Öffnungszeiten:
+            0 bis 24 Uhr
+        </li>
+        <li>
+          <wm-icon iconid="park"></wm-icon>
+          <span>Größe: circa 110.517 Quadratmeter</span></li>
+        <li>
+          <wm-icon iconid="phone"></wm-icon>
+          Telefon: 01 4000 8042
+        </li>
+        <li>
+          <wm-icon iconid="language"></wm-icon>
+          <a href="#">Website</a></li>
+        <li>
+          <wm-stack wrap gap="xxs" horizontal="">
+            <wm-chip color="frischgruen" size="s"><wm-icon iconid="water" width="22"></wm-icon> Wasser im Park</wm-chip>
+            <wm-chip color="frischgruen" size="s"><wm-icon iconid="games" width="22"></wm-icon> Spielen erlaubt</wm-chip>
+            <wm-chip color="morgenrot" size="s"><wm-icon iconid="dogno" width="22"></wm-icon> Hunde verboten</wm-chip>
+          </wm-stack>
+        </li>
+      </ul>
+    </wm-list>
+  </div>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 6: Infobox als Card responsive mit Bild -->
+<wm-card size="full-responsive" blocklink>
+  <h2 slot="heading">
+    Kindergarten
+  </h2>
+  <div slot="precontent">
+    <wm-chip color="flieder" size="s">Städtisch</wm-chip>
+  </div>
+  <picture slot="media">
+    <source media="(max-width: 600px)" srcset="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten.png">
+    <source media="(min-width: 1024)" srcset="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten_1x1.webp">
+    <img src="https://handbuch.wien.gv.at/images/pattern/cards/kindergarten_1x1.webp" alt=""/>
+  </picture>
+  <div slot="content">
+    <wm-stack vertical>
+      <p>Kindergarten- und Hort-Anmeldungen sind ab jetzt möglich.</p>
+      <wm-list type="row">
+        <ul>
+          <li>
+            <wm-icon iconid="pin">Standort</wm-icon>
+            9., Julius-Tandler-Platz</li>
+          <li>
+            <wm-icon iconid="clock"></wm-icon>
+            Wann: ab 1.11.20XX</li>
+        </ul>
+      </wm-list>
+    </wm-stack>
+  </div>
+  <div slot="postcontent" class="wm-u-tar">
+    <wm-cta>
+      <a href="#">Anmeldung Kindergarten</a>
+    </wm-cta>
+  </div>
+</wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/infobox/ — variant 7: Infobox als Card responsive farbig mit Icon -->
+<wm-card canvas color="flieder" size="full-responsive" blocklink>
+  <h2 slot="heading">
+    Kindergarten
+  </h2>
+  <div slot="media">
+    <wm-icon iconid="home" width="150"></wm-icon>
+  </div>
+  <div slot="precontent">
+    <wm-chip color="flieder" size="s">Städtisch</wm-chip>
+  </div>
+  <div slot="content">
+    <wm-stack vertical>
+      <p>Kindergarten- und Hort-Anmeldungen sind ab jetzt möglich.</p>
+      <wm-list type="row">
+        <ul>
+          <li>
+            <wm-icon iconid="pin">Standort</wm-icon>
+            9., Julius-Tandler-Platz</li>
+          <li>
+            <wm-icon iconid="clock"></wm-icon>
+            Wann: ab 1.11.20XX</li>
+        </ul>
+      </wm-list>
+    </wm-stack>
+  </div>
+  <div slot="postcontent" class="wm-u-tar">
+    <wm-cta>
+      <a href="#">Anmeldung Kindergarten</a>
+    </wm-cta>
+  </div>
+</wm-card>

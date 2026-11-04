@@ -1,0 +1,37 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/status/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/status/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-fetch dataset="features" url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SCHWIMMBADOGD&srsName=EPSG:4326&outputFormat=json&cql_filter=strIndexOf(WEBLINK1%2C%27amalienbad%27)%3E-1">
+  <div slot="results">
+    <wm-status data-fetch-attributes data-fetch-attribute1="statusText:properties.AUSLASTUNG_AMPEL_KAT_TXT_0" data-fetch-attribute2="status:properties.AUSLASTUNG_AMPEL_KATEGORIE_0"></wm-status>
+  </div>
+</wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/status/ — variant 1: Status - Regierungsmonitor -->
+<wm-table alignment="start, end">
+  <table>
+    <caption>Neue Arbeitsformen begleiten und gestalten</caption>
+    <thead>
+      <tr>
+        <th>
+          Regierungsprogramm
+        </th>
+        <th>
+          Umsetzungsstand
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#">Chancen des mobilen Arbeitens nutzen</a></td>
+        <td><wm-status label="" statusText="in Umsetzung" status="2" reverse></wm-status></td>
+      </tr>
+      <tr>
+        <td><a href="#">Glasfasernetz in den Bezirken ausbauen und 5G-Ausbau unterstützen</a></td>
+        <td><wm-status label="" statusText="umgesetzt" status="1" reverse></wm-status></td>
+      </tr>
+    </tbody>
+  </table>
+</wm-table>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/status/ — variant 2: (Standard – ohne Überschrift) -->
+<wm-status statusText="Noch Platz hier" status="1"></wm-status>

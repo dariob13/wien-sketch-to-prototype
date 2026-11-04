@@ -1,0 +1,264 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/stage/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-stage>
+  <h1 slot="content">Gemeinderatswahl 2025</h1>
+</wm-stage>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 1: Stage mit Headerbild, Titel und hervorgehobenem Link -->
+<wm-stage>
+  <h1 slot="content">Verkehr</h1>
+  <picture slot="media">
+    <source srcset="https://handbuch.wien.gv.at/images/pattern/stage/verkehr-stage-l.jpg"/>
+    <img src="https://handbuch.wien.gv.at/images/pattern/stage/verkehr-stage-s.jpg" alt="Straßenbahn in Wien"/>
+  </picture>
+  <wm-cta slot="content">
+    <a href="#">Mehr erfahren</a>
+  </wm-cta>
+</wm-stage>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 2: Stage mit Headerbild, Titel und hervorgehobenem Link -->
+<wm-stage clickable>
+  <h1 slot="content">Verkehr</h1>
+  <picture slot="media">
+    <source srcset="https://handbuch.wien.gv.at/images/pattern/stage/verkehr-stage-l.jpg"/>
+    <img src="https://handbuch.wien.gv.at/images/pattern/stage/verkehr-stage-s.jpg" alt="Straßenbahn in Wien"/>
+  </picture>
+  <wm-cta slot="content">
+    <a href="#">Mehr erfahren</a>
+  </wm-cta>
+</wm-stage>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 3: Stage mit Video -->
+<wm-stage>
+  <h1 slot="content">Mariahilf, 6. Bezirk</h1>
+  <video src="https://handbuch.wien.gv.at/videos/mariahilf.mp4" slot="media" muted autoplay loop></video>
+</wm-stage>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 4: Stage mit Karussell -->
+<wm-carousel single="1200" dots autoplay label="Neuigkeiten">
+  <wm-stage class="current first active">
+    <div slot="content">
+      <h1>Gemeinderatswahl 2025</h1>
+      <wm-cta>
+        <a href="#">Jetzt Wahlkarte beantragen</a>
+      </wm-cta>
+    </div>
+    <img
+      src="https://handbuch.wien.gv.at/images/wiengvat_startseite/stage/wahlkarte-stage-l.jpg"
+      slot="media"
+      alt="Wahlkarte, die von einer Dame in einen Postkasten geworfen wird"
+      width="1200"
+      height="450"
+      title="copyright: APA"/>
+  </wm-stage>
+  <wm-stage class="last" inert="">
+    <div slot="content">
+      <h1>Gemeinderatswahl 2025</h1>
+      <wm-cta>
+        <a href="#">Jetzt Wahlkarte beantragen</a>
+      </wm-cta>
+    </div>
+    <img
+      src="https://handbuch.wien.gv.at/images/wiengvat_startseite/stage/wahlkarte-stage-l.jpg"
+      slot="media"
+      alt="Wahlkarte, die von einer Dame in einen Postkasten geworfen wird"
+      width="1200"
+      height="450"
+      title="copyright: APA"/>
+  </wm-stage>
+</wm-carousel>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 5: Tags über Stage -->
+<wm-tag-list scrollable style="padding:1rem 0;">
+  <ul>
+    <li>
+      <wm-tag>
+        <a href="#">
+          <wm-icon iconid="amtswege"></wm-icon>
+          Amtswege
+        </a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">
+          <wm-icon iconid="pin"></wm-icon>
+          Stadtplan
+        </a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">
+          Baden
+        </a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">
+          Parken
+        </a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">
+          Jobs
+        </a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">
+          <wm-icon iconid="amtswege"></wm-icon>
+          Kindergarten-Anmeldung
+        </a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">
+          <wm-icon iconid="amtswege"></wm-icon>
+          Meldeservice
+        </a>
+      </wm-tag>
+    </li>
+  </ul>
+</wm-tag-list>
+<wm-carousel single="1200" dots autoplay>
+  <wm-stage justify="end">
+    <h1 slot="content">Wohnquartier</h1>
+    <picture slot="media">
+      <source srcset="https://handbuch.wien.gv.at/images/musterseiten/startseite/wienliebe_alt.jpg" media="(min-width: 48em)">
+      <img src="https://handbuch.wien.gv.at/images/musterseiten/startseite/wienliebe_alt.jpg" alt="Bürgermeister vor dem Wienliebe-Schriftzug">
+    </picture>
+    <picture slot="media">
+      <source srcset="https://handbuch.wien.gv.at/images/musterseiten/startseite/wienliebe_alt.jpg" media="(min-width: 48em)">
+      <img src="https://handbuch.wien.gv.at/images/musterseiten/startseite/wienliebe_alt.jpg" alt="Bürgermeister vor dem Wienliebe-Schriftzug">
+    </picture>
+    <picture slot="media">
+      <source srcset="https://handbuch.wien.gv.at/images/musterseiten/startseite/wienliebe_alt.jpg" media="(min-width: 48em)">
+      <img src="https://handbuch.wien.gv.at/images/musterseiten/startseite/wienliebe_alt.jpg" alt="Bürgermeister vor dem Wienliebe-Schriftzug">
+    </picture>
+  </wm-stage>
+  <wm-stage style="--stage-margin-large: 0 !important;">
+    <div slot="content">
+      <h1 >Mariahilf, 6. Bezirk</h1>
+    </div>
+    <video src="https://handbuch.wien.gv.at/videos/mariahilf.mp4" slot="media" muted autoplay loop></video>
+  </wm-stage>
+  <wm-stage style="--stage-margin-large: 0 !important;">
+    <div slot="content">
+      <h1>Erstes #wienliebe Festival im Mai</h1>
+      <wm-cta>
+        <a href="#">Mehr erfahren</a>
+      </wm-cta>
+    </div>
+    <img
+      src="https://handbuch.wien.gv.at/images/musterseiten/startseite/wienliebe_alt.jpg"
+      slot="media"
+      alt="Bürgermeister vor dem Wienliebe-Schriftzug"
+      width="1200"
+      height="450"
+      title="copyright: APA">
+  </wm-stage>
+  <wm-stage style="--stage-margin-large: 0 !important;">
+    <div slot="content">
+      <h1>Neuer Gemeindebau für Simmering</h1>
+      <wm-cta>
+        <a href="#">Mehr erfahren</a>
+      </wm-cta>
+    </div>
+    <img
+      src="https://handbuch.wien.gv.at/images/musterseiten/startseite/Gemeindebau_Simmering.jpg"
+      slot="media"
+      alt="Neuerrichtung von Wohnhäusern"
+      width="1200"
+      height="450"
+      title="copyright: APA">
+  </wm-stage>
+  <wm-stage style="--stage-margin-large: 0 !important;">
+    <div slot="content">
+      <h1>
+        Wie geht’s den Kindern und Jugendlichen</h1>
+      <wm-cta>
+        <a href="#">Zum Interview</a>
+      </wm-cta>
+    </div>
+    <img
+      src="https://handbuch.wien.gv.at/images/musterseiten/startseite/Faire Chancen.jpg"
+      slot="media"
+      alt="Eine Gruppe von Jugendlichen im öffentlichen Bereich"
+      width="1200"
+      height="450"
+      title="copyright: APA">
+  </wm-stage>
+  <wm-stage style="--stage-margin-large: 0 !important;">
+    <div slot="content">
+      <h1>Arbeite auch du an Wien</h1>
+      <wm-cta>
+        <a href="#">Jetzt bewerben</a>
+      </wm-cta>
+    </div>
+    <img
+      src="https://handbuch.wien.gv.at/images/musterseiten/startseite/StW_MA44.jpg"
+      slot="media"
+      alt="Junge Frau bei der Arbeit"
+      width="1200"
+      height="450"
+      title="copyright: APA">
+  </wm-stage>
+</wm-carousel>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 6: Tags unter der Stage -->
+<wm-stage>
+  <h1 slot="content">City Summer Camp</h1>
+  <img
+    src="https://handbuch.wien.gv.at/images/pattern/stage/summer-camp-stage-l.jpg"
+    slot="media"
+    alt="Eine Gruppe von Kindern hält Schilder mit den Worten 'Summer', 'City' und 'Camp'"
+    width="1200"
+    height="450"
+  >
+</wm-stage>
+<wm-tag-list scrollable>
+  <ul>
+    <li>
+      <wm-tag>
+        <a href="#">Sommer</a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">Camps</a>
+      </wm-tag>
+    </li>
+    <li>
+      <wm-tag>
+        <a href="#">Anmeldung</a>
+      </wm-tag>
+    </li>
+  </ul>
+</wm-tag-list>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 7: Stage mit Farbe -->
+<wm-stage color="morgenrot">
+  <h1 slot="content">Veranstaltung</h1>
+</wm-stage>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 8: Stage mit Light-Farbe -->
+<wm-stage color="morgenrot-light">
+  <h1 slot="content">Veranstaltung</h1>
+</wm-stage>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/stage/ — variant 9: (Standard – ohne Überschrift) -->
+<wm-stage>
+  <h1 slot="content">Gemeinderatswahl 2025: Jetzt Wahlkarte beantragen</h1>
+  <div slot="media"></div>
+  <div slot="content">
+    <wm-cta data-demo="true" data-demo-link>
+      <a href="#">Mehr erfahren</a>
+    </wm-cta>
+  </div>
+</wm-stage>

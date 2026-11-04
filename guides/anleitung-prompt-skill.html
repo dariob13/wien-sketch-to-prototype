@@ -9,67 +9,55 @@
 
 
   <h1>Stadt-Wien-Prototypen per Prompt in Doop bauen</h1>
-  <p>Du beschreibst eine wien.gv.at-Seite in ein paar Sätzen. Claude baut sie in Doop aus den offiziellen Wiener-Melange-Komponenten von handbuch.wien.gv.at, als mobile und als Desktop-Ansicht. Diese Anleitung führt durch die einmalige Einrichtung und zeigt, wie du gute Prompts schreibst.</p>
+  <p>Du beschreibst eine wien.gv.at-Seite in ein paar Sätzen. Claude baut sie in Doop aus den offiziellen Wiener-Melange-Komponenten von handbuch.wien.gv.at, als mobile und als Desktop-Ansicht. Die Einrichtung passiert komplett in der Claude-App, ein Terminal brauchst du nicht.</p>
 
 
-<p>Hast du schon eine Skizze in Figma oder Doop? Dann ist der Sketch-Skill <code>/wien-revamp</code> das bessere Werkzeug. Dafür gibt es eine eigene Anleitung. Dieser Skill arbeitet nur mit Text und, wenn vorhanden, einer bestehenden wien.gv.at-Seite als Vorlage.</p>
+<p>Hast du schon eine Skizze in Figma oder Doop? Dann ist der Sketch-Skill wien-revamp das bessere Werkzeug. Dafür gibt es eine eigene Anleitung. Dieser Skill arbeitet nur mit Text und, wenn vorhanden, einer bestehenden wien.gv.at-Seite als Vorlage.</p>
 
 <h2>1. Was du brauchst</h2>
 <ul>
-  <li>Claude Code im Terminal, in der Claude-Desktop-App oder in einer IDE wie VS Code.</li>
-  <li>Einen Doop-Account. Die Anmeldung geht unter <a href="https://doop.design">doop.design</a>.</li>
-  <li>Node.js ab Version 22.20 für die Installation mit dem Skills-CLI. Mit dem eigenständigen Installer reicht Node.js 18.</li>
-  <li>Python 3. Auf dem Mac ist es meist schon da. Claude sucht damit die offiziellen Icons und Illustrationen.</li>
+  <li>Die Claude-Desktop-App oder claude.ai im Browser, mit einem Pro-, Max-, Team- oder Enterprise-Plan.</li>
+  <li>Einen Doop-Account. Die Anmeldung geht unter <a href="https://doop.design">doop.design</a>. Der Skill legt seine Canvases selbst an, du musst dort nichts vorbereiten.</li>
 </ul>
-<p>Ob Node.js und Python installiert sind, prüfst du im Terminal:</p>
-<pre><code>node --version
-python3 --version</code></pre>
+<p>Bei Team- und Enterprise-Plänen kann der Owner der Organisation die Schritte 2 bis 4 einmal für alle erledigen. Frag zuerst nach, bevor du alles selbst einrichtest.</p>
 
-<h2>2. Doop-Account anlegen</h2>
-<ol>
-  <li>Öffne <a href="https://doop.design">doop.design</a> und melde dich an.</li>
-  <li>Lege zum Testen einen leeren Canvas an. Der Skill erstellt später eigene Canvases mit dem Namen „Stadt Wien Entwurf - Thema“, du musst hier also nichts vorbereiten.</li>
-</ol>
+<h2>2. Code-Ausführung einschalten</h2>
+<p>Der Skill liest mitgelieferte Dateien und braucht dafür Claudes Code-Ausführung.</p>
+<ul>
+  <li>Pro und Max: Einstellungen, Bereich Capabilities, Option „Create and edit files“ einschalten.</li>
+  <li>Team und Enterprise: Das schaltet der Owner unter Organization settings, Plugins &amp; skills, Reiter Policy ein („Code execution and file creation“, bei Enterprise zusätzlich „Skills“).</li>
+</ul>
 
 <h2>3. Skill installieren</h2>
-<p>Im Terminal, mit dem Skills-CLI von Vercel. Der Befehl installiert den Skill für Claude Code und Codex, ohne Rückfragen:</p>
-<pre><code>npx skills add dariob13/Doop-Prototyper --skill stadt-wien-doop-prototyper -g -a claude-code -a codex -y</code></pre>
-<p>Ohne die Optionen am Ende fragt das CLI nach, für welche Agents es installieren soll:</p>
-<pre><code>npx skills add dariob13/Doop-Prototyper --skill stadt-wien-doop-prototyper</code></pre>
-<p>Alternative ohne Skills-CLI. Dieser Installer kopiert den Skill nach <code>~/.claude/skills/</code> und <code>~/.agents/skills/</code>:</p>
-<pre><code>npx github:dariob13/Doop-Prototyper</code></pre>
-<p>Mit <code>--force</code> ersetzt er eine ältere Kopie. Das brauchst du, wenn der Skill schon einmal installiert war.</p>
-
-<h2>4. Doop mit Claude verbinden (MCP)</h2>
-<p>Claude spricht über eine MCP-Verbindung mit Doop. Die richtest du einmal ein.</p>
-<h3>In Claude Code (Terminal)</h3>
-<pre><code>claude mcp add --transport http doop https://doop.design/mcp</code></pre>
+<h3>Für die ganze Organisation (Team und Enterprise, empfohlen)</h3>
+<p>Der Owner lädt die ZIP-Datei (Download-Link im nächsten Abschnitt) einmal hoch und stellt den Skill allen Mitgliedern bereit. Danach siehst du ihn unter Customize, Skills mit einem Team-Hinweis und musst ihn nur einschalten.</p>
+<h3>Für dich allein</h3>
 <ol>
-  <li>Starte danach Claude Code mit <code>claude</code> und gib <code>/mcp</code> ein.</li>
-  <li>Wähle <code>doop</code> und dann Authenticate.</li>
-  <li>Der Browser öffnet sich. Melde dich bei Doop an und bestätige den Zugriff.</li>
-  <li>Zurück in Claude zeigt <code>/mcp</code> bei doop den Status connected.</li>
+  <li>Lade die Datei <code>stadt-wien-doop-prototyper.zip</code> herunter: <a href="https://github.com/dariob13/Doop-Prototyper/raw/main/dist/stadt-wien-doop-prototyper.zip">github.com/dariob13/Doop-Prototyper/raw/main/dist/stadt-wien-doop-prototyper.zip</a>. Die Datei nicht entpacken.</li>
+  <li>In Claude: Customize, Skills, dann auf „+“ und „Create skill“.</li>
+  <li>„Upload a skill“ wählen und die ZIP-Datei auswählen.</li>
+  <li>Der Skill erscheint in der Liste als „stadt-wien-doop-prototyper“. Schalte ihn ein.</li>
 </ol>
-<h3>In der Claude-Desktop-App</h3>
-<p>Unter Einstellungen und Connectors einen eigenen Connector mit der Adresse <code>https://doop.design/mcp</code> hinzufügen und im Browser bestätigen.</p>
-<h3>In Cursor</h3>
-<p>In <code>~/.cursor/mcp.json</code> eintragen und beim ersten Aufruf die Anmeldung im Browser bestätigen:</p>
-<pre><code>{
-  "mcpServers": {
-    "doop": { "type": "http", "url": "https://doop.design/mcp" }
-  }
-}</code></pre>
+
+<h2>4. Doop verbinden</h2>
+<ol>
+  <li>Customize, Connectors, dann „+ Add“ und „Add custom connector“.</li>
+  <li>Name: <code>Doop</code>. URL: <code>https://doop.design/mcp</code>. Auf „Continue“ klicken.</li>
+  <li>Die vorgeschlagenen Einstellungen übernehmen, mit „Continue“ bestätigen und „Add“ wählen.</li>
+  <li>Bei Doop im Browser anmelden und den Zugriff bestätigen.</li>
+</ol>
+<p>Team und Enterprise: Hier legt der Owner den Connector unter Organization settings, Connectors an („Add“, dann „Custom“ und „Web“, gleiche URL). Du findest ihn danach unter Customize, Connectors mit dem Hinweis „Custom“ und klickst nur noch auf „Connect“.</p>
+<p>In jedem neuen Chat unten links auf „+“ klicken, dann Connectors, und Doop einschalten.</p>
 
 <h2>5. Prüfen, ob alles funktioniert</h2>
 <ol>
-  <li>Claude Code neu starten, damit der Skill geladen wird.</li>
-  <li><code>/mcp</code> eingeben: doop muss connected sein.</li>
+  <li>Neuen Chat öffnen und Doop einschalten.</li>
   <li>Einen kleinen Testauftrag geben, zum Beispiel: „Baue mit stadt-wien-doop-prototyper eine Themenseite ‚Baden‘ nach https://www.wien.gv.at/freizeit/baden“.</li>
   <li>Nach einigen Minuten nennt Claude den Link zum neuen Doop-Canvas.</li>
 </ol>
 
 <h2>6. Einen guten Prompt schreiben</h2>
-<p>Je genauer der Auftrag, desto weniger muss Claude raten. Nenne den Skill beim Namen oder rufe ihn mit <code>/stadt-wien-doop-prototyper</code> auf, und gib diese Angaben mit:</p>
+<p>Je genauer der Auftrag, desto weniger muss Claude raten. Nenne den Skill beim Namen und gib diese Angaben mit:</p>
 <table>
   <tr><th>Angabe</th><th>Beispiel</th></tr>
   <tr><td>Thema der Seite</td><td>Fahrradwerkstätte, Kindergarten-Anmeldung, Bezirksseite</td></tr>
@@ -114,20 +102,20 @@ und am Ende ein Kontaktblock.</code></pre>
 <h2>10. Wenn etwas nicht klappt</h2>
 <table>
   <tr><th>Problem</th><th>Lösung</th></tr>
-  <tr><td>Claude meldet, Doop sei nicht verbunden</td><td><code>/mcp</code> eingeben, doop auswählen, Authenticate. In der Desktop-App den Connector prüfen.</td></tr>
-  <tr><td>Der Skill wird nicht gefunden</td><td>Claude neu starten. Danach den Installationsbefehl aus Schritt 3 noch einmal ausführen, beim Installer mit <code>--force</code>.</td></tr>
-  <tr><td><code>npx</code> meldet eine zu alte Node-Version</td><td>Node.js aktualisieren oder den eigenständigen Installer nutzen, der mit Node.js 18 läuft.</td></tr>
+  <tr><td>Claude meldet, Doop sei nicht verbunden</td><td>Unter Customize, Connectors auf „Connect“ klicken und im Chat über „+“ und Connectors einschalten.</td></tr>
+  <tr><td>Claude nutzt den Skill nicht</td><td>Unter Customize, Skills prüfen, ob „stadt-wien-doop-prototyper“ eingeschaltet ist. Den Namen im Auftrag nennen.</td></tr>
+  <tr><td>Der Upload der ZIP-Datei scheitert</td><td>Die Datei nicht entpacken und so hochladen, wie sie heruntergeladen wurde. Code-Ausführung muss eingeschaltet sein (Schritt 2). Fehlt die Upload-Option ganz, hat die Organisation eigene Skills gesperrt: dann den Owner bitten, den Skill bereitzustellen.</td></tr>
+  <tr><td>Claude meldet, das Handbuch sei nicht erreichbar</td><td>Kein Problem. Der Skill bringt eine Kopie aller Handbuch-Beispiele mit und nennt im Ergebnis deren Stand.</td></tr>
   <tr><td>Komponenten sehen ungestylt aus</td><td>Das Theme lädt manchmal einen Moment. Claude macht dann einen zweiten Screenshot. Bleibt es so, um eine Prüfung bitten.</td></tr>
   <tr><td>Die Schrift sieht anders aus</td><td>Die Wiener-Melange-Schrift wurde nicht geladen. Das ist ein Ladeproblem und kein Designfehler.</td></tr>
   <tr><td>Ein Bild fehlt und ein grauer Kasten ist zu sehen</td><td>So gewollt: Es gab kein freigegebenes Foto. Eine Bild-URL im Prompt mitgeben, wenn eines verwendet werden darf.</td></tr>
 </table>
 
 <h2>11. Aktualisieren</h2>
-<pre><code>npx skills update</code></pre>
-<p>Mit dem eigenständigen Installer: <code>npx github:dariob13/Doop-Prototyper --force</code></p>
+<p>Für ein Update die neue ZIP-Datei von der Adresse aus Schritt 3 herunterladen und unter Customize, Skills erneut hochladen. Bei Team und Enterprise erledigt das der Owner für alle.</p>
 
 <p class="small">
-  Skill stadt-wien-doop-prototyper, Version 1.1.0 · Quelle: github.com/dariob13/Doop-Prototyper · Theme Wiener Melange v2.10.0 · Stand November 2026. Kein offizielles Produkt der Stadt Wien.
+  Skill stadt-wien-doop-prototyper, Version 1.2.0 · Quelle: github.com/dariob13/Doop-Prototyper · Theme Wiener Melange v2.10.0 · Stand November 2026. Kein offizielles Produkt der Stadt Wien.
 </p>
 </body>
 </html>

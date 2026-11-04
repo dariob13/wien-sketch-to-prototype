@@ -1,6 +1,6 @@
 {
   "name": "wien-sketch-to-prototype",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Rough Figma or Doop sketch + tags → clickable Stadt Wien prototype in Doop, built from the official Wiener Melange web components (handbuch.wien.gv.at).",
   "author": { "name": "Dario Butnariu" },
   "keywords": ["stadt-wien", "wiener-melange", "doop", "figma", "prototyping", "wireframe"]

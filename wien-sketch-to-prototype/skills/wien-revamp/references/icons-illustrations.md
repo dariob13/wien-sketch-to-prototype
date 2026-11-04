@@ -2,8 +2,8 @@
 
 **Hard rule:** every icon and every illustration that the workflow *chooses* comes from these two handbook pages, and from nowhere else:
 
-- Icons (pictograms): <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/> (228 entries, cached in [icon-catalog.tsv](icon-catalog.tsv))
-- Illustrations: <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/> (219 entries, cached in [illustration-catalog.tsv](illustration-catalog.tsv))
+- Icons (pictograms): <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/> (cached in [icon-catalog.tsv](icon-catalog.tsv))
+- Illustrations: <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/> (cached in [illustration-catalog.tsv](illustration-catalog.tsv))
 
 Never use `search_icons`, other icon sets, emoji, generated images, stock art, or hand-drawn SVG instead. If nothing in the catalog fits, leave the icon out (or use the image placeholder for an illustration slot), and list it in the report as `Icon fehlt: <Begriff>` / `Illustration fehlt: <Begriff>`.
 
@@ -17,7 +17,7 @@ python3 -I $S icons --all              # whole list
 python3 -I $S --refresh                # rebuild the caches from the handbook (maintainers)
 ```
 
-Search the German word first. Umlauts and ß are optional, and parts of words match (`schwimm` finds Schwimmbad). Pick the entry whose **name** matches the sketch's meaning. A keyword match alone is a weaker fit, so say which entry you picked in the report.
+Without a shell, read the TSV catalogs directly and search the name, category, and keyword columns. Search the German word first. Umlauts and ß are optional, and parts of words match (`schwimm` finds Schwimmbad). Pick the entry whose **name** matches the sketch's meaning. A keyword match alone is a weaker fit, so say which entry you picked in the report.
 
 ## Two kinds of icons: which rule applies
 

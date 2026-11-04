@@ -1,0 +1,389 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-pagination manual id="manual-pagination" total="56" per-page="8" current-page="1">
+		<!-- First page -->
+		<li>
+			<button data-action="first" aria-label="Erste Seite">
+				<wm-icon width="22" iconid="chevron-double-left"></wm-icon>
+			</button>
+		</li>
+		<!-- Previous page -->
+		<li>
+			<button data-action="prev" aria-label="Vorherige Seite">
+				<wm-icon width="22" iconid="chevron-left"></wm-icon>
+			</button>
+		</li>
+		<!-- Numbered pages (dynamic) -->
+		<li>
+			<button data-page="1" aria-current="page" >1</button>
+		</li>
+		<li>
+			<button data-page="2" >2</button>
+		</li>
+		<li>
+			<button data-page="3" >3</button>
+		</li>
+		<li>
+			<button data-page="4" >4</button>
+		</li>
+		<li>
+			<button data-page="5" >5</button>
+		</li>
+		<li>
+			<button data-page="6" >6</button>
+		</li>
+		<li>
+			<button data-page="7" >7</button>
+		</li>
+		<!-- Next page -->
+		<li>
+			<button data-action="next" aria-label="Nächste Seite">
+				<wm-icon width="22" iconid="chevron-right"></wm-icon>
+			</button>
+		</li>
+		<!-- Last page -->
+		<li>
+			<button data-action="last" aria-label="Letzte Seite">
+				<wm-icon width="22" iconid="chevron-double-right"></wm-icon>
+			</button>
+		</li>
+	</wm-pagination>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const pagination = document.getElementById('manual-pagination');
+			function getTotalPages() {
+				const total = parseInt(pagination.getAttribute('total'), 10) || 1;
+				const perPage = parseInt(pagination.getAttribute('per-page'), 10) || 1;
+				return Math.max(1, Math.ceil(total / perPage));
+			}
+			function getCurrentPage() {
+				return Math.max(1, Math.min(getTotalPages(), parseInt(pagination.getAttribute('current-page'), 10) || 1));
+			}
+			function setCurrentPage(page) {
+				pagination.setAttribute('current-page', page);
+			}
+			function updateNavState() {
+				const currentPage = getCurrentPage();
+				const totalPages = getTotalPages();
+				// First/Previous
+				const firstBtn = pagination.querySelector('button[data-action="first"]');
+				const prevBtn = pagination.querySelector('button[data-action="prev"]');
+				firstBtn.disabled = currentPage === 1;
+				firstBtn.setAttribute('aria-disabled', currentPage === 1 ? 'true' : 'false');
+				prevBtn.disabled = currentPage === 1;
+				prevBtn.setAttribute('aria-disabled', currentPage === 1 ? 'true' : 'false');
+				// Next/Last
+				const nextBtn = pagination.querySelector('button[data-action="next"]');
+				const lastBtn = pagination.querySelector('button[data-action="last"]');
+				nextBtn.disabled = currentPage === totalPages;
+				nextBtn.setAttribute('aria-disabled', currentPage === totalPages ? 'true' : 'false');
+				lastBtn.disabled = currentPage === totalPages;
+				lastBtn.setAttribute('aria-disabled', currentPage === totalPages ? 'true' : 'false');
+				// Update aria-current for page buttons
+				pagination.querySelectorAll('button[data-page]').forEach(btn => {
+					btn.removeAttribute('aria-current');
+					if (parseInt(btn.dataset.page, 10) === currentPage) {
+						btn.setAttribute('aria-current', 'page');
+					}
+				});
+			}
+			pagination.addEventListener('click', (e) => {
+				const button = e.target.closest('button');
+				if (!button || button.disabled) return;
+				const totalPages = getTotalPages();
+				let newPage = getCurrentPage();
+				if (button.dataset.action === 'first') newPage = 1;
+				else if (button.dataset.action === 'prev') newPage = Math.max(1, newPage - 1);
+				else if (button.dataset.action === 'next') newPage = Math.min(totalPages, newPage + 1);
+				else if (button.dataset.action === 'last') newPage = totalPages;
+				else if (button.dataset.page) newPage = parseInt(button.dataset.page, 10);
+				if (newPage !== getCurrentPage()) {
+					setCurrentPage(newPage);
+					updateNavState();
+					// Dispatch custom event for external listeners
+					pagination.dispatchEvent(new CustomEvent('wm-page-changed', {
+						detail: { currentPage: newPage },
+						bubbles: true
+					}));
+				}
+			});
+			// Initialize current page if not set
+			if (!pagination.getAttribute('current-page')) {
+				setCurrentPage(1);
+			}
+			updateNavState();
+		});
+	</script>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 1: Paginierung automatisch mit Cards -->
+<wm-fetch
+		dataset="features"
+		itemsPerPage="1"
+		url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:PARKINFOOGD&srsName=EPSG:4326&outputFormat=json&cql_filter=strIndexOf(ANL_NAME,'bach')>-1"
+		pagination="number">
+		<div slot="results">
+			<wm-grid size="l" data-fetch-content="data-fetch-content"></wm-grid>
+		</div>
+		<template slot="template">
+			<wm-card size="l">
+				<h2 slot="heading">
+					<span data-fetch-field="properties.ANL_NAME"></span>
+				</h2>
+				<wm-map-alt
+					slot="media"
+					id="innenstadt"
+					geocoder="geocoder"
+					update="update"
+					center="16.383657562770395, 48.21091265008741"
+					style="--map-ratio: 16 / 9;--map-height: auto;">
+					<wm-mapmarker data-fetch-attribute1="lat:geometry.coordinates.1" data-fetch-attribute2="lng:geometry.coordinates.0">
+						<h3 data-fetch-field="properties.ANL_NAME"></h3>
+					</wm-mapmarker>
+				</wm-map-alt>
+				<div slot="content">
+					<wm-list type="row">
+						<ul>
+							<li>
+								<wm-icon iconid="vienna"></wm-icon>
+								<span>
+									<span data-fetch-field="properties.BEZIRK"></span>., Bezirk</span>
+							</li>
+							<li>
+								<wm-icon iconid="clock"></wm-icon>
+								Öffnungszeiten:
+								<span data-fetch-field="properties.OEFF_ZEITEN"></span>
+							</li>
+							<li>
+								<wm-icon iconid="park"></wm-icon>
+								<span>Größe: circa
+									<span data-fetch-field="properties.FLAECHE"></span>
+									Quadratmeter</span>
+							</li>
+							<li>
+								<wm-icon iconid="phone"></wm-icon>
+								Telefon:
+								<span data-fetch-field="properties.TELEFON"></span>
+							</li>
+							<li>
+								<wm-icon iconid="language"></wm-icon>
+								<a data-fetch-attribute="href:properties.WEBLINK1">Website</a>
+							</li>
+							<li>
+								<wm-stack wrap="" horizontal="" gap="xxs">
+									<wm-chip color="frischgruen" size="s" data-fetch-condition="Ja:properties.HUNDE_IM_PARK"><wm-icon iconid="dog" width="22"></wm-icon> Hundezone</wm-chip>
+									<wm-chip color="frischgruen" size="s" data-fetch-condition="Ja:properties.WASSER_IM_PARK"><wm-icon iconid="water" width="22"></wm-icon> Wasser im park</wm-chip>
+									<wm-chip color="frischgruen" size="s" data-fetch-condition="Ja:properties.SPIELEN_IM_PARK"><wm-icon iconid="games" width="22"></wm-icon> Spielen erlaubt</wm-chip>
+									<wm-chip color="morgenrot" size="s" data-fetch-condition="Nein:properties.HUNDE_IM_PARK"><wm-icon iconid="dogno" width="22"></wm-icon> Hunde verboten</wm-chip>
+									<wm-chip color="morgenrot" size="s" data-fetch-condition="Nein:properties.WASSER_IM_PARK"><wm-icon iconid="waterno" width="22"></wm-icon> Kein Wasser im Park</wm-chip>
+									<wm-chip color="morgenrot" size="s" data-fetch-condition="Nein:properties.SPIELEN_IM_PARK"><wm-icon iconid="gamesno" width="22"></wm-icon> Spielen verboten</wm-chip>
+								</wm-stack>
+							</li>
+						</ul>
+					</wm-list>
+				</div>
+			</wm-card>
+		</template>
+	</wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 2: Paginierung manuell mit manual(manuelle Steuerung der Paginierung), total(56), perpage(8) und currentpage(1) -->
+<wm-pagination manual id="dev-manual-pagination" total="56" perpage="8" currentpage="1">
+		<!-- First page -->
+		<li>
+			<button data-action="first" aria-label="Erste Seite">
+				<wm-icon width="22" iconid="chevron-double-left"></wm-icon>
+			</button>
+		</li>
+		<!-- Previous page -->
+		<li>
+			<button data-action="prev" aria-label="Vorherige Seite">
+				<wm-icon width="22" iconid="chevron-left"></wm-icon>
+			</button>
+		</li>
+		<!-- Numbered pages (dynamic) --><li>
+			<button data-page="1" aria-current="page" >1</button>
+		</li><li>
+			<button data-page="2" >2</button>
+		</li><li>
+			<button data-page="3" >3</button>
+		</li><li>
+			<button data-page="4" >4</button>
+		</li><li>
+			<button data-page="5" >5</button>
+		</li><li>
+			<button data-page="6" >6</button>
+		</li><li>
+			<button data-page="7" >7</button>
+		</li><!-- Next page -->
+		<li>
+			<button data-action="next" aria-label="Nächste Seite">
+				<wm-icon width="22" iconid="chevron-right"></wm-icon>
+			</button>
+		</li>
+		<!-- Last page -->
+		<li>
+			<button data-action="last" aria-label="Letzte Seite">
+				<wm-icon width="22" iconid="chevron-double-right"></wm-icon>
+			</button>
+		</li>
+	</wm-pagination>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const pagination = document.getElementById('dev-manual-pagination');
+			function getTotalPages() {
+				const total = parseInt(pagination.getAttribute('total'), 10) || 1;
+				const perPage = parseInt(pagination.getAttribute('per-page'), 10) || 1;
+				return Math.max(1, Math.ceil(total / perPage));
+			}
+			function getCurrentPage() {
+				return Math.max(1, Math.min(getTotalPages(), parseInt(pagination.getAttribute('current-page'), 10) || 1));
+			}
+			function setCurrentPage(page) {
+				pagination.setAttribute('current-page', page);
+			}
+			function updateNavState() {
+				const currentPage = getCurrentPage();
+				const totalPages = getTotalPages();
+				// First/Previous
+				const firstBtn = pagination.querySelector('button[data-action="first"]');
+				const prevBtn = pagination.querySelector('button[data-action="prev"]');
+				firstBtn.disabled = currentPage === 1;
+				firstBtn.setAttribute('aria-disabled', currentPage === 1 ? 'true' : 'false');
+				prevBtn.disabled = currentPage === 1;
+				prevBtn.setAttribute('aria-disabled', currentPage === 1 ? 'true' : 'false');
+				// Next/Last
+				const nextBtn = pagination.querySelector('button[data-action="next"]');
+				const lastBtn = pagination.querySelector('button[data-action="last"]');
+				nextBtn.disabled = currentPage === totalPages;
+				nextBtn.setAttribute('aria-disabled', currentPage === totalPages ? 'true' : 'false');
+				lastBtn.disabled = currentPage === totalPages;
+				lastBtn.setAttribute('aria-disabled', currentPage === totalPages ? 'true' : 'false');
+				// Update aria-current for page buttons
+				pagination.querySelectorAll('button[data-page]').forEach(btn => {
+					btn.removeAttribute('aria-current');
+					if (parseInt(btn.dataset.page, 10) === currentPage) {
+						btn.setAttribute('aria-current', 'page');
+					}
+				});
+			}
+			pagination.addEventListener('click', (e) => {
+				const button = e.target.closest('button');
+				if (!button || button.disabled) return;
+				const totalPages = getTotalPages();
+				let newPage = getCurrentPage();
+				if (button.dataset.action === 'first') newPage = 1;
+				else if (button.dataset.action === 'prev') newPage = Math.max(1, newPage - 1);
+				else if (button.dataset.action === 'next') newPage = Math.min(totalPages, newPage + 1);
+				else if (button.dataset.action === 'last') newPage = totalPages;
+				else if (button.dataset.page) newPage = parseInt(button.dataset.page, 10);
+				if (newPage !== getCurrentPage()) {
+					setCurrentPage(newPage);
+					updateNavState();
+					// Dispatch custom event for external listeners
+					pagination.dispatchEvent(new CustomEvent('wm-page-changed', {
+						detail: { currentPage: newPage },
+						bubbles: true
+					}));
+				}
+			});
+			// Initialize current page if not set
+			if (!pagination.getAttribute('current-page')) {
+				setCurrentPage(1);
+			}
+			updateNavState();
+		});
+	</script>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 3: Paginierung automatisch mit total(20) und perpage(10) ohne Navigations-Buttons (hideallcontrols) -->
+<wm-pagination total="20" perpage="10" hideallcontrols></wm-pagination>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 4: Paginierung automatisch mit total(60), perpage(5), currentpage(2) und first-and-last controls (mit Button für 1. und letzte Seite) -->
+<wm-pagination total="60" perpage="5" currentpage="2" first-and-last></wm-pagination>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 5: Paginierung automatisch mit maxPages(4), perPage(5) und total(100). -->
+<wm-pagination total="100" perpage="5" maxpages="4"></wm-pagination>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 6: Paginierung automatisch mit justify=center (zentriert), total(20), perPage(2) -->
+<wm-pagination total="20" perpage="2" justify="center"></wm-pagination>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 7: Paginierung automatisch mit total(40), perpage(8) und currentpage(4) -->
+<wm-pagination total="40" perpage="8" currentpage="4" class="pagination-automatic2"></wm-pagination>
+<script>
+  document.querySelector('.pagination-automatic2').addEventListener('wm-page-changed', e => {
+    alert(`Current page: ${
+      e.detail.currentPage
+    }\nPrevious page: ${
+      e.detail.previousPage
+    }`)
+  })
+</script>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 8: Paginierung automatisch mit first-and-last controls (mit Button für 1. und letzte Seite) -->
+<wm-pagination total="40" perpage="4" currentpage="4" class="pagination-automatic3" first-and-last></wm-pagination>
+<script>
+  document.querySelector('.pagination-automatic3').addEventListener('wm-page-changed', e => {
+    console.log(`Current page: ${
+      e.detail.currentPage
+    }\nPrevious page: ${
+      e.detail.previousPage
+    }`)
+  })
+</script>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 9: Paginierung automatisch mit Quicklink-Liste -->
+<wm-fetch
+  pagination="number"
+  dataset="features"
+  url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SCHWIMMBADOGD&srsName=EPSG:4326&outputFormat=json">
+  <div slot="results">
+    <wm-quicklinks>
+      <ul data-fetch-content="data-fetch-content"></ul>
+    </wm-quicklinks>
+  </div>
+  <template slot="template">
+    <li class="wm-quicklinks-item">
+      <wm-cta full="true">
+        <a data-fetch-attribute="href:properties.WEBLINK1" data-fetch-field="properties.NAME">Website</a>
+      </wm-cta>
+    </li>
+  </template>
+</wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 10: Paginierung automatisch mit benutzerdefinierter Anzahl an Elementen (10) -->
+<wm-fetch
+  pagination="number"
+  itemsPerPage="10"
+  dataset="features"
+  url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SCHWIMMBADOGD&srsName=EPSG:4326&outputFormat=json">
+  <div slot="results">
+    <wm-quicklinks>
+      <ul data-fetch-content="data-fetch-content"></ul>
+    </wm-quicklinks>
+  </div>
+  <template slot="template">
+    <li class="wm-quicklinks-item">
+      <wm-cta full="true">
+        <a data-fetch-attribute="href:properties.WEBLINK1" data-fetch-field="properties.NAME">Website</a>
+      </wm-cta>
+    </li>
+  </template>
+</wm-fetch>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/paginierung/ — variant 11: Paginierung automatisch mit benutzerdefinierter Anzahl an Elementen (3) -->
+<wm-fetch
+  pagination="number"
+  itemsperpage="3"
+  dataset="features"
+  url="https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SCHWIMMBADOGD&srsName=EPSG:4326&outputFormat=json">
+  <div slot="results">
+    <wm-quicklinks>
+      <ul data-fetch-content="data-fetch-content"></ul>
+    </wm-quicklinks>
+  </div>
+  <template slot="template">
+    <li class="wm-quicklinks-item">
+      <wm-cta full="true">
+        <a data-fetch-attribute="href:properties.WEBLINK1" data-fetch-field="properties.NAME">Website</a>
+      </wm-cta>
+    </li>
+  </template>
+</wm-fetch>

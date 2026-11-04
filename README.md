@@ -8,6 +8,17 @@ The decisions, live links, frame ids and open TODOs are in [HANDOFF.md](HANDOFF.
 
 ## Install
 
+### Without a terminal (Claude app: Desktop or claude.ai)
+
+1. Turn on code execution: Settings > Capabilities > "Create and edit files". On Team/Enterprise, the owner sets it in Organization settings > Plugins & skills > Policy.
+2. Download [`dist/wien-revamp.zip`](https://github.com/dariob13/wien-sketch-to-prototype/raw/main/dist/wien-revamp.zip). In Claude go to Customize > Skills, then "+" > Create skill > Upload a skill. On Team/Enterprise the owner can provision it for all members.
+3. Connectors: Customize > Connectors > + Add > Add custom connector, URL `https://doop.design/mcp` (Doop). Figma comes from the connector directory, or as a custom connector with `https://mcp.figma.com/mcp`.
+4. In a chat, turn on both connectors under "+" > Connectors and write: `Nutze wien-revamp: <Figma- oder Doop-Link>`.
+
+The German step-by-step guide is [guides/anleitung-sketch-skill.pdf](guides/anleitung-sketch-skill.pdf).
+
+### Claude Code
+
 In Claude:
 
 ```
@@ -46,7 +57,7 @@ wien-sketch-to-prototype/
     scripts/selfcheck.py                 vocabulary + icon/illustration catalogs vs. the live handbook
     scripts/fetch_assets.py              official icons/illustrations: search, --refresh
     references/icons-illustrations.md    icon/illustration rules (only handbook sources)
-    references/*-catalog.tsv             cached icon (228) and illustration (219) catalogs
+    references/*-catalog.tsv             cached icon and illustration catalogs
     scripts/figma-read-sketch.js         read-only Figma sketch reader
   docs/cheat-sheet.md                    German Spickzettel (keep in sync with the vocabulary)
   docs/cheat-sheet.html                  generated

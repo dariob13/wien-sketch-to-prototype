@@ -99,7 +99,7 @@ Header and footer appear on every wien.gv.at page. **Add them even when the sket
 | Abschnitt | Section, Bereich, Block, Sektion, Band | `section` | `grau`/`highlight`/… → "Section mit Hintergrund" with `highlight="nebelgrau"`. Other colors map to the property values `goldgelb`, `frischgruen`, `wasserblau`, `morgenrot`, `flieder`, `abendstimmung` (`gelb` → goldgelb, `grün` → frischgruen, `blau` → wasserblau, `rot` → morgenrot, `lila` → flieder) | A box that contains other boxes. 1st line (if it is not inside a child box) → section H2. Cards inside a highlighted section have no shadow. |
 | Raster | Grid, Spalten, Columns, Reihe, Row | `grid` | `wm-grid` has no column attribute. Its `size` sets the card width: 2 columns → `size="l"`, 3 → `size="m"`, 4 → `size="s"` (cards in a 4-grid also get `size="s"`), 1 → `size="full"` | Usually implied: three equal boxes side by side need no `[Raster]`. Build a grid automatically for repeated items. |
 | Stapel | Stack, untereinander, vertikal | `stack` | `viel Abstand` → "Stack mit viel Abstand" · `volle Breite` → "Stack volle Breite" | Mostly implied. Use it when the sketch stacks unrelated items with even gaps. |
-| Trenner | Trennlinie, Linie, Divider, Line, hr, Separator | `divider` | `zentriert`/`centered` → "Trenner zentriert" | A thin full-width line between sections, even untagged |
+| Trenner | Trennlinie, Linie, Divider, Line, hr, Separator | `trenner` | `zentriert`/`centered` → "Trenner zentriert" | A thin full-width line between sections, even untagged |
 
 ## Cards and boxes
 

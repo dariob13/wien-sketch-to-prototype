@@ -26,7 +26,7 @@ Keep the element ids. You need them for the report, and for the comment you leav
 
 1. Parse the URL: `figma.com/design/<fileKey>/…?node-id=1-2` → fileKey, nodeId `1:2`. If there is no `node-id`, call `get_metadata` without a nodeId, list the pages, and ask which one (or take the only page with frames).
 2. `create_session` with the file key and the task "Read sketch for Wiener Melange prototype".
-3. Load the `figma-use` skill (required before `use_figma`). Read [../scripts/figma-read-sketch.js](../scripts/figma-read-sketch.js), replace `__NODE_ID__`, and run it with `use_figma` (`skillNames: "figma-use"`). It is read-only and returns the frames, a box tree nested by geometry, texts with font size and weight, prototype links, and arrows drawn between frames.
+3. Load the `figma-use` skill if your client has it (Claude Code requires it before `use_figma`). Read [../scripts/figma-read-sketch.js](../scripts/figma-read-sketch.js), replace `__NODE_ID__`, and run it with `use_figma` (`skillNames: "figma-use"`). It is read-only and returns the frames, a box tree nested by geometry, texts with font size and weight, prototype links, and arrows drawn between frames.
 4. `get_screenshot` on each page frame (or on the section) at `maxDimension` 1600. Look at it. The script gives you structure, and the screenshot gives you intent: hand-drawn X placeholders, arrows drawn with the pen, which box is visually "the big one at the top".
 5. If the script fails, fall back to `get_metadata` (structure) plus the screenshot. Text then comes from layer names, so say in the report that the text may be incomplete.
 

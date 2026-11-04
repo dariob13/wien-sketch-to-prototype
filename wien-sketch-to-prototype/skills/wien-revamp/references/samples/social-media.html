@@ -1,0 +1,142 @@
+<!-- Snapshot of https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ · theme v2.10.0 · 2026-11-04 -->
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ — variant 0: (Standard – ohne Überschrift) -->
+<wm-section contentsize="full" highlight="true">
+  <wm-stack vertical="" gap="s">
+    <wm-grid size="l" gap="m">
+      <wm-card>
+        <h2 slot="heading">Kontakt</h2>
+        <wm-stack gap="m" vertical="" slot="content">
+          <div>
+            <address itemscope="" itemtype="https://schema.org/ContactPoint">
+              <strong>Das Stadtservice hilft Ihnen gerne!</strong>
+              <p>
+                Telefon:
+                <a href="tel:+43140004001">+43 1 4000-4001</a>
+                <br>
+                  <a href="#">Kontakformular</a>
+                </p>
+              </address>
+            </div>
+            <div>
+              <wm-list type="horizontal" gap="m">
+                <ul>
+                  <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="wien-bot" width="35">Wienbot</wm-icon></a></li>
+                  <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram" width="35">Instagram</wm-icon></a></li>
+                  <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="youtube" width="35">Youtube</wm-icon></a></li>
+                  <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook" width="35">Facebook</wm-icon></a></li>
+                  <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="twitter" width="35">X</wm-icon></a></li>
+                </ul>
+              </wm-list>
+            </div>
+          </wm-stack>
+        </wm-card>
+        <wm-card blocklink>
+          <h2 slot="heading">Newsletter</h2>
+          <div slot="content">
+            <p>Die Stadt Wien informiert Sie regelmäßig über Neuigkeiten und Service-Angebote.</p>
+          </div>
+          <div slot="postcontent">
+            <wm-button kind="primary" color="frischgruen" alignment="center">
+              <a href="#" class="wm-e-button">Abonnieren</a>
+            </wm-button>
+          </div>
+        </wm-card>
+      </wm-grid>
+    </wm-stack>
+  </wm-section>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ — variant 1: Infobox mit Social Media -->
+<wm-card>
+    <h2 slot="heading">Bezirksvorsteherin Maria Magistrati</h2>
+    <wm-stack gap="m" slot="content" equal grow>
+      <div>
+        <wm-stack vertical gap="s">
+          <figure>
+            <a href="#" data-modal="image1631644986">
+              <picture>
+                <source type="image/webp" srcset="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg">
+                  <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" srcset="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg 770w" width="770" height="433" alt="Platz mit Brunnen" title="" loading="lazy"></picture>
+                </a>
+                <figcaption>
+                  <a href="#">Pressefoto herunterladen</a>
+                </figcaption>
+              </figure>
+              <template id="image1631644986">
+                <wm-carousel single="1070" style="--carousel-shadow-offset: 0px" hidedots="" label="Bilder">
+                  <figure class="image">
+                    <picture>
+                      <source type="image/webp" srcset="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg 1140w" sizes="100vw">
+                        <img src="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg" srcset="https://handbuch.wien.gv.at/images/pattern/modal/modal1.jpg 1140w" width="1140" height="641" alt="Platz mit Brunnen" title="" sizes="100vw" loading="lazy"></picture>
+                        <figcaption>
+                          <a href="#">Pressefoto herunterladen</a>
+                        </figcaption>
+                      </figure>
+                    </wm-carousel>
+                  </template>
+                </wm-stack>
+              </div>
+              <div>
+                <wm-stack vertical gap="m">
+                  <wm-list gap="xs" type="row" clean>
+                    <ul>
+                      <li>
+                        <wm-icon iconid="info" width="28" height="28"></wm-icon>
+                        <div>
+                          <strong>Sprechstunden</strong>
+                          finden jeden letzten Dienstag im Monat statt:
+                          <a href="#">Anmeldung</a>
+                        </div>
+                      </li>
+                      <li>
+                        <wm-icon iconid="pin" width="28" height="28">Standort</wm-icon>
+                        <div>
+                          <a href="#">1., Rathausstraße 42</a>, 1. Stock, Zimmer 318
+                        </div>
+                      </li>
+                      <li>
+                        <wm-icon iconid="telefon" width="28" height="28"></wm-icon>
+                        <div>
+                          Telefon:
+                          <a href="tel:">+43 1 4000 xxxx</a>
+                        </div>
+                      </li>
+                      <li>
+                        <wm-icon iconid="email" width="28" height="28"></wm-icon>
+                        <div>
+                          E-Mail:
+                          <a href="mailto:maria.magistrati@wien.gv.at">maria.magistrati@wien.gv.at</a>
+                        </div>
+                      </li>
+                      <li>
+                        <wm-icon iconid="contact_alternative" width="28" height="28"></wm-icon>
+                        <div>
+                          <a href="#">Kontaktformular für Ihre Meinung</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </wm-list>
+                  <wm-list gap="xs" type="horizontal">
+                    <ul>
+                      <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="facebook">facebook</wm-icon></a></li>
+                      <li><a href="#" class="wm-no-external-icon"><wm-icon iconid="instagram">instagram</wm-icon></a></li>
+                    </ul>
+                  </wm-list>
+                </wm-stack>
+              </div>
+            </wm-stack>
+          </wm-card>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ — variant 2: Social Media Facebook -->
+<wm-icon iconid="facebook" width="35">Facebook</wm-icon>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ — variant 3: Social Media LinkedIn -->
+<wm-icon iconid="linkedin" width="35">LinkedIn</wm-icon>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ — variant 4: Social Media YouTube -->
+<wm-icon iconid="youtube" width="35">YouTube</wm-icon>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ — variant 5: Social Media X (vormals Twitter) -->
+<wm-icon iconid="twitter" width="35">X (vormals Twitter)</wm-icon>
+
+<!-- Source: https://handbuch.wien.gv.at/pattern-library/patterns/social-media/ — variant 6: Wienbot -->
+<wm-icon iconid="wien-bot" width="35">Wienbot</wm-icon>
