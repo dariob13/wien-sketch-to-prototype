@@ -24,7 +24,7 @@ Du brauchst Claude Code (Terminal, Desktop-App oder IDE), einen Figma-Account (L
 npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp
 ```
 
-Das ist derselbe Skill, für Claude Code, Cursor und weitere Agents. Das Repo ist privat. Der Befehl nutzt die GitHub-Anmeldung auf dem Rechner.
+Das ist derselbe Skill, für Claude Code, Cursor und weitere Agents. Das Repo ist öffentlich, ein GitHub-Konto ist nicht nötig.
 
 **Figma und Doop verbinden**, im Terminal:
 

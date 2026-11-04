@@ -15,7 +15,6 @@
 <h2>1. Was du brauchst</h2>
 <ul>
   <li>Claude Code im Terminal, in der Claude-Desktop-App oder in einer IDE.</li>
-  <li>Zugang zum GitHub-Repo <code>dariob13/wien-sketch-to-prototype</code>. Es ist privat, deshalb muss dich Dario Butnariu als Mitglied hinzufügen.</li>
   <li>Einen Doop-Account (<a href="https://doop.design">doop.design</a>). Dort entsteht der Prototyp.</li>
   <li>Einen Figma-Account, wenn du in Figma skizzierst. Lesezugriff auf die Skizzen-Datei reicht.</li>
   <li>Python 3. Auf dem Mac ist es meist schon installiert. Prüfen mit <code>python3 --version</code>.</li>
@@ -27,7 +26,7 @@
 /plugin install wien-sketch-to-prototype@stadt-wien-workflows</code></pre>
 <p>Alternativ geht es im Terminal mit dem Skills-CLI von Vercel. Das installiert denselben Skill auch für Cursor und andere Agents:</p>
 <pre><code>npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp</code></pre>
-<p>Beide Wege nutzen deine GitHub-Anmeldung auf dem Rechner. Kommt eine Fehlermeldung zum Zugriff, fehlt die Freigabe aus Schritt 1.</p>
+<p>Das Repo <code>dariob13/wien-sketch-to-prototype</code> ist öffentlich. Ein GitHub-Konto brauchst du dafür nicht.</p>
 
 <h2>3. Doop und Figma mit Claude verbinden (MCP)</h2>
 <p>Claude liest die Skizze über die Figma-Verbindung und baut über die Doop-Verbindung. Beide richtest du einmal ein. Wer nur in Doop skizziert, braucht Figma nicht.</p>
@@ -126,7 +125,7 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
 <table>
   <tr><th>Problem</th><th>Lösung</th></tr>
   <tr><td>Figma oder Doop ist nicht verbunden</td><td><code>/mcp</code> eingeben, den Dienst wählen, Authenticate. In der Desktop-App die Connectors prüfen.</td></tr>
-  <tr><td>Die Installation scheitert am Zugriff</td><td>Du bist noch nicht im privaten GitHub-Repo freigeschaltet.</td></tr>
+  <tr><td>Die Installation scheitert</td><td>Prüfen, ob git installiert ist (<code>git --version</code>) und der Rechner github.com erreicht. Bei <code>npx</code> braucht es außerdem Node.js.</td></tr>
   <tr><td>Claude findet die Figma-Seite nicht</td><td>Den Link mit <code>node-id</code> kopieren: Rechtsklick auf den Frame oder die Seite und Copy link.</td></tr>
   <tr><td>Ein Kasten wurde falsch erkannt</td><td>Einen Tag hineinschreiben und den Befehl wiederholen.</td></tr>
   <tr><td>Komponenten sehen ungestylt aus</td><td>Das Theme lädt manchmal kurz. Claude bitten, die Screenshots zu wiederholen.</td></tr>

@@ -21,7 +21,7 @@ Or with the [skills CLI](https://skills.sh) from Vercel, in the project folder:
 npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp
 ```
 
-That installs the same skill for Claude Code, Cursor, and the other agents the CLI supports. The repository is private, so the command uses the GitHub login already on the machine.
+That installs the same skill for Claude Code, Cursor, and the other agents the CLI supports. The repository is public, so no GitHub login is needed.
 
 Figma and Doop are separate connectors. The steps are in [wien-sketch-to-prototype/docs/onboarding.md](wien-sketch-to-prototype/docs/onboarding.md).
 
