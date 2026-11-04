@@ -7,16 +7,12 @@
 </head>
 <body>
 
-<header class="cover">
-  <p class="kicker">Anleitung · Skill /wien-revamp (Plugin wien-sketch-to-prototype)</p>
+
   <h1>Von der groben Skizze zum klickbaren Stadt-Wien-Prototyp</h1>
-  <p class="lead">Du zeichnest graue Kästen in Figma oder Doop und schreibst hinein, was sie sein sollen. Claude liest die Skizze, ordnet jeden Kasten einem Wiener-Melange-Pattern zu und baut daraus in Doop einen klickbaren Prototyp für Handy und Desktop. Diese Anleitung zeigt die Einrichtung Schritt für Schritt und danach die tägliche Arbeit.</p>
-</header>
+  <p>Du zeichnest graue Kästen in Figma oder Doop und schreibst hinein, was sie sein sollen. Claude liest die Skizze, ordnet jeden Kasten einem Wiener-Melange-Pattern zu und baut daraus in Doop einen klickbaren Prototyp für Handy und Desktop. Diese Anleitung zeigt die Einrichtung Schritt für Schritt und danach die tägliche Arbeit.</p>
 
-<div class="flow">Skizze in Figma oder Doop  ›  /wien-revamp &lt;Link&gt;  ›  Mapping-Tabelle  ›  Prototyp in Doop
-       du zeichnest              Claude liest       du prüfst          alle klicken durch</div>
 
-<h2><span class="nr">1</span>Was du brauchst</h2>
+<h2>1. Was du brauchst</h2>
 <ul>
   <li>Claude Code im Terminal, in der Claude-Desktop-App oder in einer IDE.</li>
   <li>Zugang zum GitHub-Repo <code>dariob13/wien-sketch-to-prototype</code>. Es ist privat, deshalb muss dich Dario Butnariu als Mitglied hinzufügen.</li>
@@ -25,7 +21,7 @@
   <li>Python 3. Auf dem Mac ist es meist schon installiert. Prüfen mit <code>python3 --version</code>.</li>
 </ul>
 
-<h2><span class="nr">2</span>Plugin installieren</h2>
+<h2>2. Plugin installieren</h2>
 <p>Starte Claude Code mit <code>claude</code> und gib diese zwei Befehle ein:</p>
 <pre><code>/plugin marketplace add https://github.com/dariob13/wien-sketch-to-prototype
 /plugin install wien-sketch-to-prototype@stadt-wien-workflows</code></pre>
@@ -33,21 +29,21 @@
 <pre><code>npx skills add dariob13/wien-sketch-to-prototype --skill wien-revamp</code></pre>
 <p>Beide Wege nutzen deine GitHub-Anmeldung auf dem Rechner. Kommt eine Fehlermeldung zum Zugriff, fehlt die Freigabe aus Schritt 1.</p>
 
-<h2><span class="nr">3</span>Doop und Figma mit Claude verbinden (MCP)</h2>
+<h2>3. Doop und Figma mit Claude verbinden (MCP)</h2>
 <p>Claude liest die Skizze über die Figma-Verbindung und baut über die Doop-Verbindung. Beide richtest du einmal ein. Wer nur in Doop skizziert, braucht Figma nicht.</p>
 <h3>In Claude Code (Terminal)</h3>
 <pre><code>claude mcp add --transport http doop https://doop.design/mcp
 claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
 <ol>
   <li>Claude Code starten und <code>/mcp</code> eingeben.</li>
-  <li><code>doop</code> auswählen, dann <em>Authenticate</em>. Im Browser bei Doop anmelden und den Zugriff bestätigen.</li>
+  <li><code>doop</code> auswählen, dann Authenticate. Im Browser bei Doop anmelden und den Zugriff bestätigen.</li>
   <li>Dasselbe für <code>figma</code>.</li>
-  <li><code>/mcp</code> zeigt jetzt bei beiden <em>connected</em>.</li>
+  <li><code>/mcp</code> zeigt jetzt bei beiden connected.</li>
 </ol>
 <h3>In der Claude-Desktop-App</h3>
-<p>Unter <em>Einstellungen</em> und <em>Connectors</em> Figma hinzufügen und für Doop einen eigenen Connector mit der Adresse <code>https://doop.design/mcp</code> anlegen. Beide im Browser bestätigen. Wer die Verbindungen dort schon hat, überspringt diesen Schritt.</p>
+<p>Unter Einstellungen und Connectors Figma hinzufügen und für Doop einen eigenen Connector mit der Adresse <code>https://doop.design/mcp</code> anlegen. Beide im Browser bestätigen. Wer die Verbindungen dort schon hat, überspringt diesen Schritt.</p>
 
-<h2><span class="nr">4</span>Einrichtung testen</h2>
+<h2>4. Einrichtung testen</h2>
 <ol>
   <li>Claude Code neu starten.</li>
   <li><code>/wien-revamp</code> ohne Link eingeben. Claude antwortet mit der Bitte um einen Figma- oder Doop-Link. Dann ist der Skill geladen.</li>
@@ -55,10 +51,10 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
 </ol>
 <p>Hat ein anderes Plugin denselben Befehl, lautet die lange Form <code>/wien-sketch-to-prototype:wien-revamp</code>.</p>
 
-<h2><span class="nr">5</span>Die Skizze anlegen</h2>
+<h2>5. Die Skizze anlegen</h2>
 <p>Am schnellsten geht es mit einer Vorlage:</p>
 <ul>
-  <li>Figma: <a href="https://www.figma.com/design/BpjyDcUpLZ1Mtg0ScmcbSc">Skizze → Wiener Melange (Vorlage)</a>, über <em>Duplicate to your drafts</em> kopieren.</li>
+  <li>Figma: <a href="https://www.figma.com/design/BpjyDcUpLZ1Mtg0ScmcbSc">Skizze → Wiener Melange (Vorlage)</a>, über Duplicate to your drafts kopieren.</li>
   <li>Doop: Canvas <a href="https://doop.design/c/B-iDTpuPIM">Vorlage - Skizze → Wiener Melange</a>, Frame „Vorlage - leer“ duplizieren. Daneben liegt der Spickzettel mit allen Tags.</li>
 </ul>
 <p>Dann gelten fünf einfache Regeln:</p>
@@ -92,14 +88,14 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
 </table>
 <p>Schreib für Cards lieber <code>[Kachel]</code> als <code>[Karte]</code>, denn „Karte“ kann auch Stadtplan heißen. Die vollständige Liste steht im Spickzettel.</p>
 
-<h2><span class="nr">6</span>Den Skill ausführen</h2>
-<p>Kopiere den Link zur Skizze. In Figma: Rechtsklick auf die Seite oder einen Frame und <em>Copy link</em>, damit die <code>node-id</code> im Link steckt. In Doop: den Link zum Canvas aus der Adresszeile.</p>
+<h2>6. Den Skill ausführen</h2>
+<p>Kopiere den Link zur Skizze. In Figma: Rechtsklick auf die Seite oder einen Frame und Copy link, damit die <code>node-id</code> im Link steckt. In Doop: den Link zum Canvas aus der Adresszeile.</p>
 <pre><code>/wien-revamp https://www.figma.com/design/…?node-id=12-3
 /wien-revamp https://doop.design/c/…
 /wien-revamp &lt;Link&gt; nur Startseite</code></pre>
 <p>Mit <code>nur &lt;Seite&gt;</code> baut Claude nur diese eine Seite. Seiten, auf die sie verlinkt, liest es trotzdem mit, damit die Klickpfade stimmen.</p>
 
-<h2><span class="nr">7</span>Die Mapping-Tabelle lesen</h2>
+<h2>7. Die Mapping-Tabelle lesen</h2>
 <p>Bevor Claude baut, zeigt es für jeden Kasten, was daraus wird. Die Spalte „Basis“ sagt, wie sicher die Zuordnung ist:</p>
 <table>
   <tr><th>Basis</th><th>Bedeutung</th></tr>
@@ -110,7 +106,7 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
 </table>
 <p>Darunter stehen fehlende Texte, fehlende Link-Ziele, Tippfehler (die Claude nicht korrigiert) sowie die verwendeten Icons und Illustrationen. Nur wenn eine Unsicherheit den Aufbau der Seite ändert, fragt Claude kurz nach. Sonst baut es sofort weiter.</p>
 
-<h2><span class="nr">8</span>Den Prototyp ansehen</h2>
+<h2>8. Den Prototyp ansehen</h2>
 <p>Am Ende liefert Claude zwei Links: den Doop-Canvas zum Ansehen und Kommentieren und den Player (<code>/proto</code>) zum Durchklicken. Auf dem Canvas findest du:</p>
 <ul>
   <li>die Seite „Prototyp“ mit je einem Frame „Seitenname – Mobil“ (375 Pixel) und „Seitenname – Desktop“ (1440 Pixel),</li>
@@ -118,29 +114,27 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
   <li>die Richtlinie „Skizzen-Mapping“ mit der vollständigen Zuordnung. Die ist vor allem für Entwicklung und Agenturen gedacht.</li>
 </ul>
 
-<h2><span class="nr">9</span>Ändern und neu bauen</h2>
+<h2>9. Ändern und neu bauen</h2>
 <ol>
   <li>Skizze anpassen: Tag ergänzen, Text nachtragen oder Kasten verschieben.</li>
   <li>Denselben Befehl noch einmal ausführen. Claude aktualisiert die bestehenden Frames, statt neue anzulegen.</li>
   <li>Hat jemand einen Frame inzwischen von Hand bearbeitet, fragt Claude vorher nach. Frühere Stände liegen im Versionsverlauf von Doop.</li>
 </ol>
-<div class="box">
-  <p>Je mehr Tags in der Skizze stehen, desto weniger muss Claude raten. Ein Tag pro Kasten ist die sicherste Variante.</p>
-</div>
+<p>Je mehr Tags in der Skizze stehen, desto weniger muss Claude raten. Ein Tag pro Kasten ist die sicherste Variante.</p>
 
-<h2><span class="nr">10</span>Wenn etwas nicht klappt</h2>
+<h2>10. Wenn etwas nicht klappt</h2>
 <table>
   <tr><th>Problem</th><th>Lösung</th></tr>
-  <tr><td>Figma oder Doop ist nicht verbunden</td><td><code>/mcp</code> eingeben, den Dienst wählen, <em>Authenticate</em>. In der Desktop-App die Connectors prüfen.</td></tr>
+  <tr><td>Figma oder Doop ist nicht verbunden</td><td><code>/mcp</code> eingeben, den Dienst wählen, Authenticate. In der Desktop-App die Connectors prüfen.</td></tr>
   <tr><td>Die Installation scheitert am Zugriff</td><td>Du bist noch nicht im privaten GitHub-Repo freigeschaltet.</td></tr>
-  <tr><td>Claude findet die Figma-Seite nicht</td><td>Den Link mit <code>node-id</code> kopieren: Rechtsklick auf den Frame oder die Seite und <em>Copy link</em>.</td></tr>
+  <tr><td>Claude findet die Figma-Seite nicht</td><td>Den Link mit <code>node-id</code> kopieren: Rechtsklick auf den Frame oder die Seite und Copy link.</td></tr>
   <tr><td>Ein Kasten wurde falsch erkannt</td><td>Einen Tag hineinschreiben und den Befehl wiederholen.</td></tr>
   <tr><td>Komponenten sehen ungestylt aus</td><td>Das Theme lädt manchmal kurz. Claude bitten, die Screenshots zu wiederholen.</td></tr>
   <tr><td>Ein Icon fehlt</td><td>Im Handbuch gibt es kein passendes Piktogramm. Claude lässt es dann weg und nennt es in der Tabelle.</td></tr>
   <tr><td>Ein Frame wurde überschrieben</td><td>In Doop den Versionsverlauf des Frames öffnen und die alte Version wiederherstellen.</td></tr>
 </table>
 
-<h2><span class="nr">11</span>Grenzen der Version 1</h2>
+<h2>11. Grenzen der Version 1</h2>
 <ul>
   <li>Gebaut werden Inhalts- und Themenseiten. Formulare, Sidebar und Sonderauftritte erscheinen als markierte Lücke.</li>
   <li>Fotos sind graue Platzhalter, außer die Skizze enthält eine Bild-URL (<code>Bild: https://…</code>).</li>
@@ -148,13 +142,13 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
   <li>Doop kann Tastaturbedienung und Screenreader nicht nachweisen. Diese Prüfung bleibt bei der Entwicklung.</li>
 </ul>
 
-<h2><span class="nr">12</span>Aktualisieren und Feedback</h2>
+<h2>12. Aktualisieren und Feedback</h2>
 <p>Updates holst du in Claude Code mit:</p>
 <pre><code>/plugin marketplace update stadt-wien-workflows</code></pre>
 <p>Falsche Zuordnungen oder Wünsche nach neuen Tags bitte als Issue im Repo melden, mit Link zur Skizze und zum Prototyp: <a href="https://github.com/dariob13/wien-sketch-to-prototype/issues">github.com/dariob13/wien-sketch-to-prototype/issues</a>.</p>
 
-<footer class="meta">
+<p class="small">
   Plugin wien-sketch-to-prototype, Version 0.2.0 · Skill /wien-revamp · Theme Wiener Melange v2.10.0 · Stand November 2026. Kein offizielles Produkt der Stadt Wien.
-</footer>
+</p>
 </body>
 </html>
