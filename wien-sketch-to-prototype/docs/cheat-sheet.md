@@ -52,6 +52,7 @@ Tag nur im ersten Kasten reicht, oder [Kacheln x3] im Rahmen drumherum.
 | `[Akkordeon]` | FAQ, Aufklapper | Aufklappliste. `+ Frage` je Eintrag |
 | `[Tabelle]` | Öffnungszeiten, Preise | Tabelle. In einer Card wird daraus „Tabelle in Card“. Spalten mit `\|` trennen |
 | `[Bild]` | Foto, Image | Bild (Platzhalter) |
+| `[Illustration]` | Zeichnung, Illu | Offizielle Stadt-Wien-Illustration (nur aus dem Handbuch, Freigabe nötig). `(Illustration: Schwimmbad)` |
 | `[Galerie]` | Bilder | Bildergalerie |
 | `[Video]` | Film | Videoplayer |
 | `[Audio]` | Podcast | Audioplayer |
@@ -60,6 +61,8 @@ Tag nur im ersten Kasten reicht, oder [Kacheln x3] im Rahmen drumherum.
 | `[Zeitstempel]` | Zuletzt geändert | „Zuletzt geändert“-Zeile |
 | `[Seiten]` | Paginierung | Seitenzahlen |
 | `[Suche]` | Suchfeld | Suchfeld im Header. `Filter` → Filter, `Vorschläge` → Combobox, `Ergebnisse` → Cards |
+
+**Icons:** `(Icon: Telefon)` in einen Kasten schreiben. Verwendet werden nur die offiziellen Piktogramme aus dem Handbuch. Gibt es keins, bleibt das Icon weg.
 
 **Achtung „Karte“:** Das kann eine Card oder einen Stadtplan meinen. Schreib besser `[Kachel]`/`[Card]` oder `[Stadtplan]`/`[Map]`.
 

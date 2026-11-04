@@ -13,6 +13,7 @@ Checks
      is an existence check only.
   4. The header and Vorspann template links still resolve to real markup.
   5. Every tag in docs/cheat-sheet.md is known to tag-vocabulary.md.
+  6. The icon and illustration catalogs match the handbook pages.
 
 Exit code 0 = all good, 1 = something to fix (details printed).
 Standard library only; imports fetch_pattern.py from the same folder.
@@ -132,6 +133,27 @@ vocab_l = vocab.lower()
 for tag in sorted(set(re.findall(r"^\| `\[([^\]\s]+)[^\]]*\]`", cheat, re.M))):
     if tag.lower() not in vocab_l and tag not in ("?",):
         problems.append(f"cheat-sheet tag [{tag}] does not appear in tag-vocabulary.md.")
+
+# 6. icon and illustration catalogs match the handbook pages
+import fetch_assets as fa  # noqa: E402
+for kind in ("icons", "illustrationen"):
+    try:
+        live_rows = fa.parse(fa.get(fa.PAGES[kind]))
+        cached = fa.load(kind)
+    except SystemExit as e:
+        problems.append(f"{kind}: {e}")
+        continue
+    except Exception as e:
+        problems.append(f"{kind}: page could not be fetched ({e}).")
+        continue
+    live_set = {(r["name"], r["url"]) for r in live_rows}
+    cache_set = {(r["name"], r["url"]) for r in cached}
+    if not live_rows:
+        problems.append(f"{kind}: no entries parsed from the handbook page (structure changed? fix fetch_assets.parse).")
+    elif live_set != cache_set:
+        problems.append(f"{kind}: catalog out of date (+{len(live_set - cache_set)} / -{len(cache_set - live_set)}). Run: python3 -I scripts/fetch_assets.py --refresh")
+    else:
+        notes.append(f"{kind}: catalog matches the handbook ({len(cached)} entries).")
 
 for n in notes:
     print("ok   ", n)

@@ -20,6 +20,8 @@ The report is the contract between the sketcher and the build. Show it **before*
 **Text fehlt:** Karte 2 (Text), Bühne (Link-Beschriftung)
 **Tippfehler (nicht korrigiert):** „Hallenbder“ in Karte 1
 **Nicht in Version 1:** [Formular] in Kasten 7, als markierte Lücke gebaut
+**Icons:** Karte 2 → Piktogramm „Telefon“ · `(Icon: Rakete)` → kein Treffer, weggelassen
+**Illustrationen:** Bühne → „Schwimmbad“ (Freigabe Handbuch-Team nötig)
 **Notizen der Skizze:** „Link-Ziele kommen noch“ (befolgt: Links bleiben leer)
 ```
 

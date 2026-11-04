@@ -17,7 +17,7 @@ If the user names a canvas, use it.
 
 ## Steps
 
-1. `get_guide` (`doop-instructions`) once. Where this file and the Doop guide disagree, follow this file: no inventing layouts, no stock imagery, no `search_icons`/`search_logos`/`generate_image`/`list_backgrounds`, no design brief or moodboard. The handbook is the design system.
+1. `get_guide` (`doop-instructions`) once. Where this file and the Doop guide disagree, follow this file: no inventing layouts, no stock imagery, icons only from the handbook icon page and illustrations only from the handbook illustration page ([icons-illustrations.md](icons-illustrations.md)), no `search_icons`/`search_logos`/`generate_image`/`list_backgrounds`, no design brief or moodboard. The handbook is the design system.
 2. `set_status`: "Skizze lesen → Wiener Melange Prototyp".
 3. `set_guidelines`, named `Stadt Wien`: handbook markup only, theme bundle loaded, German copy taken from the sketch only, no invented contacts, prices, or dates, placeholders in `[Text fehlt]` form.
 4. **Create every frame first, empty**, so you know all the frame ids before wiring links: for each page, `create_frame` `<Seite> – Mobil` (width 375) and `<Seite> – Desktop` (width 1440), height 3200, on `Prototyp`. Place Mobil frames in one row and Desktop frames in a row below (omit x/y if auto-placement does that).

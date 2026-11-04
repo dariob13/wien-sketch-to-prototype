@@ -79,6 +79,10 @@ Pilot 2 frame ids: Baden – Mobil `4BMM5fq-xc`, Schwimmkurse – Mobil `XdWAp7Q
 
 Lessons already written into the skill: the header Vorschau panel is only a template link (script resolves it), `--compact` header (the demo mega-menu is ~12 KB), the stage has no subtitle slot (move it to the Vorspann), optional sample parts get dropped, the `wm-grid size` → columns mapping, section `highlight="nebelgrau"`, frame height fitting (the footer sticks to the bottom), the placeholder image URL, and the handbook typo `scrollable"`.
 
+## 4b. Session 3 (2026-11-04)
+
+v0.2.0: icons only from the handbook icon page (228 pictograms) and illustrations only from the illustration page (219). Implemented in `scripts/fetch_assets.py`, `references/icons-illustrations.md`, the catalogs, and selfcheck item 6. Embedding was verified in headless Chrome with the real theme. On 2026-11-04 the Doop screenshot renderer timed out for every frame, so that check could not run in Doop. The same rule was added to the user's `stadt-wien-doop-prototyper` skill in https://github.com/dariob13/Doop-Prototyper (a separate repo with unrelated history; never push this repo there). The headless end-to-end run of `/wien-revamp … nur Hallenbäder` from 2026-11-03 finished with exit 0, but its log was lost when /tmp was cleared. Check the `Prototyp` page of canvas B-iDTpuPIM for its result.
+
 ## 5. Remaining TODO (in priority order)
 
 1. ~~Finish pilot 2~~ **Done**: all 4 frames built and fitted, start frame set, `get_prototype` shows 6 interactions and 0 problems, "skizzen-mapping" guideline saved.

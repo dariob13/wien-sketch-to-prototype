@@ -43,12 +43,23 @@ wien-sketch-to-prototype/
     references/tag-vocabulary.md         source of truth: tag → pattern → variant
     references/                          sketch reading, fetch, Doop build, page shell
     scripts/fetch_pattern.py             handbook samples (python3 -I)
-    scripts/selfcheck.py                 vocabulary vs. the live handbook
+    scripts/selfcheck.py                 vocabulary + icon/illustration catalogs vs. the live handbook
+    scripts/fetch_assets.py              official icons/illustrations: search, --refresh
+    references/icons-illustrations.md    icon/illustration rules (only handbook sources)
+    references/*-catalog.tsv             cached icon (228) and illustration (219) catalogs
     scripts/figma-read-sketch.js         read-only Figma sketch reader
   docs/cheat-sheet.md                    German Spickzettel (keep in sync with the vocabulary)
   docs/cheat-sheet.html                  generated
   docs/onboarding.md                     German onboarding
   templates/                             Doop starter sketch; Figma file is linked from templates/README.md
+```
+
+## Icons and illustrations
+
+The skill only uses icons from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/> and illustrations from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/>. Both are cached as TSV catalogs. When `selfcheck.py` reports a catalog as out of date, run:
+
+```bash
+python3 -I wien-sketch-to-prototype/skills/wien-revamp/scripts/fetch_assets.py --refresh
 ```
 
 ## Changing a tag

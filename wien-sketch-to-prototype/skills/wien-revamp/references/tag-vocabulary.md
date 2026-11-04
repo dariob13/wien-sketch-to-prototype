@@ -59,7 +59,8 @@ The sketch's text is the only copy that ships. **Never write new copy, and never
 | `Text →`, `Text >`, `> Text`, `Text ›`, or underlined text | Link or CTA label |
 | `(Bild)`, `[Bild]`, a box with an X through it, a picture fill, or an image | Image slot (see below) |
 | `Bild: https://…` | That image URL, used as is |
-| `(Icon: pin)` | `<wm-icon iconid="pin">`. Only ids from the icon page. |
+| `(Icon: Telefon)` | A pictogram from the handbook icon page, found with `scripts/fetch_assets.py icons telefon` and embedded as `<img>` in the sample's icon slot (see [icons-illustrations.md](icons-illustrations.md)). No match → no icon, reported. |
+| `(Illustration: Schwimmbad)` | An illustration from the handbook illustration page (`fetch_assets.py illustrationen schwimm`) in the image slot. Needs sign-off from the Handbuch team, so report it. |
 | Nothing | `[Text fehlt]` in the slot, and the box goes on the report's "Text fehlt" list |
 
 **Required versus optional parts of a sample.** A sample's *required* slots (the heading of a stage, card, or section, the label of a link or button, the items of a list) are filled from the sketch, or else get a placeholder. Its *optional extras* are **dropped** when the sketch does not ask for them: a CTA in the stage, social icons and the newsletter card in the contact sample, an extra card, a chip, a category label. Do not fill an optional extra with demo content or a placeholder. Mention each one you dropped in the report only if it changes how the page looks (for example "Kontakt-Sample ohne Newsletter-Karte").
@@ -142,12 +143,13 @@ Header and footer appear on every wien.gv.at page. **Add them even when the sket
 
 | Tag | Also understood | Pattern (slug) | Modifier → variant | Notes |
 | --- | --- | --- | --- | --- |
-| Bild | Foto, Image, Img, Picture, Grafik, Illustration, a box with an X | `bild` | `Beschreibung`/`caption` text under it → "Bild mit Beschreibung" · `Quelle`/`©` → "Bild mit Quelle" · `Lightbox`/`groß öffnen` → "Bild mit Modal (Lightbox)" · otherwise "Bild mit Beschreibung" without caption | Placeholder image unless a URL is given |
+| Bild | Foto, Image, Img, Picture, Grafik, a box with an X | `bild` | `Beschreibung`/`caption` text under it → "Bild mit Beschreibung" · `Quelle`/`©` → "Bild mit Quelle" · `Lightbox`/`groß öffnen` → "Bild mit Modal (Lightbox)" · otherwise "Bild mit Beschreibung" without caption | Placeholder image unless a URL is given |
 | Galerie | Gallery, Bilder, Fotos, Bildergalerie | `galerie` | → "Galerie mit kleinen Vorschaubildern" | Each image child is one image |
 | Video | Film, Clip, YouTube, Player | `video` | `in Card` → "Video-Player in Card" · `Transkript` → "Video-Player in Card mit Transkript" · `Livestream`/`live` → "Video-Player in Card mit Livestream" · otherwise "Video-Player eingebettet mit Beschreibung" | Video URL only if written; otherwise an empty player and `[Video fehlt]` |
 | Audio | Podcast, Hörbeitrag | `audio` | `Transkript` → "Audio-Player in Card mit Transkript zum Aufklappen" · `Podcast` → "Audio-Player Podcast Widget" · otherwise "Audio-Player in Card mit Transkript-Link" | Title from the sketch |
 | Stadtplan | Map, Lageplan, Standort, Landkarte, Karte (see note above), Plan | `map` | — | A labelled map placeholder, as in the Doop prototyper rules. Do not draw a fake map. Pins/addresses only from the sketch. |
-| Icon | Symbol, Piktogramm | `icon` | — | Only inside other patterns. Pick ids from the icon page, never another icon set. |
+| Icon | Symbol, Piktogramm | `icon` | — | Only inside other patterns. **Only pictograms from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/>** (catalog + `fetch_assets.py icons <Wort>`). The `wm-icon` UI symbols that come inside a sample stay as they are. See icons-illustrations.md. |
+| Illustration | Zeichnung, Grafik (illustriert), Illu | `bild` | — | **Only illustrations from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/>** (`fetch_assets.py illustrationen <Wort>`), in the image slot of the surrounding pattern. Each one needs Handbuch-team sign-off, so report it. No match → image placeholder. |
 | Social Media | Teilen, Share, Folgen, Social | `social-media` | `Facebook` / `LinkedIn` / `YouTube` / `X`/`Twitter` → that sample · inside an infobox → "Infobox mit Social Media" | — |
 
 ## Not in version 1

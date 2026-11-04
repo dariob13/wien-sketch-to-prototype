@@ -23,13 +23,16 @@ The people using this include designers, editors (Redaktion), developers, and ex
 1. **Read the sketch.** Follow [references/sketch-reading.md](references/sketch-reading.md). Figma: `create_session`, load `figma-use`, run [scripts/figma-read-sketch.js](scripts/figma-read-sketch.js) through `use_figma`, and take a screenshot of every page frame. Doop: `get_canvas`, `get_frame`, `get_frame_screenshot`. If the user wrote `nur <Seite>`, read only that page plus what you need to resolve its links.
 2. **Map every box.** Use [references/tag-vocabulary.md](references/tag-vocabulary.md): tag → pattern → variant, and box text → slots. Guess untagged boxes with the rules in sketch-reading.md, and label every guess as one.
 3. **Show the mapping report** ([references/mapping-report.md](references/mapping-report.md)). Ask only questions that change the structure (unsure pattern, unknown tag, ambiguous `[Karte]`, a possibly forgotten page), with one `AskUserQuestion`. Otherwise go straight on.
-4. **Fetch the patterns.** Run `python3 -I scripts/fetch_pattern.py --version`, then fetch each needed pattern and variant ([references/handbuch-fetch.md](references/handbuch-fetch.md), [references/pattern-index.md](references/pattern-index.md)). The handbook sample wins over anything remembered.
-5. **Build in Doop.** Follow [references/build-in-doop.md](references/build-in-doop.md): create all frames first, stream the official markup with the page shell from [references/page-shell.md](references/page-shell.md), check the screenshots, fit the heights, wire click-through, and set the prototype start.
-6. **Hand off.** Canvas link, player link, what was built, what is open, what a human still has to check. Save the final mapping as the `Skizzen-Mapping` guideline on the canvas.
+4. **Pick icons and illustrations** only from the handbook catalogs: `python3 -I scripts/fetch_assets.py icons <Wort>` / `illustrationen <Wort>` ([references/icons-illustrations.md](references/icons-illustrations.md)).
+5. **Fetch the patterns.** Run `python3 -I scripts/fetch_pattern.py --version`, then fetch each needed pattern and variant ([references/handbuch-fetch.md](references/handbuch-fetch.md), [references/pattern-index.md](references/pattern-index.md)). The handbook sample wins over anything remembered.
+6. **Build in Doop.** Follow [references/build-in-doop.md](references/build-in-doop.md): create all frames first, stream the official markup with the page shell from [references/page-shell.md](references/page-shell.md), check the screenshots, fit the heights, wire click-through, and set the prototype start.
+7. **Hand off.** Canvas link, player link, what was built, what is open, what a human still has to check. Save the final mapping as the `Skizzen-Mapping` guideline on the canvas.
 
 Run `fetch_pattern.py` with this skill's own directory (the folder this SKILL.md is in) as the script path.
 
 ## Rules that are easy to get wrong
+
+- **Icons and illustrations:** only from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/> and <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/>. Never `search_icons`, other sets, emoji, or generated art. UI icons inside a fetched sample (chevrons, burger, search) stay as `wm-icon`. Every icon you *choose* is a pictogram `<img>`. Illustrations need Handbuch-team sign-off, so report them.
 
 - **Header and footer** are added even when they are not sketched (official chrome). Their labels are official, not invented copy.
 - **"Karte"** can mean a card or a map. Decide from context and say which reading you chose.

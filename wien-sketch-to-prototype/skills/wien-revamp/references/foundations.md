@@ -47,4 +47,4 @@ Font stack, already in the theme: Wiener Melange, then Lucida Sans Unicode, Luci
 
 ## Icons
 
-`<wm-icon iconid="...">` from the [icon pattern](https://handbuch.wien.gv.at/pattern-library/patterns/icon/). Typical ids on wien.gv.at: `burger`, `search`, `chevron-left`, `chevron-right`, `chevron-down`, `external`, `download`, `pin`, `clock`, `close`, `info`, `email`, `telefon`. Read the id off the example or the icon page. Sizes follow the component. Do not drop in a different icon set.
+See [icons-illustrations.md](icons-illustrations.md). In short: UI icons that come inside a fetched sample stay as its `<wm-icon iconid="…">` (`wm-icon` knows 79 built-in symbols such as `burger`, `search`, `chevron-left`, `external`, `download`, `close`). Every icon the workflow *chooses* is a pictogram from the handbook icon page, and every illustration comes from the illustration page. No other icon or illustration source.

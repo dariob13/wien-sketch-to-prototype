@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 — 2026-11-04
+
+- Icons and illustrations: only the official handbook sources are allowed. Icons come from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/icons/> (228 pictograms) and illustrations from <https://handbuch.wien.gv.at/look-and-feel/icons-und-illustrationen/illustrationen/> (219). New `scripts/fetch_assets.py` (catalog and search, `--refresh`) and `references/icons-illustrations.md` (rules and embedding). Cached catalogs are in `references/*-catalog.tsv`.
+- UI icons that come inside a component sample stay as `wm-icon`. Content icons are pictogram `<img>`s in the sample's icon slot (tested with the real theme: farbige Teaser-Card, Icon-Zeilen, Tag, Illustration im Bild-Slot).
+- Illustrations are marked in the report as needing sign-off from the Handbuch team (the handbook's own rule).
+- New tag `[Illustration]`, and the sketch syntax `(Icon: Telefon)` / `(Illustration: Schwimmbad)`. Both are in the cheat sheet.
+- `selfcheck.py` also checks that both catalogs match the handbook.
+
 ## 0.1.0 — 2026-11-03
 
 First version of the `wien-sketch-to-prototype` plugin (`/wien-revamp`) in the `stadt-wien-workflows` marketplace.
